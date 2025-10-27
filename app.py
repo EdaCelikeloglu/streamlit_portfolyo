@@ -373,189 +373,133 @@ def show_skills_section():
             """, unsafe_allow_html=True)
 
 
+
+
 def show_projects_section():
     st.markdown(f"## {content[language]['projects_title']}")
 
-    # Yardımcı fonksiyonlar
-    def pptx_download_button(label: str, path: str):
-        try:
-            # Bu örnekte dosya yolu gösterilmiş, gerçek uygulamada dosyayı kontrol edin
-            st.markdown(f"""
-            <div style="text-align: center; margin: 0.5rem 0;">
-                <a href="#" onclick="alert('Sunum dosyası: {path}')" 
-                   style="background: linear-gradient(45deg, #667eea, #764ba2); 
-                          color: white; padding: 0.7rem 1.5rem; border-radius: 25px; 
-                          text-decoration: none; font-weight: 600; display: inline-block;
-                          box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                    {label}
-                </a>
-            </div>
-            """, unsafe_allow_html=True)
-        except Exception as e:
-            st.error(f"Dosya yüklenirken hata: {e}")
-
-    def link_button(label: str, url: str, color_scheme="primary"):
-        colors = {
-            "primary": "linear-gradient(45deg, #667eea, #764ba2)",
-            "secondary": "linear-gradient(45deg, #ff9a9e, #fecfef)",
-            "success": "linear-gradient(45deg, #56ab2f, #a8edea)"
-        }
-
-        st.markdown(f"""
-        <div style="text-align: center; margin: 0.5rem 0;">
-            <a href="{url}" target="_blank" 
-               style="background: {colors[color_scheme]}; 
-                      color: white; padding: 0.7rem 1.5rem; border-radius: 25px; 
-                      text-decoration: none; font-weight: 600; display: inline-block;
-                      box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s;"
-               onmouseover="this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.transform='translateY(0)'">
-                {label}
-            </a>
+    if language == "Türkçe":
+        # 1. Proje
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0s;">
+            <h3>🏆 UP School & Bitexen Women in Datathon 2024</h3>
+            <p>Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi.</p>
         </div>
         """, unsafe_allow_html=True)
 
-    # Gerçek projeler
-    projects = {
-        "Türkçe": [
-            {
-                "başlık": "🏆 UP School & Bitexen Women in Datathon 2024",
-                "açıklama": "Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi. Bu çalışmada, istatistiksel yöntemler ve makine öğrenmesi teknikleriyle kadınların iş hayatındaki durumunu analiz ettik.",
-                "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
-                "sunum_link": "assets/Women in Datathon - Mar24.pptx",
-                "kodlar": "https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook",
-                "etiketler": ["1.lik 🥇", "Python", "Pandas", "Scikit-learn", "Plotly"],
-                "sonuçlar": {"Sıralama": "1.lik 🥇", "Katılımcı": "Tüm Takımlar", "Model": "Linear Regression"}
-            },
-            {
-                "başlık": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
-                "açıklama": "GRACE uydu verileriyle Avusturya'daki yeraltı suyu seviyelerinin zaman serisi analizi ve 2022-2024 dönemi için tahmin modeli. Meteorolojik değişkenler ve tarihsel verilerle (1930-2021) SMAPE metrikleriyle değerlendirilen tahmin sistemi geliştirdik.",
-                "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
-                "sunum_link": "assets/AI_for_Life_Sciences_Presentation.pptx",
-                "kodlar": "https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2",
-                "etiketler": ["3.lük 🥉", "Time Series", "GRACE Data", "TensorFlow", "SMAPE"],
-                "sonuçlar": {"Sıralama": "3.lük 🥉", "Metrik": "SMAPE", "Dönem": "2022-2024"}
-            }
-        ],
-        "English": [
-            {
-                "title": "🏆 UP School & Bitexen Women in Datathon 2024",
-                "desc": "Multivariate analysis and modeling project on women employment and wage inequality. We analyzed women's situation in work life using statistical methods and machine learning techniques.",
-                "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
-                "slide_link": "assets/Women in Datathon - Mar24.pptx",
-                "codes": "https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook",
-                "tags": ["1st Place 🥇", "Python", "Pandas", "Scikit-learn", "Plotly"],
-                "results": {"Ranking": "1st Place 🥇", "Participants": "All Teams", "Model": "Linear Regression"}
-            },
-            {
-                "title": "🌍 AI for Life Sciences – Groundwater Prediction",
-                "desc": "Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data. Developed prediction system for 2022-2024 period using historical data (1930-2021) and meteorological variables, evaluated with SMAPE metrics.",
-                "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
-                "slide_link": "assets/AI_for_Life_Sciences_Presentation.pptx",
-                "codes": "https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2",
-                "tags": ["3rd Place 🥉", "Time Series", "GRACE Data", "TensorFlow", "SMAPE"],
-                "results": {"Ranking": "3rd Place 🥉", "Metric": "SMAPE", "Period": "2022-2024"}
-            }
-        ]
-    }
+        st.video("https://www.youtube.com/watch?v=c_L3OH6Hng4")
 
-    # Türkçe projeler
-    if language == "Türkçe":
-        for i, proje in enumerate(projects["Türkçe"]):
-            # Proje kartı
-            st.markdown(f"""
-            <div class="project-card" style="animation-delay: {i * 0.2}s;">
-                <h3 style="color: #333; margin-bottom: 1rem; font-size: 1.5rem;">{proje["başlık"]}</h3>
-                <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">{proje["açıklama"]}</p>
-            """, unsafe_allow_html=True)
+        st.markdown("""
+        <div style="text-align:center;">
+            <a href="assets/Women in Datathon - Mar24.pptx" download 
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#667eea; color:white; text-decoration:none;">Sunum</a>
+            <a href="https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook" target="_blank"
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#764ba2; color:white; text-decoration:none;">Kaggle Notebook</a>
+        </div>
+        """, unsafe_allow_html=True)
 
-            # Etiketler
-            st.markdown("<div style='margin-bottom: 1rem;'>", unsafe_allow_html=True)
-            for etiket in proje["etiketler"]:
-                if "1. lik" in etiket:
-                    color = "#FFD700"  # Altın renk
-                elif "3. lük" in etiket:
-                    color = "#CD7F32"  # Bronz renk
-                else:
-                    color = "#667eea"
-                st.markdown(f"""
-                <span style='background: {color}; color: white; padding: 0.3rem 0.8rem; 
-                           border-radius: 15px; margin: 0.2rem; display: inline-block; 
-                           font-size: 0.8rem; font-weight: 600;'>{etiket}</span>
-                """, unsafe_allow_html=True)
-            st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<hr>", unsafe_allow_html=True)
 
-            # Video
-            if proje["video"]:
-                st.video(proje["video"])
+        # 2. Proje
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0.2s;">
+            <h3>🌍 AI for Life Sciences – Yeraltı Suyu Tahmini</h3>
+            <p>GRACE uydu verileriyle Avusturya'daki yeraltı suyu seviyelerinin zaman serisi analizi.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-            # Sonuçlar
-            col1, col2, col3 = st.columns(3)
-            for j, (metric, value) in enumerate(proje["sonuçlar"].items()):
-                with [col1, col2, col3][j]:
-                    st.metric(metric, value)
+        st.video("https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s")
 
-            # Butonlar
-            st.markdown("<br>", unsafe_allow_html=True)
-            bcol1, bcol2 = st.columns(2)
-            with bcol1:
-                pptx_download_button("📥 Sunumu İndir (PPTX)", proje["sunum_link"])
-            with bcol2:
-                link_button("💻 Kodlara Ulaş", proje["kodlar"], "success")
+        st.markdown("""
+        <div style="text-align:center;">
+            <a href="assets/AI_for_Life_Sciences_Presentation.pptx" download 
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#56ab2f; color:white; text-decoration:none;">Sunum</a>
+            <a href="https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2" target="_blank"
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#a8edea; color:black; text-decoration:none;">GitHub</a>
+        </div>
+        """, unsafe_allow_html=True)
 
-            st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<hr>", unsafe_allow_html=True)
 
-            if i < len(projects["Türkçe"]) - 1:
-                st.markdown("<br><hr><br>", unsafe_allow_html=True)
+        # 3. Power BI projesi
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0.4s;">
+            <h3>📊 Satış Analizleri – Power BI Dashboard</h3>
+            <p>Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u,
+            farklı bölge ve ürün kategorilerindeki performans metriklerini
+            gerçek zamanlı görselleştirir. Veri analizi, görselleştirme ve hikâye
+            anlatımı becerilerimin birleştiği bu çalışma, kurumsal karar destek süreçlerinde kullanılabilecek seviyededir.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-    # İngilizce projeler
+        st.markdown(
+            """
+            <iframe title="Eda_Celikeloglu_Sales_Summaries"
+            width="100%" height="600"
+            src="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+            frameborder="0" allowFullScreen="true"></iframe>
+            """,
+            unsafe_allow_html=True
+        )
+
     else:
-        for i, project in enumerate(projects["English"]):
-            # Project card
-            st.markdown(f"""
-            <div class="project-card" style="animation-delay: {i * 0.2}s;">
-                <h3 style="color: #333; margin-bottom: 1rem; font-size: 1.5rem;">{project["title"]}</h3>
-                <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">{project["desc"]}</p>
-            """, unsafe_allow_html=True)
+        # Aynı yapı İngilizce açıklamalarla tekrarlanır
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0s;">
+            <h3>🏆 UP School & Bitexen Women in Datathon 2024</h3>
+            <p>Multivariate analysis and modeling project on women employment and wage inequality.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.video("https://www.youtube.com/watch?v=c_L3OH6Hng4")
+        st.markdown("""
+        <div style="text-align:center;">
+            <a href="assets/Women in Datathon - Mar24.pptx" download 
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#667eea; color:white; text-decoration:none;">Slides</a>
+            <a href="https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook" target="_blank"
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#764ba2; color:white; text-decoration:none;">Kaggle Notebook</a>
+        </div>
+        """, unsafe_allow_html=True)
 
-            # Tags
-            st.markdown("<div style='margin-bottom: 1rem;'>", unsafe_allow_html=True)
-            for tag in project["tags"]:
-                if "1st Place" in tag:
-                    color = "#FFD700"  # Gold color
-                elif "3rd Place" in tag:
-                    color = "#CD7F32"  # Bronze color
-                else:
-                    color = "#667eea"
-                st.markdown(f"""
-                <span style='background: {color}; color: white; padding: 0.3rem 0.8rem; 
-                           border-radius: 15px; margin: 0.2rem; display: inline-block; 
-                           font-size: 0.8rem; font-weight: 600;'>{tag}</span>
-                """, unsafe_allow_html=True)
-            st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<hr>", unsafe_allow_html=True)
 
-            # Video
-            if project["video"]:
-                st.video(project["video"])
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0.2s;">
+            <h3>🌍 AI for Life Sciences – Groundwater Prediction</h3>
+            <p>Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.video("https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s")
+        st.markdown("""
+        <div style="text-align:center;">
+            <a href="assets/AI_for_Life_Sciences_Presentation.pptx" download 
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#56ab2f; color:white; text-decoration:none;">Slides</a>
+            <a href="https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2" target="_blank"
+            style="margin:5px; padding:8px 20px; border-radius:20px; background:#a8edea; color:black; text-decoration:none;">GitHub</a>
+        </div>
+        """, unsafe_allow_html=True)
 
-            # Results
-            col1, col2, col3 = st.columns(3)
-            for j, (metric, value) in enumerate(project["results"].items()):
-                with [col1, col2, col3][j]:
-                    st.metric(metric, value)
+        st.markdown("<hr>", unsafe_allow_html=True)
 
-            # Buttons
-            st.markdown("<br>", unsafe_allow_html=True)
-            bcol1, bcol2 = st.columns(2)
-            with bcol1:
-                pptx_download_button("📥 Download Slides (PPTX)", project["slide_link"])
-            with bcol2:
-                link_button("💻 View Code", project["codes"], "success")
+        # Power BI (English)
+        st.markdown("""
+        <div class="project-card" style="animation-delay: 0.4s;">
+            <h3>📊 Sales Analyses – Power BI Dashboard</h3>
+            <p>This interactive Power BI dashboard visualizes performance metrics
+            across regions and product categories in real-time.
+            It combines data analysis, visualization, and storytelling skills,
+            demonstrating my ability to create decision-support analytics for enterprises.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown(
+            """
+            <iframe title="Eda_Celikeloglu_Sales_Summaries"
+            width="100%" height="600"
+            src="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+            frameborder="0" allowFullScreen="true"></iframe>
+            """,
+            unsafe_allow_html=True
+        )
 
-            st.markdown("</div>", unsafe_allow_html=True)
-
-            if i < len(projects["English"]) - 1:
-                st.markdown("<br><hr><br>", unsafe_allow_html=True)
 
 
 
