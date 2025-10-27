@@ -663,7 +663,7 @@ st.markdown(
     """
     <div style="text-align: center; padding: 2rem; color: #666;">
         <p>© 2025 Eda Çelikeloğlu | Made with ❤️ and Streamlit</p>
-        <p style="font-size: 0.8rem;">Bu portfolio sürekli güncellenmektedir.</p>
+        <p style="font-size: 0.8rem;">..</p>
     </div>
     """,
     unsafe_allow_html=True
