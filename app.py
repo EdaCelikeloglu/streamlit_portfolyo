@@ -1,10 +1,4 @@
 import streamlit as st
-import plotly.express as px
-import plotly.graph_objects as go
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-import time
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
