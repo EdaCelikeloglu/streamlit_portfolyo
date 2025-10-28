@@ -466,7 +466,7 @@ def show_projects_section():
 
         st.markdown("### 📄 Power BI Report (PDF Preview)")
         components.iframe(
-            f"https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/portfolio/main/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
+            f"https://github.com/EdaCelikeloglu/streamlit_portfolyo/blob/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf",
             height=600)
         st.download_button(
             label="📥 Download PDF",
