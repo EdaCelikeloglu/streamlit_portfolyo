@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
+import base64
 
 # .env dosyasını yükle
 load_dotenv()
@@ -340,6 +341,31 @@ def show_about_section():
         </div>
         """, unsafe_allow_html=True)
 
+    # CV İndirme Butonu
+    if language == "Türkçe":
+        st.markdown("""
+        <div style="text-align:center; margin-top:1.5rem;">
+            <a href="assets/Eda_Celikeloglu_CV.pdf" download
+               style="display:inline-block; padding:10px 25px; border-radius:25px;
+                      background:linear-gradient(45deg,#667eea,#764ba2); color:white;
+                      text-decoration:none; font-weight:500; box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+               📄 CV’mi İndir
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div style="text-align:center; margin-top:1.5rem;">
+            <a href="assets/Eda_Celikeloglu_CV.pdf" download
+               style="display:inline-block; padding:10px 25px; border-radius:25px;
+                      background:linear-gradient(45deg,#667eea,#764ba2); color:white;
+                      text-decoration:none; font-weight:500; box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+               📄 Download My CV
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+
+
 
 def show_skills_section():
     st.markdown(f"## {content[language]['skills_title']}")
@@ -432,15 +458,45 @@ def show_projects_section():
         </div>
         """, unsafe_allow_html=True)
 
+        # PDF önizlemesi (herkese açık)
+        with open("assets/Eda_Celikeloglu_Sales_Summaries.pdf", "rb") as f:
+            pdf_data = f.read()
+            base64_pdf = base64.b64encode(pdf_data).decode("utf-8")
+
         st.markdown(
-            """
-            <iframe title="Eda_Celikeloglu_Sales_Summaries"
-            width="100%" height="600"
-            src="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
-            frameborder="0" allowFullScreen="true"></iframe>
+            f"""
+            <div style="text-align:center; margin-bottom: 1rem;">
+                <h4>📄 Power BI Raporunun PDF Versiyonu</h4>
+                <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"
+                        style="border:1px solid #ccc; border-radius:10px;"></iframe>
+                <br>
+                <a href="data:application/octet-stream;base64,{base64_pdf}" download="Eda_Celikeloglu_Sales_Summaries.pdf"
+                   style="margin-top:10px; display:inline-block; padding:8px 20px; border-radius:20px;
+                   background:#667eea; color:white; text-decoration:none;">
+                   📥 PDF'yi İndir
+                </a>
+            </div>
             """,
             unsafe_allow_html=True
         )
+
+        # Etkileşimli sürüm için uyarı ve Power BI bağlantısı
+        st.markdown("""
+        <div style="text-align:center; background:#f8f9fa; padding:1rem; border-radius:15px; 
+                    box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-top:1.5rem;">
+            <p style="font-size:1rem; color:#444;">
+                💡 <b>Etkileşimli versiyonu görmek için</b> Power BI hesabınızla giriş yapmanız gerekir.<br>
+                Hesabınız varsa aşağıdaki bağlantıdan açabilirsiniz 👇
+            </p>
+            <a href="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+               target="_blank"
+               style="margin-top:10px; display:inline-block; padding:10px 25px; border-radius:25px; 
+               background:linear-gradient(45deg,#764ba2,#667eea); color:white; text-decoration:none;">
+               🔗 Power BI'da Görüntüle
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+
 
     else:
         # Aynı yapı İngilizce açıklamalarla tekrarlanır
@@ -481,6 +537,7 @@ def show_projects_section():
         st.markdown("<hr>", unsafe_allow_html=True)
 
         # Power BI (English)
+        # Power BI (English)
         st.markdown("""
         <div class="project-card" style="animation-delay: 0.4s;">
             <h3>📊 Sales Analyses – Power BI Dashboard</h3>
@@ -490,17 +547,45 @@ def show_projects_section():
             demonstrating my ability to create decision-support analytics for enterprises.</p>
         </div>
         """, unsafe_allow_html=True)
+
+        # PDF preview (public)
+        with open("assets/Eda_Celikeloglu_Sales_Summaries.pdf", "rb") as f:
+            pdf_data = f.read()
+            base64_pdf = base64.b64encode(pdf_data).decode("utf-8")
+
         st.markdown(
-            """
-            <iframe title="Eda_Celikeloglu_Sales_Summaries"
-            width="100%" height="600"
-            src="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
-            frameborder="0" allowFullScreen="true"></iframe>
+            f"""
+            <div style="text-align:center; margin-bottom: 1rem;">
+                <h4>📄 PDF Version of Power BI Report</h4>
+                <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"
+                        style="border:1px solid #ccc; border-radius:10px;"></iframe>
+                <br>
+                <a href="data:application/octet-stream;base64,{base64_pdf}" download="Eda_Celikeloglu_Sales_Summaries.pdf"
+                   style="margin-top:10px; display:inline-block; padding:8px 20px; border-radius:20px;
+                   background:#667eea; color:white; text-decoration:none;">
+                   📥 Download PDF
+                </a>
+            </div>
             """,
             unsafe_allow_html=True
         )
 
-
+        # Interactive version link
+        st.markdown("""
+        <div style="text-align:center; background:#f8f9fa; padding:1rem; border-radius:15px; 
+                    box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-top:1.5rem;">
+            <p style="font-size:1rem; color:#444;">
+                💡 <b>To view the interactive version,</b> please log in with your Power BI account.<br>
+                If you already have one, you can access it below 👇
+            </p>
+            <a href="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+               target="_blank"
+               style="margin-top:10px; display:inline-block; padding:10px 25px; border-radius:25px; 
+               background:linear-gradient(45deg,#764ba2,#667eea); color:white; text-decoration:none;">
+               🔗 View in Power BI
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
 
 
 def show_contact_section():
