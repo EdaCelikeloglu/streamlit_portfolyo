@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
 import base64
+import streamlit.components.v1 as components
 
 # .env dosyasını yükle
 load_dotenv()
@@ -459,25 +460,19 @@ def show_projects_section():
         """, unsafe_allow_html=True)
 
         # PDF önizlemesi (herkese açık)
-        with open("assets/Eda_Celikeloglu_Sales_Summaries.pdf", "rb") as f:
-            pdf_data = f.read()
-            base64_pdf = base64.b64encode(pdf_data).decode("utf-8")
+        pdf_path = "assets/Eda_Celikeloglu_Sales_Summaries.pdf"
+        with open(pdf_path, "rb") as f:
+            pdf_bytes = f.read()
 
-        st.markdown(
-            f"""
-            <div style="text-align:center; margin-bottom: 1rem;">
-                <h4>📄 Power BI Raporunun PDF Versiyonu</h4>
-                <iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600px"
-                        style="border:1px solid #ccc; border-radius:10px;"></iframe>
-                <br>
-                <a href="data:application/octet-stream;base64,{base64_pdf}" download="Eda_Celikeloglu_Sales_Summaries.pdf"
-                   style="margin-top:10px; display:inline-block; padding:8px 20px; border-radius:20px;
-                   background:#667eea; color:white; text-decoration:none;">
-                   📥 PDF'yi İndir
-                </a>
-            </div>
-            """,
-            unsafe_allow_html=True
+        st.markdown("### 📄 Power BI Report (PDF Preview)")
+        components.iframe(
+            f"https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/portfolio/main/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
+            height=600)
+        st.download_button(
+            label="📥 Download PDF",
+            data=pdf_bytes,
+            file_name="Eda_Celikeloglu_Sales_Summaries.pdf",
+            mime="application/pdf"
         )
 
         # Etkileşimli sürüm için uyarı ve Power BI bağlantısı
