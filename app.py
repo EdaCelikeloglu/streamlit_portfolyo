@@ -4,7 +4,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
-import base64
 import streamlit.components.v1 as components
 
 # .env dosyasını yükle
@@ -324,203 +323,206 @@ def show_skills_section():
             </div>
             """, unsafe_allow_html=True)
 
+import json
 import streamlit as st
-import os
 import streamlit.components.v1 as components
 
 def show_projects_section():
     st.markdown(f"## {content[language]['projects_title']}")
 
-    # CSS
+    # ===== CSS (grid + kart) =====
     st.markdown("""
     <style>
-        .project-tile {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 1rem;
-        }
-        .project-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        .project-thumb {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-        .project-title {
-            font-weight: 600;
-            color: #4B0082;
-            text-align: center;
-            padding: 0.8rem;
-            font-family: 'Poppins', sans-serif;
-        }
-        .project-details {
-            background: linear-gradient(145deg, #f9f9fb, #f1f1f4);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            margin-top: 0.5rem;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
-            animation: fadeIn 0.4s ease;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        .center-buttons {
-            text-align:center;
-            margin-top:1rem;
-        }
-        .link-btn {
-            margin:5px;
-            padding:8px 20px;
-            border-radius:20px;
-            color:white;
-            text-decoration:none;
-        }
+      .proj-card{
+        background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);
+        padding:12px 12px 16px;transition:transform .2s ease, box-shadow .2s ease;margin-bottom:18px;
+      }
+      .proj-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.14); }
+      .proj-title{
+        font-family:'Poppins',sans-serif;font-weight:600;color:#4B0082;margin:6px 0 10px;text-align:center;
+      }
+      .proj-thumb{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
     </style>
     """, unsafe_allow_html=True)
 
-    # Proje listesi
+    t = (language == "Türkçe")
+    lbl_view_details = "📌 Ayrıntılar için tıklayınız" if t else "📌 Click to view details"
+
+    # ===== Projeler =====
     projects = [
         {
-            "id": "datathon",
-            "title_tr": "🏆 UP School & Bitexen Women in Datathon 2024",
-            "title_en": "🏆 UP School & Bitexen Women in Datathon 2024",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/wid_kapak.PNG",
-            "desc_tr": """
-Kadınların iş gücüne katılımı, sağlık, toplumsal cinsiyet rolleri ve siyasi temsiliyetin ücret eşitsizliği üzerindeki etkisini analiz etmek için çoklu doğrusal regresyon modeli oluşturdum.
+            "id":"datathon",
+            "title":"🏆 UP School & Bitexen Women in Datathon 2024",
+            "title_tr":"🏆 UP School & Bitexen Women in Datathon 2024",
+            "title_en":"🏆 UP School & Bitexen Women in Datathon 2024",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/wid_kapak.PNG",
+            "desc_tr": """Kadınların iş gücüne katılımı, sağlık, toplumsal cinsiyet rolleri ve siyasi temsiliyetin ücret eşitsizliği üzerindeki etkisini analiz etmek için çoklu doğrusal regresyon modeli oluşturdum.
 Toplumsal cinsiyet rollerinin işe yerleşim üzerindeki etkisini incelemek amacıyla lojistik regresyon uyguladım.
 Üç kişilik bir ekipte iş birliği içinde çalışarak planlama, ekip çalışması ve zaman yönetimi becerilerimi geliştirdim.
-Tüm katılımcılar arasında birincilik elde ettim.
-""",
-            "desc_en": """
-Built a multiple linear regression model to analyze the influence of women’s labor force participation, health, gender roles, 
-and political representation on wage inequality.
+Tüm katılımcılar arasında birincilik elde ettim.""",
+            "desc_en": """Built a multiple linear regression model to analyze the influence of women’s labor force participation, health, gender roles, and political representation on wage inequality.
 Applied logistic regression to examine how gender roles impact job placement.
 Collaborated in a team of three, gaining experience in planning, teamwork, and time management.
-Achieved first place among all participants.
-""",
-            "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
-            "links": [
-                ("Sunum", "assets/Women in Datathon - Mar24.pptx", "#667eea", "download"),
-                ("Kaggle Notebook", "https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook", "#764ba2", "external")
+Achieved first place among all participants.""",
+            "video":"https://www.youtube.com/watch?v=c_L3OH6Hng4",
+            "links":[
+                {"label_tr":"Sunum (PPTX)","label_en":"Presentation (PPTX)","href":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Women%20in%20Datathon%20-%20Mar24.pptx"},
+                {"label_tr":"Kaggle Notebook","label_en":"Kaggle Notebook","href":"https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook"}
             ]
         },
         {
-            "id": "life_sci",
-            "title_tr": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
-            "title_en": "🌍 AI for Life Sciences – Groundwater Prediction",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
-            "desc_tr": """
-Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum.
-Yeraltı Su Seviyesi Tahmini: 1930–2021 yıllarına ait tarihsel verilerle Avusturya’daki belirli bölgelerin (2022–2024) su seviyesi tahminlerini gerçekleştirdim. Tahmin doğruluğunu SMAPE metriğiyle değerlendirdim.
-GRACE Zaman Serileri için Dışsal Değişken Belirleme: Hava durumu, yağış, kar erimesi ve yüzey sıcaklığı gibi dışsal faktörleri beş yıllık GRACE yeraltı suyu tahminleri için belirledim.
-Python ve ilgili kütüphaneleri (TensorFlow, Keras, scikit-learn, xarray) kullanarak veri analizi ve modelleme yaptım.
-Yöntemi ve sonuçları özetleyen bir sunum videosu ve kaynak kod paketi teslim ettim.
-""",
-            "desc_en": """
-Participated in a competition organized by Gradient Zero in collaboration with the University of Vienna on the Taikai platform.
-Groundwater Level Prediction: Predicted groundwater levels for specific regions in Austria (2022–2024) using historical groundwater data (1930–2021) and external variables. Evaluated prediction accuracy with the SMAPE metric.
-External Variable Identification for GRACE Time Series: Identified external predictors such as weather, precipitation, snowmelt, and surface temperature for five-year GRACE groundwater forecasts.
-Performed data analysis and modeling using Python and relevant libraries (TensorFlow, Keras, scikit-learn, xarray).
-Delivered a source code package and a presentation video summarizing the methodology and results.
-""",
-            "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
-            "links": [
-                ("Sunum", "assets/AI_for_Life_Sciences_Presentation.pptx", "#56ab2f", "download"),
-                ("GitHub", "https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2", "#a8edea", "external")
+            "id":"life_sci",
+            "title":"🌍 AI for Life Sciences - Groundwater Prediction",
+            "title_tr":"🌍 AI for Life Sciences - Yeraltı Suyu Tahmini",
+            "title_en":"🌍 AI for Life Sciences - Groundwater Prediction",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
+            "desc_tr": """Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum.
+Yeraltı su seviyesi tahmini: 1930-2021 verileri ve dışsal değişkenlerle 2022-2024 tahminleri; SMAPE ile değerlendirildi.
+GRACE serileri için dışsal değişkenler (hava, yağış, kar erimesi, yüzey sıcaklığı) belirlendi.
+Python (TensorFlow, Keras, scikit-learn, xarray) ile modelleme yapıldı; sunum videosu ve kaynak kod sağlandı.""",
+            "desc_en": """Participated in a competition organized by Gradient Zero with the University of Vienna on Taikai.
+Groundwater level prediction for Austria (2022-2024) using 1930-2021 history and exogenous variables (SMAPE for accuracy).
+Identified GRACE external drivers: weather, precipitation, snowmelt, temperature.
+Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source code and a presentation video.""",
+            "video":"https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
+            "links":[
+                {"label_tr":"Sunum (PPTX)","label_en":"Presentation (PPTX)","href":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/AI_for_Life_Sciences_Presentation.pptx"},
+                {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2"}
             ]
         },
         {
-            "id": "sahibinden",
-            "title_tr": "🏠 Konut Piyasası ve Hava Durumu İlişkisi Analizi",
-            "title_en": "🏠 Housing Market & Weather Dynamics in Istanbul",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.png",
-            "desc_tr": "İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
-            "desc_en": "I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources. Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale. Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends. The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization."
+            "id":"sahibinden",
+            "title":"🏠 Housing Market & Weather Dynamics in Istanbul",
+            "title_tr":"🏠 Konut Piyasası ve Hava Durumu Iliskisi Analizi",
+            "title_en":"🏠 Housing Market & Weather Dynamics in Istanbul",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.png",
+            "desc_tr":"Istanbul’daki konut piyasası dinamikleri ile hava koşulları arasındaki ilişkiyi, Open-Meteo API’si ve satılık ilan etkileşim metriklerini birleştirerek SARIMAX ile analiz ettim.",
+            "desc_en":"Analyzed Istanbul housing dynamics vs. weather; integrated Open-Meteo API with listing engagement metrics; modeled effects via SARIMAX.",
+            "links":[]
         },
         {
-            "id": "powerbi",
-            "title_tr": "📊 Satış Analizleri – Power BI Dashboard",
-            "title_en": "📊 Sales Analyses – Power BI Dashboard",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/powerbi1.PNG",
-            "desc_tr": "Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u farklı bölge ve ürün kategorilerindeki performans metriklerini görselleştirir.",
-            "desc_en": "An interactive Power BI dashboard visualizing performance metrics across regions and product categories.",
-            "pdf": "assets/Eda_Celikeloglu_Sales_Summaries.pdf",
-            "powerbi_link": "https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+            "id":"powerbi",
+            "title":"📊 Sales Analyses - Power BI Dashboard",
+            "title_tr":"📊 Satış Analizleri - Power BI Dashboard",
+            "title_en":"📊 Sales Analyses - Power BI Dashboard",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/powerbi1.PNG",
+            "desc_tr":"Bölgeler ve ürün kategorileri genelinde performans metriklerini görselleştiren etkileşimli bir Power BI dashboard’u.",
+            "desc_en":"Interactive Power BI dashboard visualizing performance across regions and product categories.",
+            "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf",
+            "powerbi_link":"https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2",
+            "links":[]
         }
     ]
 
-    if "open_project" not in st.session_state:
-        st.session_state["open_project"] = None
+    # ===== state =====
+    if "active_modal" not in st.session_state:
+        st.session_state["active_modal"] = None
 
-    def toggle_project(pid):
-        st.session_state["open_project"] = None if st.session_state["open_project"] == pid else pid
+    def open_modal(pid):
+        st.session_state["active_modal"] = pid
+        st.rerun()
 
-    # 1. satır (ilk 2 proje)
-    col1, col2 = st.columns(2)
-    for idx, col in enumerate([col1, col2]):
-        p = projects[idx]
+    # ===== grid =====
+    r1c1, r1c2 = st.columns(2)
+    for p, col in zip(projects[:2], [r1c1, r1c2]):
         with col:
-            title = p["title_tr"] if language == "Türkçe" else p["title_en"]
-            with st.container():
-                st.image(p["thumb"], use_container_width=True)
-                if st.button(title, key=f"btn_{p['id']}", use_container_width=True):
-                    toggle_project(p["id"])
-                if st.session_state["open_project"] == p["id"]:
-                    desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
-                    st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
-                    if "video" in p:
-                        st.video(p["video"])
-                    if "links" in p:
-                        link_buttons = ""
-                        for label, href, color, link_type in p["links"]:
-                            if link_type == "download":
-                                link_buttons += f"<a href='{href}' download class='link-btn' style='background:{color};'>{label}</a>"
-                            else:
-                                link_buttons += f"<a href='{href}' target='_blank' class='link-btn' style='background:{color};'>{label}</a>"
-                        st.markdown(f"<div class='center-buttons'>{link_buttons}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
+            st.image(p["thumb"], use_container_width=True)
+            if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
+                open_modal(p["id"])
+            st.markdown("</div>", unsafe_allow_html=True)
 
-    # 2. satır (sahibinden + powerbi)
-    col3, col4 = st.columns(2)
-    for idx, col in enumerate([col3, col4], start=2):
-        p = projects[idx]
+    r2c1, r2c2 = st.columns(2)
+    for p, col in zip(projects[2:], [r2c1, r2c2]):
         with col:
-            title = p["title_tr"] if language == "Türkçe" else p["title_en"]
-            with st.container():
-                st.image(p["thumb"], use_container_width=True)
-                if st.button(title, key=f"btn_{p['id']}", use_container_width=True):
-                    toggle_project(p["id"])
-                if st.session_state["open_project"] == p["id"]:
-                    desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
-                    st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
-                    if "pdf" in p:
-                        pdf_path = p["pdf"]
-                        with open(pdf_path, "rb") as f:
-                            pdf_bytes = f.read()
-                        components.iframe(
-                            "https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
-                            height=600)
-                        st.download_button(
-                            label="📥 PDF İndir" if language == "Türkçe" else "📥 Download PDF",
-                            data=pdf_bytes,
-                            file_name=os.path.basename(pdf_path),
-                            mime="application/pdf"
-                        )
-                        st.markdown(f"""
-                            <div style="text-align:center; margin-top:1rem;">
-                                <a href="{p['powerbi_link']}" target="_blank"
-                                style="background:linear-gradient(45deg,#764ba2,#667eea);
-                                       padding:10px 25px; border-radius:25px; color:white; text-decoration:none;">
-                                       🔗 {"Power BI'da Görüntüle" if language == "Türkçe" else "View in Power BI"}
-                                </a>
-                            </div>
-                        """, unsafe_allow_html=True)
+            st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
+            st.image(p["thumb"], use_container_width=True)
+            if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
+                open_modal(p["id"])
+            st.markdown("</div>", unsafe_allow_html=True)
+
+    # ===== modal (gerçek popup; parent DOM'a enjekte) =====
+    if st.session_state.get("active_modal"):
+        p = next(x for x in projects if x["id"] == st.session_state["active_modal"])
+        inject_modal_top(p, language)
+
+
+def inject_modal_top(p, language: str):
+    """Modalı Streamlit iframenin DIŞINA (parent DOM) ekler; tam ekran overlay + kapat."""
+    title = p["title_tr"] if language == "Türkçe" else p["title_en"]
+    desc  = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
+
+    # Linkler
+    links_html = ""
+    if p.get("pdf_raw"):
+        links_html += f"<p><a href='{p['pdf_raw']}' target='_blank'>📄 PDF</a></p>"
+    if p.get("powerbi_link"):
+        links_html += f"<p><a href='{p['powerbi_link']}' target='_blank'>📊 Power BI</a></p>"
+    if p.get("links"):
+        for L in p["links"]:
+            label = L["label_tr"] if language == "Türkçe" else L["label_en"]
+            links_html += f"<p><a href='{L['href']}' target='_blank'>🔗 {label}</a></p>"
+
+    # Video
+    video_html = ""
+    if p.get("video"):
+        video_html = f"<div style='margin-top:12px'><iframe width='100%' height='400' src='{p['video'].replace('watch?v=', 'embed/')}' frameborder='0' allowfullscreen></iframe></div>"
+
+    # Modal içerik + stil (parent DOM’a basılacak)
+    content_html = f"""
+    <style>
+      #x-modal-overlay {{ position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:2147483646; }}
+      #x-modal-box {{
+         position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+         background:#fff; width:min(900px,90vw); max-height:90vh; overflow:auto;
+         border-radius:14px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,.45);
+         z-index:2147483647; font-family: 'Poppins', sans-serif;
+      }}
+      #x-close {{ position:absolute; right:12px; top:12px; border:none; background:#FF4B4B; color:#fff;
+                  border-radius:8px; padding:6px 10px; cursor:pointer; }}
+      #x-modal-box h2 {{ margin:0 0 10px 0; }}
+      #x-modal-links a {{ text-decoration:none; }}
+    </style>
+    <div id="x-modal-overlay"></div>
+    <div id="x-modal-box">
+        <button id="x-close">Kapat</button>
+        <h2>{title}</h2>
+        <p>{desc}</p>
+        <div id="x-modal-links">{links_html}</div>
+        {video_html}
+    </div>
+    """
+
+    # JS ile parent'a ekle/çıkar
+    payload = json.dumps(content_html)
+    js = f"""
+    <script>
+      const doc = window.parent.document;
+
+      // Eski modal varsa temizle
+      const old = doc.getElementById('x-modal-wrapper');
+      if (old) old.remove();
+
+      // Wrapper oluştur ve içeriği bas
+      const wrapper = doc.createElement('div');
+      wrapper.id = 'x-modal-wrapper';
+      wrapper.innerHTML = {payload};
+      doc.body.appendChild(wrapper);
+
+      function closeModal() {{
+        const w = doc.getElementById('x-modal-wrapper');
+        if (w) w.remove();
+      }}
+
+      doc.getElementById('x-close').addEventListener('click', closeModal);
+      doc.getElementById('x-modal-overlay').addEventListener('click', closeModal);
+      doc.addEventListener('keydown', (e) => {{ if (e.key === 'Escape') closeModal(); }});
+    </script>
+    """
+
+    # 0 px yüksekliğe göm; görünür olan parent’a eklenen modal olur
+    components.html(js, height=0, width=0)
+
 
 def show_contact_section():
     st.markdown(f"## {content[language]['contact_title']}")
