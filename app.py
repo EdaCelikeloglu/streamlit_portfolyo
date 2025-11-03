@@ -416,8 +416,20 @@ Achieved first place among all participants.
             "title_tr": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
             "title_en": "🌍 AI for Life Sciences – Groundwater Prediction",
             "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
-            "desc_tr": "GRACE uydu verileriyle Avusturya’daki yeraltı suyu seviyelerinin zaman serisi analizi.",
-            "desc_en": "Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.",
+            "desc_tr": """
+Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum.
+Yeraltı Su Seviyesi Tahmini: 1930–2021 yıllarına ait tarihsel verilerle Avusturya’daki belirli bölgelerin (2022–2024) su seviyesi tahminlerini gerçekleştirdim. Tahmin doğruluğunu SMAPE metriğiyle değerlendirdim.
+GRACE Zaman Serileri için Dışsal Değişken Belirleme: Hava durumu, yağış, kar erimesi ve yüzey sıcaklığı gibi dışsal faktörleri beş yıllık GRACE yeraltı suyu tahminleri için belirledim.
+Python ve ilgili kütüphaneleri (TensorFlow, Keras, scikit-learn, xarray) kullanarak veri analizi ve modelleme yaptım.
+Yöntemi ve sonuçları özetleyen bir sunum videosu ve kaynak kod paketi teslim ettim.
+""",
+            "desc_en": """
+Participated in a competition organized by Gradient Zero in collaboration with the University of Vienna on the Taikai platform.
+Groundwater Level Prediction: Predicted groundwater levels for specific regions in Austria (2022–2024) using historical groundwater data (1930–2021) and external variables. Evaluated prediction accuracy with the SMAPE metric.
+External Variable Identification for GRACE Time Series: Identified external predictors such as weather, precipitation, snowmelt, and surface temperature for five-year GRACE groundwater forecasts.
+Performed data analysis and modeling using Python and relevant libraries (TensorFlow, Keras, scikit-learn, xarray).
+Delivered a source code package and a presentation video summarizing the methodology and results.
+""",
             "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
             "links": [
                 ("Sunum", "assets/AI_for_Life_Sciences_Presentation.pptx", "#56ab2f", "download"),
