@@ -391,7 +391,7 @@ def show_projects_section():
             "id": "datathon",
             "title_tr": "🏆 UP School & Bitexen Women in Datathon 2024",
             "title_en": "🏆 UP School & Bitexen Women in Datathon 2024",
-            "thumb": "https://github.com/EdaCelikeloglu/streamlit_portfolyo/blob/de835b26dec471210a01127a15f2c1fd9ee8237d/assets/wid_kapak.PNG",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/wid_kapak.PNG",
             "desc_tr": "Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi.",
             "desc_en": "Multivariate analysis and modeling project on women's employment and wage inequality.",
             "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
@@ -404,7 +404,7 @@ def show_projects_section():
             "id": "life_sci",
             "title_tr": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
             "title_en": "🌍 AI for Life Sciences – Groundwater Prediction",
-            "thumb": "assets/yeralti_kapak.PNG",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
             "desc_tr": "GRACE uydu verileriyle Avusturya’daki yeraltı suyu seviyelerinin zaman serisi analizi.",
             "desc_en": "Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.",
             "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
@@ -414,10 +414,18 @@ def show_projects_section():
             ]
         },
         {
+            "id": "sahibinden",
+            "title_tr": "🏠 Konut Piyasası ve Hava Durumu İlişkisi Analizi",
+            "title_en": "🏠 Housing Market & Weather Dynamics in Istanbul",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.PNG",
+            "desc_tr": "İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
+            "desc_en": "I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources. Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale. Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends. The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization."
+        },
+        {
             "id": "powerbi",
             "title_tr": "📊 Satış Analizleri – Power BI Dashboard",
             "title_en": "📊 Sales Analyses – Power BI Dashboard",
-            "thumb": "assets/powerbi1.PNG",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/powerbi1.PNG",
             "desc_tr": "Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u farklı bölge ve ürün kategorilerindeki performans metriklerini görselleştirir.",
             "desc_en": "An interactive Power BI dashboard visualizing performance metrics across regions and product categories.",
             "pdf": "assets/Eda_Celikeloglu_Sales_Summaries.pdf",
@@ -431,20 +439,15 @@ def show_projects_section():
     def toggle_project(pid):
         st.session_state["open_project"] = None if st.session_state["open_project"] == pid else pid
 
-    # İlk iki proje yan yana
+    # 1. satır (ilk 2 proje)
     col1, col2 = st.columns(2)
     for idx, col in enumerate([col1, col2]):
         p = projects[idx]
         with col:
             title = p["title_tr"] if language == "Türkçe" else p["title_en"]
             with st.container():
-                st.markdown(f"""
-                    <div class="project-tile" onclick="window.dispatchEvent(new Event('rerun'))">
-                        <img src="{p['thumb']}" class="project-thumb" />
-                        <div class="project-title">{title}</div>
-                    </div>
-                """, unsafe_allow_html=True)
-                if st.button("🔍 Detayları Göster" if language == "Türkçe" else "🔍 Show Details", key=f"btn_{p['id']}"):
+                st.image(p["thumb"], use_container_width=True)
+                if st.button(title, key=f"btn_{p['id']}", use_container_width=True):
                     toggle_project(p["id"])
                 if st.session_state["open_project"] == p["id"]:
                     desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
@@ -460,44 +463,41 @@ def show_projects_section():
                                 link_buttons += f"<a href='{href}' target='_blank' class='link-btn' style='background:{color};'>{label}</a>"
                         st.markdown(f"<div class='center-buttons'>{link_buttons}</div>", unsafe_allow_html=True)
 
-    # Üçüncü proje altta
-    st.markdown("<br>", unsafe_allow_html=True)
-    p = projects[2]
-    title = p["title_tr"] if language == "Türkçe" else p["title_en"]
-    with st.container():
-        st.markdown(f"""
-            <div class="project-tile" onclick="window.dispatchEvent(new Event('rerun'))">
-                <img src="{p['thumb']}" class="project-thumb" />
-                <div class="project-title">{title}</div>
-            </div>
-        """, unsafe_allow_html=True)
-        if st.button("🔍 Detayları Göster" if language == "Türkçe" else "🔍 Show Details", key=f"btn_{p['id']}"):
-            toggle_project(p["id"])
-        if st.session_state["open_project"] == p["id"]:
-            desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
-            st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
-            if "pdf" in p:
-                pdf_path = p["pdf"]
-                with open(pdf_path, "rb") as f:
-                    pdf_bytes = f.read()
-                components.iframe(
-                    "https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
-                    height=600)
-                st.download_button(
-                    label="📥 PDF İndir" if language == "Türkçe" else "📥 Download PDF",
-                    data=pdf_bytes,
-                    file_name=os.path.basename(pdf_path),
-                    mime="application/pdf"
-                )
-                st.markdown(f"""
-                    <div style="text-align:center; margin-top:1rem;">
-                        <a href="{p['powerbi_link']}" target="_blank"
-                        style="background:linear-gradient(45deg,#764ba2,#667eea);
-                               padding:10px 25px; border-radius:25px; color:white; text-decoration:none;">
-                               🔗 {"Power BI'da Görüntüle" if language == "Türkçe" else "View in Power BI"}
-                        </a>
-                    </div>
-                """, unsafe_allow_html=True)
+    # 2. satır (sahibinden + powerbi)
+    col3, col4 = st.columns(2)
+    for idx, col in enumerate([col3, col4], start=2):
+        p = projects[idx]
+        with col:
+            title = p["title_tr"] if language == "Türkçe" else p["title_en"]
+            with st.container():
+                st.image(p["thumb"], use_container_width=True)
+                if st.button(title, key=f"btn_{p['id']}", use_container_width=True):
+                    toggle_project(p["id"])
+                if st.session_state["open_project"] == p["id"]:
+                    desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
+                    st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
+                    if "pdf" in p:
+                        pdf_path = p["pdf"]
+                        with open(pdf_path, "rb") as f:
+                            pdf_bytes = f.read()
+                        components.iframe(
+                            "https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
+                            height=600)
+                        st.download_button(
+                            label="📥 PDF İndir" if language == "Türkçe" else "📥 Download PDF",
+                            data=pdf_bytes,
+                            file_name=os.path.basename(pdf_path),
+                            mime="application/pdf"
+                        )
+                        st.markdown(f"""
+                            <div style="text-align:center; margin-top:1rem;">
+                                <a href="{p['powerbi_link']}" target="_blank"
+                                style="background:linear-gradient(45deg,#764ba2,#667eea);
+                                       padding:10px 25px; border-radius:25px; color:white; text-decoration:none;">
+                                       🔗 {"Power BI'da Görüntüle" if language == "Türkçe" else "View in Power BI"}
+                                </a>
+                            </div>
+                        """, unsafe_allow_html=True)
 
 def show_contact_section():
     st.markdown(f"## {content[language]['contact_title']}")
