@@ -32,153 +32,91 @@ if "selected_section" not in st.session_state:
 # Özel CSS
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-    .main {
-        padding-top: 2rem;
+    body {
+        background-color: #F8F9FB;
+        color: #2C2C2C;
+        font-family: 'Poppins', sans-serif;
     }
 
     .hero-section {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #4A47A3 0%, #6E72C9 100%);
         padding: 3rem 2rem;
         border-radius: 20px;
         color: white;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.12);
     }
 
     .hero-title {
-        font-family: 'Poppins', sans-serif;
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        background: linear-gradient(45deg, #fff, #f0f0f0);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: fadeInUp 1s ease-out;
+        color: white;
     }
 
     .hero-subtitle {
-        font-family: 'Poppins', sans-serif;
         font-size: 1.2rem;
-        font-weight: 300;
         opacity: 0.9;
-        animation: fadeInUp 1s ease-out 0.2s both;
     }
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    a, a:visited {
+        color: #4A47A3;
+        text-decoration: none;
+        font-weight: 500;
     }
 
-    .skill-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        margin-bottom: 1rem;
-        border: 1px solid #e0e0e0;
-        transition: all 0.3s ease;
-        animation: slideInLeft 0.6s ease-out;
+    a:hover {
+        color: #F4B942;
     }
 
-    .skill-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-
-    @keyframes slideInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
     }
 
     .project-card {
-        background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-        padding: 2rem;
-        border-radius: 20px;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        border: 1px solid #dee2e6;
-        animation: fadeIn 0.8s ease-out;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .contact-card {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-        color: white;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .metric-card {
         background: white;
-        padding: 1.5rem;
         border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        margin-bottom: 1rem;
-        animation: bounceIn 0.8s ease-out;
-    }
-
-    @keyframes bounceIn {
-        0%, 20%, 40%, 60%, 80% {
-            transform: scale(0.8);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-
-    .stProgress .st-bo {
-        background-color: #667eea;
-    }
-
-    .sidebar .sidebar-content {
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .typing-animation {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        color: #667eea;
-        animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-        white-space: nowrap;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        cursor: pointer;
         overflow: hidden;
-        border-right: 3px solid #667eea;
+        position: relative;
     }
 
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #667eea }
+    .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .project-card h4 {
+        padding: 1rem;
+        margin: 0;
+        color: #4A47A3;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .project-popup {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        position: relative;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -298,13 +236,13 @@ content = {
 # Ana içerik
 def show_hero_section():
     st.markdown(f"""
-    <div class="hero-section">
-        <h1 class="hero-title">{content[language]["hero_title"]}</h1>
-        <p class="hero-subtitle">{content[language]["hero_subtitle"]}</p>
-        <br>
-        <p class="typing-animation">{content[language]["typing_text"]}</p>
-    </div>
-    """, unsafe_allow_html=True)
+        <div class="hero-section">
+            <h1 class="hero-title">{content[language]["hero_title"]}</h1>
+            <div style="width:80px;height:3px;background:#F4B942;margin:0 auto 1rem auto;border-radius:2px;"></div>
+            <p class="hero-subtitle">{content[language]["hero_subtitle"]}</p>
+            <p style="margin-top:1rem;opacity:0.85;">{content[language]["typing_text"]}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Profil fotoğrafı bölümü
     col1, col2, col3 = st.columns([1, 1, 1])
@@ -343,29 +281,16 @@ def show_about_section():
         """, unsafe_allow_html=True)
 
     # CV İndirme Butonu
-    if language == "Türkçe":
-        st.markdown("""
-        <div style="text-align:center; margin-top:1.5rem;">
-            <a href="assets/Eda_Celikeloglu_CV.pdf" download
-               style="display:inline-block; padding:10px 25px; border-radius:25px;
-                      background:linear-gradient(45deg,#667eea,#764ba2); color:white;
-                      text-decoration:none; font-weight:500; box-shadow:0 3px 10px rgba(0,0,0,0.15);">
-               📄 CV’mi İndir
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div style="text-align:center; margin-top:1.5rem;">
-            <a href="assets/Eda_Celikeloglu_CV.pdf" download
-               style="display:inline-block; padding:10px 25px; border-radius:25px;
-                      background:linear-gradient(45deg,#667eea,#764ba2); color:white;
-                      text-decoration:none; font-weight:500; box-shadow:0 3px 10px rgba(0,0,0,0.15);">
-               📄 Download My CV
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
-
+    st.markdown(f"""
+    <div style="text-align:center;margin-top:1.5rem;">
+        <a href="assets/Eda_Celikeloglu_CV.pdf" download
+           style="padding:10px 25px;border-radius:30px;
+                  background:#4A47A3;color:white;
+                  text-decoration:none;font-weight:500;">
+           📄 {'CV’mi İndir' if language == 'Türkçe' else 'Download My CV'}
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def show_skills_section():
@@ -399,183 +324,180 @@ def show_skills_section():
             </div>
             """, unsafe_allow_html=True)
 
-
-
+import streamlit as st
+import os
+import streamlit.components.v1 as components
 
 def show_projects_section():
     st.markdown(f"## {content[language]['projects_title']}")
 
-    if language == "Türkçe":
-        # 1. Proje
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0s;">
-            <h3>🏆 UP School & Bitexen Women in Datathon 2024</h3>
-            <p>Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi.</p>
-        </div>
+    # CSS
+    st.markdown("""
+    <style>
+        .project-tile {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .project-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .project-thumb {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+        .project-title {
+            font-weight: 600;
+            color: #4B0082;
+            text-align: center;
+            padding: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .project-details {
+            background: linear-gradient(145deg, #f9f9fb, #f1f1f4);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .center-buttons {
+            text-align:center;
+            margin-top:1rem;
+        }
+        .link-btn {
+            margin:5px;
+            padding:8px 20px;
+            border-radius:20px;
+            color:white;
+            text-decoration:none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Proje listesi
+    projects = [
+        {
+            "id": "datathon",
+            "title_tr": "🏆 UP School & Bitexen Women in Datathon 2024",
+            "title_en": "🏆 UP School & Bitexen Women in Datathon 2024",
+            "thumb": "assets/wid_kapak.PNG",
+            "desc_tr": "Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi.",
+            "desc_en": "Multivariate analysis and modeling project on women's employment and wage inequality.",
+            "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
+            "links": [
+                ("Sunum", "assets/Women in Datathon - Mar24.pptx", "#667eea", "download"),
+                ("Kaggle Notebook", "https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook", "#764ba2", "external")
+            ]
+        },
+        {
+            "id": "life_sci",
+            "title_tr": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
+            "title_en": "🌍 AI for Life Sciences – Groundwater Prediction",
+            "thumb": "assets/yeralti_kapak.PNG",
+            "desc_tr": "GRACE uydu verileriyle Avusturya’daki yeraltı suyu seviyelerinin zaman serisi analizi.",
+            "desc_en": "Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.",
+            "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
+            "links": [
+                ("Sunum", "assets/AI_for_Life_Sciences_Presentation.pptx", "#56ab2f", "download"),
+                ("GitHub", "https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2", "#a8edea", "external")
+            ]
+        },
+        {
+            "id": "powerbi",
+            "title_tr": "📊 Satış Analizleri – Power BI Dashboard",
+            "title_en": "📊 Sales Analyses – Power BI Dashboard",
+            "thumb": "assets/powerbi1.PNG",
+            "desc_tr": "Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u farklı bölge ve ürün kategorilerindeki performans metriklerini görselleştirir.",
+            "desc_en": "An interactive Power BI dashboard visualizing performance metrics across regions and product categories.",
+            "pdf": "assets/Eda_Celikeloglu_Sales_Summaries.pdf",
+            "powerbi_link": "https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
+        }
+    ]
+
+    if "open_project" not in st.session_state:
+        st.session_state["open_project"] = None
+
+    def toggle_project(pid):
+        st.session_state["open_project"] = None if st.session_state["open_project"] == pid else pid
+
+    # İlk iki proje yan yana
+    col1, col2 = st.columns(2)
+    for idx, col in enumerate([col1, col2]):
+        p = projects[idx]
+        with col:
+            title = p["title_tr"] if language == "Türkçe" else p["title_en"]
+            with st.container():
+                st.markdown(f"""
+                    <div class="project-tile" onclick="window.dispatchEvent(new Event('rerun'))">
+                        <img src="{p['thumb']}" class="project-thumb" />
+                        <div class="project-title">{title}</div>
+                    </div>
+                """, unsafe_allow_html=True)
+                if st.button("🔍 Detayları Göster" if language == "Türkçe" else "🔍 Show Details", key=f"btn_{p['id']}"):
+                    toggle_project(p["id"])
+                if st.session_state["open_project"] == p["id"]:
+                    desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
+                    st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
+                    if "video" in p:
+                        st.video(p["video"])
+                    if "links" in p:
+                        link_buttons = ""
+                        for label, href, color, link_type in p["links"]:
+                            if link_type == "download":
+                                link_buttons += f"<a href='{href}' download class='link-btn' style='background:{color};'>{label}</a>"
+                            else:
+                                link_buttons += f"<a href='{href}' target='_blank' class='link-btn' style='background:{color};'>{label}</a>"
+                        st.markdown(f"<div class='center-buttons'>{link_buttons}</div>", unsafe_allow_html=True)
+
+    # Üçüncü proje altta
+    st.markdown("<br>", unsafe_allow_html=True)
+    p = projects[2]
+    title = p["title_tr"] if language == "Türkçe" else p["title_en"]
+    with st.container():
+        st.markdown(f"""
+            <div class="project-tile" onclick="window.dispatchEvent(new Event('rerun'))">
+                <img src="{p['thumb']}" class="project-thumb" />
+                <div class="project-title">{title}</div>
+            </div>
         """, unsafe_allow_html=True)
-
-        st.video("https://www.youtube.com/watch?v=c_L3OH6Hng4")
-
-        st.markdown("""
-        <div style="text-align:center;">
-            <a href="assets/Women in Datathon - Mar24.pptx" download 
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#667eea; color:white; text-decoration:none;">Sunum</a>
-            <a href="https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook" target="_blank"
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#764ba2; color:white; text-decoration:none;">Kaggle Notebook</a>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        # 2. Proje
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0.2s;">
-            <h3>🌍 AI for Life Sciences – Yeraltı Suyu Tahmini</h3>
-            <p>GRACE uydu verileriyle Avusturya'daki yeraltı suyu seviyelerinin zaman serisi analizi.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.video("https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s")
-
-        st.markdown("""
-        <div style="text-align:center;">
-            <a href="assets/AI_for_Life_Sciences_Presentation.pptx" download 
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#56ab2f; color:white; text-decoration:none;">Sunum</a>
-            <a href="https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2" target="_blank"
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#a8edea; color:black; text-decoration:none;">GitHub</a>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        # 3. Power BI projesi
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0.4s;">
-            <h3>📊 Satış Analizleri – Power BI Dashboard</h3>
-            <p>Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u,
-            farklı bölge ve ürün kategorilerindeki performans metriklerini
-            gerçek zamanlı görselleştirir. Veri analizi, görselleştirme ve hikâye
-            anlatımı becerilerimin birleştiği bu çalışma, kurumsal karar destek süreçlerinde kullanılabilecek seviyededir.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # PDF önizlemesi (herkese açık)
-        pdf_path = "assets/Eda_Celikeloglu_Sales_Summaries.pdf"
-        with open(pdf_path, "rb") as f:
-            pdf_bytes = f.read()
-
-        st.markdown("### 📄 Power BI Dashboard (PDF Önizleme)")
-        components.iframe(
-            f"https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
-            height=600)
-        st.download_button(
-            label="📥 PDF İndir",
-            data=pdf_bytes,
-            file_name="Eda_Celikeloglu_Sales_Summaries.pdf",
-            mime="application/pdf"
-        )
-
-        # Etkileşimli sürüm için uyarı ve Power BI bağlantısı
-        st.markdown("""
-        <div style="text-align:center; background:#f8f9fa; padding:1rem; border-radius:15px; 
-                    box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-top:1.5rem;">
-            <p style="font-size:1rem; color:#444;">
-                💡 <b>Etkileşimli versiyonu görmek için</b> Power BI hesabınızla giriş yapmanız gerekir.<br>
-                Hesabınız varsa aşağıdaki bağlantıdan açabilirsiniz 👇
-            </p>
-            <a href="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
-               target="_blank"
-               style="margin-top:10px; display:inline-block; padding:10px 25px; border-radius:25px; 
-               background:linear-gradient(45deg,#764ba2,#667eea); color:white; text-decoration:none;">
-               🔗 Power BI'da Görüntüle
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-    else:
-        # Aynı yapı İngilizce açıklamalarla tekrarlanır
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0s;">
-            <h3>🏆 UP School & Bitexen Women in Datathon 2024</h3>
-            <p>Multivariate analysis and modeling project on women employment and wage inequality.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.video("https://www.youtube.com/watch?v=c_L3OH6Hng4")
-        st.markdown("""
-        <div style="text-align:center;">
-            <a href="assets/Women in Datathon - Mar24.pptx" download 
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#667eea; color:white; text-decoration:none;">Slides</a>
-            <a href="https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook" target="_blank"
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#764ba2; color:white; text-decoration:none;">Kaggle Notebook</a>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0.2s;">
-            <h3>🌍 AI for Life Sciences – Groundwater Prediction</h3>
-            <p>Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.video("https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s")
-        st.markdown("""
-        <div style="text-align:center;">
-            <a href="assets/AI_for_Life_Sciences_Presentation.pptx" download 
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#56ab2f; color:white; text-decoration:none;">Slides</a>
-            <a href="https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2" target="_blank"
-            style="margin:5px; padding:8px 20px; border-radius:20px; background:#a8edea; color:black; text-decoration:none;">GitHub</a>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        # Power BI (English)
-        # Power BI (English)
-        st.markdown("""
-        <div class="project-card" style="animation-delay: 0.4s;">
-            <h3>📊 Sales Analyses – Power BI Dashboard</h3>
-            <p>This interactive Power BI dashboard visualizes performance metrics
-            across regions and product categories in real-time.
-            It combines data analysis, visualization, and storytelling skills,
-            demonstrating my ability to create decision-support analytics for enterprises.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # PDF preview (public)
-        pdf_path = "assets/Eda_Celikeloglu_Sales_Summaries.pdf"
-        with open(pdf_path, "rb") as f:
-            pdf_bytes = f.read()
-
-        st.markdown("### 📄 Power BI Report (PDF Preview)")
-        components.iframe(
-            f"https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
-            height=600)
-        st.download_button(
-            label="📥 Download PDF",
-            data=pdf_bytes,
-            file_name="Eda_Celikeloglu_Sales_Summaries.pdf",
-            mime="application/pdf"
-        )
-
-        # Interactive version link
-        st.markdown("""
-        <div style="text-align:center; background:#f8f9fa; padding:1rem; border-radius:15px; 
-                    box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-top:1.5rem;">
-            <p style="font-size:1rem; color:#444;">
-                💡 <b>To view the interactive version,</b> please log in with your Power BI account.<br>
-                If you already have one, you can access it below 👇
-            </p>
-            <a href="https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
-               target="_blank"
-               style="margin-top:10px; display:inline-block; padding:10px 25px; border-radius:25px; 
-               background:linear-gradient(45deg,#764ba2,#667eea); color:white; text-decoration:none;">
-               🔗 View in Power BI
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
-
+        if st.button("🔍 Detayları Göster" if language == "Türkçe" else "🔍 Show Details", key=f"btn_{p['id']}"):
+            toggle_project(p["id"])
+        if st.session_state["open_project"] == p["id"]:
+            desc = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
+            st.markdown(f"<div class='project-details'>{desc}</div>", unsafe_allow_html=True)
+            if "pdf" in p:
+                pdf_path = p["pdf"]
+                with open(pdf_path, "rb") as f:
+                    pdf_bytes = f.read()
+                components.iframe(
+                    "https://docs.google.com/gview?url=https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf&embedded=true",
+                    height=600)
+                st.download_button(
+                    label="📥 PDF İndir" if language == "Türkçe" else "📥 Download PDF",
+                    data=pdf_bytes,
+                    file_name=os.path.basename(pdf_path),
+                    mime="application/pdf"
+                )
+                st.markdown(f"""
+                    <div style="text-align:center; margin-top:1rem;">
+                        <a href="{p['powerbi_link']}" target="_blank"
+                        style="background:linear-gradient(45deg,#764ba2,#667eea);
+                               padding:10px 25px; border-radius:25px; color:white; text-decoration:none;">
+                               🔗 {"Power BI'da Görüntüle" if language == "Türkçe" else "View in Power BI"}
+                        </a>
+                    </div>
+                """, unsafe_allow_html=True)
 
 def show_contact_section():
     st.markdown(f"## {content[language]['contact_title']}")
