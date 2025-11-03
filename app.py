@@ -391,7 +391,7 @@ def show_projects_section():
             "id": "datathon",
             "title_tr": "🏆 UP School & Bitexen Women in Datathon 2024",
             "title_en": "🏆 UP School & Bitexen Women in Datathon 2024",
-            "thumb": "assets/wid_kapak.PNG",
+            "thumb": "https://github.com/EdaCelikeloglu/streamlit_portfolyo/blob/de835b26dec471210a01127a15f2c1fd9ee8237d/assets/wid_kapak.PNG",
             "desc_tr": "Kadın istihdamı ve ücret eşitsizliğine yönelik çok değişkenli analiz ve modelleme projesi.",
             "desc_en": "Multivariate analysis and modeling project on women's employment and wage inequality.",
             "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
