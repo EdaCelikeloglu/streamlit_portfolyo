@@ -388,69 +388,59 @@ def show_projects_section():
     # Proje listesi
     projects = [
         {
-            "title": "1st Place – UP School & Bitexen Women in Datathon (Mar 2024)",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/datathon_kapak.PNG",
-            "details_en": """
-    Built a multiple linear regression model to analyze the influence of women’s labor force participation, health, gender roles, 
-    and political representation on wage inequality.
-    Applied logistic regression to examine how gender roles impact job placement.
-    Collaborated in a team of three, gaining experience in planning, teamwork, and time management.
-    Achieved first place among all participants.
-    """,
-            "details_tr": """
-    Kadınların iş gücüne katılımı, sağlık, toplumsal cinsiyet rolleri ve siyasi temsiliyetin ücret eşitsizliği üzerindeki etkisini analiz etmek için çoklu doğrusal regresyon modeli oluşturdum.
-    Toplumsal cinsiyet rollerinin işe yerleşim üzerindeki etkisini incelemek amacıyla lojistik regresyon uyguladım.
-    Üç kişilik bir ekipte iş birliği içinde çalışarak planlama, ekip çalışması ve zaman yönetimi becerilerimi geliştirdim.
-    Tüm katılımcılar arasında birincilik elde ettim.
-    """
+            "id": "datathon",
+            "title_tr": "🏆 UP School & Bitexen Women in Datathon 2024",
+            "title_en": "🏆 UP School & Bitexen Women in Datathon 2024",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/wid_kapak.PNG",
+            "desc_tr": """
+Kadınların iş gücüne katılımı, sağlık, toplumsal cinsiyet rolleri ve siyasi temsiliyetin ücret eşitsizliği üzerindeki etkisini analiz etmek için çoklu doğrusal regresyon modeli oluşturdum.
+Toplumsal cinsiyet rollerinin işe yerleşim üzerindeki etkisini incelemek amacıyla lojistik regresyon uyguladım.
+Üç kişilik bir ekipte iş birliği içinde çalışarak planlama, ekip çalışması ve zaman yönetimi becerilerimi geliştirdim.
+Tüm katılımcılar arasında birincilik elde ettim.
+""",
+            "desc_en": """
+Built a multiple linear regression model to analyze the influence of women’s labor force participation, health, gender roles, 
+and political representation on wage inequality.
+Applied logistic regression to examine how gender roles impact job placement.
+Collaborated in a team of three, gaining experience in planning, teamwork, and time management.
+Achieved first place among all participants.
+""",
+            "video": "https://www.youtube.com/watch?v=c_L3OH6Hng4",
+            "links": [
+                ("Sunum", "assets/Women in Datathon - Mar24.pptx", "#667eea", "download"),
+                ("Kaggle Notebook", "https://www.kaggle.com/code/edacelikeloglu/1st-place-upschoolxbitexen-datathon-mar24/notebook", "#764ba2", "external")
+            ]
         },
         {
-            "title": "3rd Place – AI for Life Sciences 2 (Gradient Zero & University of Vienna, Jun–Oct 2024)",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/ai4life_kapak.PNG",
-            "details_en": """
-    Participated in a competition organized by Gradient Zero in collaboration with the University of Vienna on the Taikai platform.
-    Groundwater Level Prediction: Predicted groundwater levels for specific regions in Austria (2022–2024) using historical groundwater data (1930–2021) and external variables. Evaluated prediction accuracy with the SMAPE metric.
-    External Variable Identification for GRACE Time Series: Identified external predictors such as weather, precipitation, snowmelt, and surface temperature for five-year GRACE groundwater forecasts.
-    Performed data analysis and modeling using Python and relevant libraries (TensorFlow, Keras, scikit-learn, xarray).
-    Delivered a source code package and a presentation video summarizing the methodology and results.
-    """,
-            "details_tr": """
-    Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum.
-    Yeraltı Su Seviyesi Tahmini: 1930–2021 yıllarına ait tarihsel verilerle Avusturya’daki belirli bölgelerin (2022–2024) su seviyesi tahminlerini gerçekleştirdim. Tahmin doğruluğunu SMAPE metriğiyle değerlendirdim.
-    GRACE Zaman Serileri için Dışsal Değişken Belirleme: Hava durumu, yağış, kar erimesi ve yüzey sıcaklığı gibi dışsal faktörleri beş yıllık GRACE yeraltı suyu tahminleri için belirledim.
-    Python ve ilgili kütüphaneleri (TensorFlow, Keras, scikit-learn, xarray) kullanarak veri analizi ve modelleme yaptım.
-    Yöntemi ve sonuçları özetleyen bir sunum videosu ve kaynak kod paketi teslim ettim.
-    """
+            "id": "life_sci",
+            "title_tr": "🌍 AI for Life Sciences – Yeraltı Suyu Tahmini",
+            "title_en": "🌍 AI for Life Sciences – Groundwater Prediction",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
+            "desc_tr": "GRACE uydu verileriyle Avusturya’daki yeraltı suyu seviyelerinin zaman serisi analizi.",
+            "desc_en": "Time series analysis and prediction of groundwater levels in Austria using GRACE satellite data.",
+            "video": "https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
+            "links": [
+                ("Sunum", "assets/AI_for_Life_Sciences_Presentation.pptx", "#56ab2f", "download"),
+                ("GitHub", "https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2", "#a8edea", "external")
+            ]
         },
         {
-            "title": "Istanbul Housing Market & Weather Analysis (Sahibinden + Open Meteo)",
-            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.PNG",
-            "details_en": """
-    I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources.
-    Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale.
-    Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends.
-    The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization.
-    """,
-            "details_tr": """
-    İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim.
-    Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim.
-    Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim.
-    Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.
-    """
+            "id": "sahibinden",
+            "title_tr": "🏠 Konut Piyasası ve Hava Durumu İlişkisi Analizi",
+            "title_en": "🏠 Housing Market & Weather Dynamics in Istanbul",
+            "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.png",
+            "desc_tr": "İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
+            "desc_en": "I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources. Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale. Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends. The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization."
         },
         {
-            "title": "Power BI – Market & Performance Dashboard",
+            "id": "powerbi",
+            "title_tr": "📊 Satış Analizleri – Power BI Dashboard",
+            "title_en": "📊 Sales Analyses – Power BI Dashboard",
             "thumb": "https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/powerbi1.PNG",
-            "details_en": """
-    Developed an interactive Power BI dashboard for business performance monitoring and strategic decision support.
-    The report visualizes KPIs, regional sales, and trend analyses with drill-down capabilities.
-    Data sources were integrated via Excel and SQL connections, optimized with Power Query transformations.
-    """,
-            "details_tr": """
-    İş performansını izlemek ve stratejik karar desteği sağlamak için etkileşimli bir Power BI panosu geliştirdim.
-    Rapor; KPI’lar, bölgesel satışlar ve trend analizlerini detaylı inceleme (drill-down) özelliğiyle sunmaktadır.
-    Veri kaynakları Excel ve SQL bağlantıları üzerinden entegre edilip Power Query dönüşümleriyle optimize edilmiştir.
-    """
+            "desc_tr": "Power BI ile oluşturduğum bu etkileşimli satış özetleri dashboard’u farklı bölge ve ürün kategorilerindeki performans metriklerini görselleştirir.",
+            "desc_en": "An interactive Power BI dashboard visualizing performance metrics across regions and product categories.",
+            "pdf": "assets/Eda_Celikeloglu_Sales_Summaries.pdf",
+            "powerbi_link": "https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2"
         }
     ]
 
