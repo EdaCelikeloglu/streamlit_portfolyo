@@ -396,8 +396,8 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
             "title_tr":"🏠 Konut Piyasası ve Hava Durumu Iliskisi Analizi",
             "title_en":"🏠 Housing Market & Weather Dynamics in Istanbul",
             "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.png",
-            "desc_tr":"Istanbul’daki konut piyasası dinamikleri ile hava koşulları arasındaki ilişkiyi, Open-Meteo API’si ve satılık ilan etkileşim metriklerini birleştirerek SARIMAX ile analiz ettim.",
-            "desc_en":"Analyzed Istanbul housing dynamics vs. weather; integrated Open-Meteo API with listing engagement metrics; modeled effects via SARIMAX.",
+            "desc_tr":"İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
+            "desc_en":"I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources. Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale. Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends. The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization.",
             "links":[]
         },
         {
