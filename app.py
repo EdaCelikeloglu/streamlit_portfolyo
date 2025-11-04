@@ -384,7 +384,7 @@ Python (TensorFlow, Keras, scikit-learn, xarray) ile modelleme yapıldı; sunum 
 Groundwater level prediction for Austria (2022-2024) using 1930-2021 history and exogenous variables (SMAPE for accuracy).
 Identified GRACE external drivers: weather, precipitation, snowmelt, temperature.
 Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source code and a presentation video.""",
-            "video":"https://www.youtube.com/watch?v=UTqxLyytgKM&t=191s",
+            "video":"https://www.youtube.com/watch?v=UTqxLyytgKM",
             "links":[
                 {"label_tr":"Sunum (PPTX)","label_en":"Presentation (PPTX)","href":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/AI_for_Life_Sciences_Presentation.pptx"},
                 {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/dilaracankaya/AI_4_Life_Sciences_Hackathon2_Task2"}
