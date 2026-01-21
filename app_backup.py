@@ -35,98 +35,9 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     
     body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 50%, #f3e5f5 100%);
+        background-color: #F8F9FB;
         color: #2C2C2C;
         font-family: 'Poppins', sans-serif;
-    }
-
-    /* Streamlit main container background */
-    .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 50%, #f3e5f5 100%);
-    }
-
-    /* Header background fix */
-    header[data-testid="stHeader"] {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 50%, #f3e5f5 100%);
-    }
-
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-    }
-
-    [data-testid="stSidebar"] * {
-        color: white !important;
-    }
-
-    [data-testid="stSidebar"] .stMarkdown {
-        color: white !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox label {
-        color: white !important;
-    }
-
-    [data-testid="stSidebar"] .stRadio label {
-        color: white !important;
-    }
-
-    /* Selectbox dropdown styling - More specific selectors */
-    [data-testid="stSidebar"] .stSelectbox > div > div {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox option {
-        color: #2C2C2C !important;
-        background-color: white !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox input {
-        color: #2C2C2C !important;
-    }
-
-    /* Force all text inside selectbox to be dark */
-    [data-testid="stSidebar"] .stSelectbox * {
-        color: #2C2C2C !important;
-    }
-
-    /* Selected value in selectbox - multiple approaches */
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] span {
-        color: #2C2C2C !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] div[role="button"] {
-        color: #2C2C2C !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] div[role="button"] span {
-        color: #2C2C2C !important;
-    }
-
-    [data-testid="stSidebar"] .stSelectbox svg {
-        fill: #2C2C2C !important;
-    }
-
-    /* Override any white color in selectbox */
-    [data-testid="stSidebar"] .stSelectbox [style*="color: white"],
-    [data-testid="stSidebar"] .stSelectbox [style*="color: rgb(255, 255, 255)"],
-    [data-testid="stSidebar"] .stSelectbox [style*="color:#fff"] {
-        color: #2C2C2C !important;
-    }
-
-    /* Radio button styling */
-    [data-testid="stSidebar"] .stRadio > div {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 0.5rem;
-        border-radius: 10px;
-    }
-
-    [data-testid="stSidebar"] hr {
-        border-color: rgba(255, 255, 255, 0.3) !important;
     }
 
     .hero-section {
@@ -275,57 +186,12 @@ st.markdown("""
     }
 
     .contact-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         padding: 2rem;
         border-radius: 20px;
         color: white;
-        box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        box-shadow: 0 10px 30px rgba(240,147,251,0.3);
         margin-bottom: 2rem;
-    }
-
-    .contact-form-card {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        padding: 2rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(118,75,162,0.4);
-        border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* Style the form container */
-    [data-testid="column"]:has(form[data-testid="stForm"]) {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        padding: 2rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(118,75,162,0.4);
-        border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* Form içindeki elementlerin renkleri */
-    [data-testid="column"]:has(form[data-testid="stForm"]) h3 {
-        color: white !important;
-    }
-
-    [data-testid="column"]:has(form[data-testid="stForm"]) label {
-        color: white !important;
-    }
-
-    [data-testid="column"]:has(form[data-testid="stForm"]) input,
-    [data-testid="column"]:has(form[data-testid="stForm"]) textarea {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        color: #2C2C2C !important;
-    }
-
-    [data-testid="column"]:has(form[data-testid="stForm"]) button[kind="primary"] {
-        background: white !important;
-        color: #667eea !important;
-        border: none !important;
-        font-weight: 600 !important;
-    }
-
-    [data-testid="column"]:has(form[data-testid="stForm"]) button[kind="primary"]:hover {
-        background: rgba(255, 255, 255, 0.9) !important;
-        transform: translateY(-2px);
     }
 
     .about-card {
@@ -405,69 +271,6 @@ st.markdown("""
         color: #666;
         font-weight: 500;
     }
-
-    /* CV Download Button Styling */
-    .stDownloadButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        color: white !important;
-        border: none !important;
-        padding: 15px 35px !important;
-        border-radius: 30px !important;
-        font-weight: 600 !important;
-        font-size: 1.1rem !important;
-        box-shadow: 0 8px 25px rgba(102,126,234,0.4) !important;
-        transition: all 0.3s ease !important;
-        font-family: 'Poppins', sans-serif !important;
-    }
-
-    .stDownloadButton > button:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 12px 35px rgba(102,126,234,0.6) !important;
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
-    }
-
-    .stDownloadButton > button:active {
-        transform: translateY(-1px) !important;
-        box-shadow: 0 6px 20px rgba(102,126,234,0.5) !important;
-    }
-
-    /* Profile Image Styling */
-    .profile-image-hero img {
-        border-radius: 50% !important;
-        width: 280px !important;
-        height: 280px !important;
-        object-fit: cover !important;
-        box-shadow: 0 20px 40px rgba(102,126,234,0.3) !important;
-        border: 5px solid white !important;
-    }
-
-    .profile-image-about img {
-        border-radius: 50% !important;
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: cover !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
-        border: 4px solid white !important;
-    }
-
-    /* Streamlit image container override */
-    div[data-testid="stImage"] img {
-        border-radius: inherit !important;
-    }
-
-    .profile-image-hero div[data-testid="stImage"] img {
-        border-radius: 50% !important;
-        width: 280px !important;
-        height: 280px !important;
-        object-fit: cover !important;
-    }
-
-    .profile-image-about div[data-testid="stImage"] img {
-        border-radius: 50% !important;
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: cover !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -511,11 +314,14 @@ with st.sidebar:
         on_change=on_language_change
     )
 
+    st.markdown("---")
+    st.markdown("### 📍 Hızlı Navigasyon")
+
     labels = [section_labels[st.session_state.language][s] for s in sections]
     current_label = section_labels[st.session_state.language][st.session_state.selected_section]
 
     selected_label = st.radio(
-        "",
+        "Navigasyon",
         labels,
         index=labels.index(current_label),
         key="nav_selector"
@@ -586,59 +392,44 @@ content = {
 
 # Ana içerik
 def show_hero_section():
-    import base64
-    with open("assets/profile_picture.jpg", "rb") as img_file:
-        img_data = base64.b64encode(img_file.read()).decode()
-    
     st.markdown(f"""
-        <div class="hero-section" style="display: flex; align-items: center; justify-content: space-between; padding: 3rem 4rem;">
-            <div style="flex: 1; text-align: left;">
-                <h1 class="hero-title" style="text-align: left;">{content[language]["hero_title"]}</h1>
-                <p class="hero-subtitle" style="text-align: left; margin-top: 1rem;">{content[language]["hero_subtitle"]}</p>
-                <p class="typing-text" style="text-align: left;">{content[language]["typing_text"]}</p>
-            </div>
-            <div style="flex: 0 0 auto; margin-left: 3rem;">
-                <img src="data:image/jpeg;base64,{img_data}" 
-                     style="width: 250px; height: 250px; border-radius: 50%; 
-                            object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-                            border: 5px solid white; position: relative; z-index: 2;">
+        <div class="hero-section">
+            <h1 class="hero-title">{content[language]["hero_title"]}</h1>
+            <div style="width:100px;height:4px;background:rgba(255,255,255,0.8);margin:0 auto 1.5rem auto;border-radius:2px;"></div>
+            <p class="hero-subtitle">{content[language]["hero_subtitle"]}</p>
+            <p class="typing-text">{content[language]["typing_text"]}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Profil fotoğrafı bölümü
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        st.markdown("""
+        <div style="text-align: center; padding: 2rem;">
+            <div class="profile-avatar">
+                <span style="font-size: 7rem; color: white; position: relative; z-index: 2;">👩‍💼</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     # İstatistik kartları
-    stats_labels = {
-        "Türkçe": {
-            "experience": "Yıl Deneyim",
-            "projects": "Proje",
-            "awards": "Yarışma Ödülü",
-            "technologies": "Teknoloji"
-        },
-        "English": {
-            "experience": "Years Experience",
-            "projects": "Projects",
-            "awards": "Competition Awards",
-            "technologies": "Technologies"
-        }
-    }
-    
-    st.markdown(f"""
+    st.markdown("""
     <div class="stats-container">
         <div class="stat-card">
             <div class="stat-number">6+</div>
-            <div class="stat-label">{stats_labels[language]["experience"]}</div>
+            <div class="stat-label">Yıl Deneyim</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">4+</div>
-            <div class="stat-label">{stats_labels[language]["projects"]}</div>
+            <div class="stat-label">Proje</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">2</div>
-            <div class="stat-label">{stats_labels[language]["awards"]}</div>
+            <div class="stat-label">Yarışma Ödülü</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">10+</div>
-            <div class="stat-label">{stats_labels[language]["technologies"]}</div>
+            <div class="stat-label">Teknoloji</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -647,27 +438,41 @@ def show_hero_section():
 def show_about_section():
     st.markdown(f"## {content[language]['about_title']}")
 
-    # Streamlit markdown ile göster
-    st.markdown(content[language]["about_text"])
+    col1, col2 = st.columns([2, 1])
 
-    # CV İndirme Butonu - Streamlit Download Button
-    try:
-        with open("assets/CV_Eda_Celikeloglu.pdf", "rb") as pdf_file:
-            pdf_data = pdf_file.read()
-        
-        st.markdown("<br>", unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            cv_label = "📄 CV'mi İndir" if language == 'Türkçe' else "📄 Download My CV"
-            st.download_button(
-                label=cv_label,
-                data=pdf_data,
-                file_name="CV_Eda_Celikeloglu.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.error("CV dosyası bulunamadı!")
+    with col1:
+        st.markdown(f"""
+        <div class="about-card">
+            {content[language]["about_text"]}
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        # Profil fotoğrafı placeholder
+        st.markdown("""
+        <div style="text-align: center; padding: 2rem;">
+            <div style="width: 200px; height: 200px; border-radius: 50%; 
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                        margin: 0 auto; display: flex; align-items: center; justify-content: center;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <span style="font-size: 4rem; color: white;">👩‍💼</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # CV İndirme Butonu
+    st.markdown(f"""
+    <div style="text-align:center;margin-top:1.5rem;">
+        <a href="assets/CV_Eda_Celikeloglu.pdf" download
+           style="padding:15px 35px;border-radius:30px;
+                  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:white;
+                  text-decoration:none;font-weight:600;font-size:1.1rem;
+                  box-shadow:0 8px 25px rgba(102,126,234,0.4);
+                  transition:all 0.3s ease;display:inline-block;">
+           📄 {'CV’mi İndir' if language == 'Türkçe' else 'Download My CV'}
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def show_skills_section():
@@ -738,7 +543,7 @@ def show_projects_section():
 Toplumsal cinsiyet rollerinin işe yerleşim üzerindeki etkisini incelemek amacıyla lojistik regresyon uyguladım.
 Üç kişilik bir ekipte iş birliği içinde çalışarak planlama, ekip çalışması ve zaman yönetimi becerilerimi geliştirdim.
 Tüm katılımcılar arasında birincilik elde ettim.""",
-            "desc_en": """Built a multiple linear regression model to analyze the influence of women's labor force participation, health, gender roles, and political representation on wage inequality.
+            "desc_en": """Built a multiple linear regression model to analyze the influence of women’s labor force participation, health, gender roles, and political representation on wage inequality.
 Applied logistic regression to examine how gender roles impact job placement.
 Collaborated in a team of three, gaining experience in planning, teamwork, and time management.
 Achieved first place among all participants.""",
@@ -774,7 +579,7 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
             "title_tr":"🏠 Konut Piyasası ve Hava Durumu Iliskisi Analizi",
             "title_en":"🏠 Housing Market & Weather Dynamics in Istanbul",
             "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/sahibinden_kapak.png",
-            "desc_tr":"İstanbul'daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API'si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
+            "desc_tr":"İstanbul’daki konut piyasası dinamikleri ile hava durumu koşulları arasındaki ilişkiyi açık veri kaynaklarını entegre ederek analiz ettim. Open-Meteo API’si aracılığıyla gerçek zamanlı meteorolojik verileri topladım ve bu verileri satılık dairelerin görüntülenme ve aranma istatistikleriyle birleştirdim. Zaman serisi modellemesi kullanarak sıcaklık, yağış ve diğer hava değişkenlerinin kullanıcı etkileşim eğilimleri üzerindeki etkisini inceledim. Analizde dışsal hava faktörlerinin etkisini ölçmek için SARIMAX modelinden yararlandım ve elde ettiğim bulguları detaylı bir rapor ve görselleştirmeler eşliğinde sundum.",
             "desc_en":"I analyzed the relationship between housing market dynamics and weather conditions in Istanbul by integrating open data sources. Using the Open-Meteo API, I collected real-time meteorological data and combined it with digital metrics on the views and search volumes of apartments listed for sale. Through time series modeling, I examined how changes in temperature, precipitation, and other weather variables influenced user engagement trends. The analysis employed the SARIMAX model to capture the impact of exogenous weather factors, and I presented the key insights through a detailed report and visualization.",
             "links":[]
         },
@@ -784,7 +589,7 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
             "title_tr":"📊 Satış Analizleri - Power BI Dashboard",
             "title_en":"📊 Sales Analyses - Power BI Dashboard",
             "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/powerbi1.PNG",
-            "desc_tr":"Bölgeler ve ürün kategorileri genelinde performans metriklerini görselleştiren etkileşimli bir Power BI dashboard'u.",
+            "desc_tr":"Bölgeler ve ürün kategorileri genelinde performans metriklerini görselleştiren etkileşimli bir Power BI dashboard’u.",
             "desc_en":"Interactive Power BI dashboard visualizing performance across regions and product categories.",
             "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Eda_Celikeloglu_Sales_Summaries.pdf",
             "powerbi_link":"https://app.powerbi.com/reportEmbed?reportId=d8b1f2ec-5c17-4864-a9d3-64f415eb5f6e&autoAuth=true&ctid=92e0b030-5e40-4cdd-8ff8-51fa8a4504e2",
@@ -846,7 +651,7 @@ def inject_modal_top(p, language: str):
     if p.get("video"):
         video_html = f"<div style='margin-top:12px'><iframe width='100%' height='400' src='{p['video'].replace('watch?v=', 'embed/')}' frameborder='0' allowfullscreen></iframe></div>"
 
-    # Modal içerik + stil (parent DOM'a basılacak)
+    # Modal içerik + stil (parent DOM’a basılacak)
     content_html = f"""
     <style>
       #x-modal-overlay {{ position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:2147483646; }}
@@ -898,89 +703,85 @@ def inject_modal_top(p, language: str):
     </script>
     """
 
-    # 0 px yüksekliğe göm; görünür olan parent'a eklenen modal olur
+    # 0 px yüksekliğe göm; görünür olan parent’a eklenen modal olur
     components.html(js, height=0, width=0)
 
 
 def show_contact_section():
     st.markdown(f"## {content[language]['contact_title']}")
 
-    # İletişim bilgileri ve mesaj formu yan yana
-    col1, col2 = st.columns([1, 1])
-    
-    with col1:
+    if language == "Türkçe":
+        st.markdown("""
+        <div class="contact-card">
+            <h3 style="color:white; margin-bottom: 1rem;">İletişime Geçelim! 🚀</h3>
+            <p style="opacity: 0.9;">Projeleriniz, veri bilimi üzerine fikir alışverişi veya iş birliği fırsatları için benimle iletişime geçebilirsiniz.</p>
+            <p style="opacity: 0.9;">Aşağıdaki kanallardan ulaşabilirsiniz ya da formu doldurarak mesaj gönderebilirsiniz 👇</p>
+            <br>
+            <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
+            <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
+            <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
+            <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div class="contact-card">
+            <h3 style="color:white; margin-bottom: 1rem;">Let's Get in Touch! 🚀</h3>
+            <p style="opacity: 0.9;">Feel free to reach out for projects, data science discussions, or collaboration opportunities.</p>
+            <p style="opacity: 0.9;">You can contact me via the links below or send me a direct message through the form 👇</p>
+            <br>
+            <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
+            <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
+            <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
+            <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # --- Tek parça hissi için formu aynı kartın devamı gibi gösteriyoruz ---
+    with st.form("contact_form"):
         if language == "Türkçe":
-            st.markdown("""
-            <div class="contact-card">
-                <h3 style="color:white; margin-bottom: 1rem;">İletişime Geçelim! 🚀</h3>
-                <p style="opacity: 0.9;">Projeleriniz, veri bilimi üzerine fikir alışverişi veya iş birliği fırsatları için benimle iletişime geçebilirsiniz.</p>
-                <p style="opacity: 0.9;">Aşağıdaki kanallardan ulaşabilirsiniz 👇</p>
-                <br>
-                <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
-                <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
-                <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
-                <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("### 💌 Mesaj Gönder")
+            name = st.text_input("İsminiz")
+            email = st.text_input("E-posta Adresiniz")
+            message = st.text_area("Mesajınız")
+            submit_label = "Gönder"
+            success_msg = "Mesajınız başarıyla gönderildi! Teşekkür ederim 🙏"
+            warning_msg = "Lütfen tüm alanları doldurun."
+            subject_prefix = "Yeni mesaj:"
         else:
-            st.markdown("""
-            <div class="contact-card">
-                <h3 style="color:white; margin-bottom: 1rem;">Let's Get in Touch! 🚀</h3>
-                <p style="opacity: 0.9;">Feel free to reach out for projects, data science discussions, or collaboration opportunities.</p>
-                <p style="opacity: 0.9;">You can contact me via the links below �</p>
-                <br>
-                <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
-                <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
-                <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
-                <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("### 💌 Send a Message")
+            name = st.text_input("Your Name")
+            email = st.text_input("Your Email")
+            message = st.text_area("Message")
+            submit_label = "Send"
+            success_msg = "Your message has been sent successfully! Thank you 🙏"
+            warning_msg = "Please fill in all fields."
+            subject_prefix = "New message:"
 
-    with col2:
-        # Mesaj gönderme formu
-        with st.container():
-            with st.form("contact_form"):
-                if language == "Türkçe":
-                    st.markdown("### 💌 Mesaj Gönder")
-                    name = st.text_input("İsminiz")
-                    email = st.text_input("E-posta Adresiniz")
-                    message = st.text_area("Mesajınız")
-                    submit_label = "Gönder"
-                    success_msg = "Mesajınız başarıyla gönderildi! Teşekkür ederim 🙏"
-                    warning_msg = "Lütfen tüm alanları doldurun."
-                    subject_prefix = "Yeni mesaj:"
-                else:
-                    st.markdown("### 💌 Send a Message")
-                    name = st.text_input("Your Name")
-                    email = st.text_input("Your Email")
-                    message = st.text_area("Message")
-                    submit_label = "Send"
-                    success_msg = "Your message has been sent successfully! Thank you 🙏"
-                    warning_msg = "Please fill in all fields."
-                    subject_prefix = "New message:"
+        submitted = st.form_submit_button(submit_label, use_container_width=True)
 
-                submitted = st.form_submit_button(submit_label, use_container_width=True)
+        if submitted:
+            if name and email and message:
+                msg = MIMEMultipart()
+                msg["From"] = SENDER_EMAIL
+                msg["To"] = RECEIVER_EMAIL
+                msg["Subject"] = f"{subject_prefix} {name}"
+                msg["Reply-To"] = email
+                msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}", "plain"))
 
-                if submitted:
-                    if name and email and message:
-                        msg = MIMEMultipart()
-                        msg["From"] = SENDER_EMAIL
-                        msg["To"] = RECEIVER_EMAIL
-                        msg["Subject"] = f"{subject_prefix} {name}"
-                        msg["Reply-To"] = email
-                        msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}", "plain"))
-
-                        try:
-                            server = smtplib.SMTP("smtp.gmail.com", 587)
-                            server.starttls()
-                            server.login(SENDER_EMAIL, EMAIL_PASSWORD)
-                            server.send_message(msg)
-                            server.quit()
-                            st.success(success_msg)
-                        except Exception as e:
-                            st.error(f"E-posta gönderilirken hata oluştu: {e}")
-                    else:
-                        st.warning(warning_msg)
+                try:
+                    server = smtplib.SMTP("smtp.gmail.com", 587)
+                    server.starttls()
+                    server.login(SENDER_EMAIL, EMAIL_PASSWORD)
+                    server.send_message(msg)
+                    server.quit()
+                    st.success(success_msg)
+                except Exception as e:
+                    st.error(f"E-posta gönderilirken hata oluştu: {e}")
+            else:
+                st.warning(warning_msg)
 
 
 
@@ -1001,8 +802,8 @@ elif selected_section == "contact":
 st.markdown("---")
 st.markdown(
     """
-    <div style="text-align: center; padding: 1rem; color: #666;">
-        <p>© 2026 Eda Çelikeloğlu | Made with ❤️ and Streamlit</p>
+    <div style="text-align: center; padding: 2rem; color: #666;">
+        <p>© 2025 Eda Çelikeloğlu | Made with ❤️ and Streamlit</p>
         <p style="font-size: 0.8rem;">..</p>
     </div>
     """,
