@@ -285,47 +285,58 @@ st.markdown("""
 
     .contact-form-card {
         background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        padding: 2rem;
-        border-radius: 20px;
+        padding: 2rem 2rem 0.5rem 2rem;
+        border-radius: 20px 20px 0 0;
         box-shadow: 0 10px 30px rgba(118,75,162,0.4);
         border: 1px solid rgba(255,255,255,0.2);
+        margin-bottom: 0;
     }
 
-    /* Style the form container */
-    [data-testid="column"]:has(form[data-testid="stForm"]) {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        padding: 2rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(118,75,162,0.4);
-        border: 1px solid rgba(255,255,255,0.2);
+    /* Form container - daha spesifik selector */
+    div[data-testid="stForm"] {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+        padding: 0.5rem 2rem 2rem 2rem !important;
+        border-radius: 0 0 20px 20px !important;
+        margin-top: 0 !important;
+        box-shadow: 0 10px 30px rgba(118,75,162,0.4) !important;
     }
 
-    /* Form içindeki elementlerin renkleri */
-    [data-testid="column"]:has(form[data-testid="stForm"]) h3 {
+    div[data-testid="stForm"] label {
         color: white !important;
+        font-weight: 500 !important;
     }
 
-    [data-testid="column"]:has(form[data-testid="stForm"]) label {
-        color: white !important;
-    }
-
-    [data-testid="column"]:has(form[data-testid="stForm"]) input,
-    [data-testid="column"]:has(form[data-testid="stForm"]) textarea {
+    div[data-testid="stForm"] input,
+    div[data-testid="stForm"] textarea {
         background-color: rgba(255, 255, 255, 0.95) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
         color: #2C2C2C !important;
+        border-radius: 10px !important;
     }
 
-    [data-testid="column"]:has(form[data-testid="stForm"]) button[kind="primary"] {
+    /* Gönder butonu - çok spesifik selector */
+    div[data-testid="stForm"] button[type="submit"],
+    div[data-testid="stForm"] button[kind="primary"],
+    div[data-testid="stForm"] .stButton > button {
         background: white !important;
-        color: #667eea !important;
+        background-color: white !important;
+        color: #764ba2 !important;
         border: none !important;
         font-weight: 600 !important;
+        font-size: 1rem !important;
+        padding: 0.7rem 1.5rem !important;
+        border-radius: 25px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+        transition: all 0.3s ease !important;
     }
 
-    [data-testid="column"]:has(form[data-testid="stForm"]) button[kind="primary"]:hover {
+    div[data-testid="stForm"] button[type="submit"]:hover,
+    div[data-testid="stForm"] button[kind="primary"]:hover,
+    div[data-testid="stForm"] .stButton > button:hover {
         background: rgba(255, 255, 255, 0.9) !important;
-        transform: translateY(-2px);
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.3) !important;
     }
 
     .about-card {
@@ -468,6 +479,162 @@ st.markdown("""
         height: 200px !important;
         object-fit: cover !important;
     }
+
+    /* Testimonials Styling */
+    .testimonial-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+        border-left: 5px solid #667eea;
+        transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(102,126,234,0.2);
+    }
+    
+    .testimonial-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .testimonial-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+        border: 3px solid #667eea;
+        object-fit: cover;
+    }
+    
+    .testimonial-info h4 {
+        margin: 0;
+        color: #667eea;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .testimonial-info .role {
+        margin: 0.3rem 0 0 0;
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    .testimonial-date {
+        color: #999;
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+    }
+    
+    .testimonial-text {
+        color: #2C2C2C;
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 1rem 0;
+        text-align: justify;
+    }
+    
+    .testimonial-text p {
+        margin-bottom: 1rem;
+    }
+    
+    .linkedin-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: white !important;
+        color: #0077B5 !important;
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
+        text-decoration: none !important;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+        border: 2px solid #0077B5;
+    }
+    
+    .linkedin-badge:hover {
+        background: #0077B5 !important;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,119,181,0.3);
+    }
+    
+    .linkedin-badge span {
+        color: inherit !important;
+    }
+    
+    .linkedin-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* İletişim sayfası - buton linkleri */
+    .contact-card a {
+        border: none !important;
+        border-bottom: none !important;
+        color: white !important;
+    }
+    
+    /* İletişim formu - section selector */
+    section[data-testid="stForm"] {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+        padding: 2rem !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(118,75,162,0.4) !important;
+        min-height: 450px !important;
+    }
+    
+    section[data-testid="stForm"] h3 {
+        color: white !important;
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+    
+    section[data-testid="stForm"] label {
+        color: white !important;
+        font-weight: 500 !important;
+    }
+    
+    section[data-testid="stForm"] input,
+    section[data-testid="stForm"] textarea {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #2C2C2C !important;
+        border-radius: 10px !important;
+    }
+    
+    section[data-testid="stForm"] button {
+        background: white !important;
+        background-color: white !important;
+        color: #764ba2 !important;
+        border: none !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        padding: 0.7rem 1.5rem !important;
+        border-radius: 25px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    }
+    
+    section[data-testid="stForm"] button:hover {
+        background: rgba(255, 255, 255, 0.9) !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.3) !important;
+    }
+    
+    div[data-testid="stForm"] {
+        border-radius: 20px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -475,7 +642,7 @@ st.markdown("""
 
 
 # Sekme anahtarlarını sabitle
-sections = ["home", "about", "skills", "projects", "contact"]
+sections = ["home", "about", "skills", "projects", "testimonials", "contact"]
 
 # Çeviriler
 section_labels = {
@@ -484,6 +651,7 @@ section_labels = {
         "about": "👨‍💼 Hakkımda",
         "skills": "🛠️ Yetenekler",
         "projects": "📊 Projeler",
+        "testimonials": "💬 Referanslar",
         "contact": "📞 İletişim"
     },
     "English": {
@@ -491,6 +659,7 @@ section_labels = {
         "about": "👨‍💼 About",
         "skills": "🛠️ Skills",
         "projects": "📊 Projects",
+        "testimonials": "💬 Testimonials",
         "contact": "📞 Contact"
     }
 }
@@ -554,6 +723,7 @@ content = {
         """,
         "skills_title": "Teknik Yetenekler",
         "projects_title": "Projelerim",
+        "testimonials_title": "Referanslar",
         "contact_title": "İletişim",
         "stats_title": "İstatistiklerim"
     },
@@ -579,6 +749,7 @@ content = {
         """,
         "skills_title": "Technical Skills",
         "projects_title": "My Projects",
+        "testimonials_title": "Testimonials",
         "contact_title": "Contact",
     }
 }
@@ -902,6 +1073,141 @@ def inject_modal_top(p, language: str):
     components.html(js, height=0, width=0)
 
 
+def show_testimonials_section():
+    st.markdown(f"## {content[language]['testimonials_title']}")
+    
+    # Referans verileri
+    testimonials_data = {
+        "Türkçe": [
+            {
+                "name": "Güray Ataman",
+                "role": "Data Science Team Lead @ sahibinden.com",
+                "date": "1 Haziran 2025",
+                "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
+
+She particularly stood out for her coding skills and problem-solving abilities, delivering effective and results-oriented solutions. Eda was a reliable and collaborative team member who carried out her responsibilities with professionalism and care.
+
+It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.""",
+                "linkedin_url": "https://www.linkedin.com/in/gurayataman/",
+                "avatar": "https://ui-avatars.com/api/?name=Guray+Ataman&background=667eea&color=fff&size=200"
+            },
+            {
+                "name": "Doğu Sırt",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
+                "date": "27 Mayıs 2025",
+                "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
+
+Eda consistently demonstrated her ability to turn theoretical knowledge into practical solutions with clarity and precision. Whether it was building machine learning models, analyzing complex datasets, or collaborating on team projects, she approached every challenge with professionalism, creativity, and dedication.
+
+She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.""",
+                "linkedin_url": "https://www.linkedin.com/in/dogusirt/",
+                "avatar": "https://ui-avatars.com/api/?name=Dogu+Sirt&background=764ba2&color=fff&size=200"
+            }
+        ],
+        "English": [
+            {
+                "name": "Güray Ataman",
+                "role": "Data Science Team Lead @ sahibinden.com",
+                "date": "June 1, 2025",
+                "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
+
+She particularly stood out for her coding skills and problem-solving abilities, delivering effective and results-oriented solutions. Eda was a reliable and collaborative team member who carried out her responsibilities with professionalism and care.
+
+It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.""",
+                "linkedin_url": "https://www.linkedin.com/in/gurayataman/",
+                "avatar": "https://ui-avatars.com/api/?name=Guray+Ataman&background=667eea&color=fff&size=200"
+            },
+            {
+                "name": "Doğu Sırt",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
+                "date": "May 27, 2025",
+                "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
+
+Eda consistently demonstrated her ability to turn theoretical knowledge into practical solutions with clarity and precision. Whether it was building machine learning models, analyzing complex datasets, or collaborating on team projects, she approached every challenge with professionalism, creativity, and dedication.
+
+She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.""",
+                "linkedin_url": "https://www.linkedin.com/in/dogusirt/",
+                "avatar": "https://ui-avatars.com/api/?name=Dogu+Sirt&background=764ba2&color=fff&size=200"
+            }
+        ]
+    }
+    
+    testimonials = testimonials_data[language]
+    
+    # İki referansı yan yana göster
+    col1, col2 = st.columns(2)
+    
+    # Sol kolon - İlk referans (Güray Ataman)
+    with col1:
+        st.markdown(f"""
+        <div class="contact-card" style="min-height: 600px;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <img src="{testimonials[0]['avatar']}" 
+                     style="width: 70px; height: 70px; border-radius: 50%; 
+                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            </div>
+            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[0]['name']}</h3>
+            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                {testimonials[0]['role']}
+            </p>
+            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
+                {testimonials[0]['date']}
+            </p>
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
+            <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
+                {testimonials[0]['text']}
+            </p>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="{testimonials[0]['linkedin_url']}" target="_blank" 
+                   style="display: inline-block !important; background: white !important; color: #667eea !important; 
+                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
+                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
+                </a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Sağ kolon - İkinci referans (Doğu Sırt)
+    with col2:
+        st.markdown(f"""
+        <div class="contact-card" style="min-height: 600px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <img src="{testimonials[1]['avatar']}" 
+                     style="width: 70px; height: 70px; border-radius: 50%; 
+                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            </div>
+            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[1]['name']}</h3>
+            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                {testimonials[1]['role']}
+            </p>
+            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
+                {testimonials[1]['date']}
+            </p>
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
+            <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
+                {testimonials[1]['text']}
+            </p>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="{testimonials[1]['linkedin_url']}" target="_blank" 
+                   style="display: inline-block !important; background: white !important; color: #764ba2 !important; 
+                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
+                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
+                </a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # LinkedIn'e yönlendirme
+    if language == "Türkçe":
+        st.info("💡 Daha fazla referans ve detay için [LinkedIn profilimi](https://www.linkedin.com/in/eda-celikeloglu) ziyaret edebilirsiniz.")
+    else:
+        st.info("💡 For more recommendations and details, visit my [LinkedIn profile](https://www.linkedin.com/in/eda-celikeloglu).")
+
+
 def show_contact_section():
     st.markdown(f"## {content[language]['contact_title']}")
 
@@ -916,10 +1222,35 @@ def show_contact_section():
                 <p style="opacity: 0.9;">Projeleriniz, veri bilimi üzerine fikir alışverişi veya iş birliği fırsatları için benimle iletişime geçebilirsiniz.</p>
                 <p style="opacity: 0.9;">Aşağıdaki kanallardan ulaşabilirsiniz 👇</p>
                 <br>
-                <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
-                <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
-                <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
-                <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <div style="display: block; background: rgba(255,255,255,0.2); color: white; 
+                              padding: 0.7rem 1.3rem; border-radius: 25px; 
+                              font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                              text-align: center; border: none;">
+                        📧 edacelikeloglu@gmail.com
+                    </div>
+                    <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/EdaCelikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        🐱 GitHub
+                    </a>
+                    <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        🦆 Kaggle
+                    </a>
+                </div>
             </div>
             """, unsafe_allow_html=True)
         else:
@@ -929,58 +1260,90 @@ def show_contact_section():
                 <p style="opacity: 0.9;">Feel free to reach out for projects, data science discussions, or collaboration opportunities.</p>
                 <p style="opacity: 0.9;">You can contact me via the links below �</p>
                 <br>
-                <p style="font-size: 1.1rem;"><strong>📧 edacelikeloglu@gmail.com</strong></p>
-                <p style="font-size: 1.1rem;">💼 <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/eda-celikeloglu</a></p>
-                <p style="font-size: 1.1rem;">🐙 <a href="https://github.com/EdaCelikeloglu" target="_blank" style="color: white; text-decoration: underline;">github.com/EdaCelikeloglu</a></p>
-                <p style="font-size: 1.1rem;">📊 <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" style="color: white; text-decoration: underline;">kaggle.com/edacelikeloglu</a></p>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <div style="display: block; background: rgba(255,255,255,0.2); color: white; 
+                              padding: 0.7rem 1.3rem; border-radius: 25px; 
+                              font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                              text-align: center; border: none;">
+                        📧 edacelikeloglu@gmail.com
+                    </div>
+                    <a href="https://www.linkedin.com/in/eda-celikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/EdaCelikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        🐱 GitHub
+                    </a>
+                    <a href="https://www.kaggle.com/edacelikeloglu" target="_blank" 
+                       style="display: block !important; background: white !important; color: #667eea !important; 
+                              padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                              font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+                              text-align: center !important; border: none !important;">
+                        🦆 Kaggle
+                    </a>
+                </div>
             </div>
             """, unsafe_allow_html=True)
 
     with col2:
-        # Mesaj gönderme formu
-        with st.container():
-            with st.form("contact_form"):
-                if language == "Türkçe":
-                    st.markdown("### 💌 Mesaj Gönder")
-                    name = st.text_input("İsminiz")
-                    email = st.text_input("E-posta Adresiniz")
-                    message = st.text_area("Mesajınız")
-                    submit_label = "Gönder"
-                    success_msg = "Mesajınız başarıyla gönderildi! Teşekkür ederim 🙏"
-                    warning_msg = "Lütfen tüm alanları doldurun."
-                    subject_prefix = "Yeni mesaj:"
+        # Mesaj gönderme formu - inline CSS ile
+        if language == "Türkçe":
+            form_title = "💌 Ya da Mesaj Gönder"
+            name_label = "İsminiz"
+            email_label = "E-posta Adresiniz"
+            message_label = "Mesajınız"
+            submit_label = "📤 Gönder"
+            success_msg = "Mesajınız başarıyla gönderildi! Teşekkür ederim 🙏"
+            warning_msg = "Lütfen tüm alanları doldurun."
+            subject_prefix = "Yeni mesaj:"
+        else:
+            form_title = "💌 Send a Message"
+            name_label = "Your Name"
+            email_label = "Your Email"
+            message_label = "Message"
+            submit_label = "📤 Send"
+            success_msg = "Your message has been sent successfully! Thank you 🙏"
+            warning_msg = "Please fill in all fields."
+            subject_prefix = "New message:"
+        
+        with st.form("contact_form"):
+            # Başlık - direkt HTML
+            st.markdown(f"""
+            <h3 style="color: white; text-align: center; margin-bottom: 1.5rem; margin-top: 0;">{form_title}</h3>
+            """, unsafe_allow_html=True)
+            name = st.text_input(name_label, key="name_input")
+            email = st.text_input(email_label, key="email_input")
+            message = st.text_area(message_label, height=150, key="message_input")
+
+            submitted = st.form_submit_button(submit_label, use_container_width=True)
+
+            if submitted:
+                if name and email and message:
+                    msg = MIMEMultipart()
+                    msg["From"] = SENDER_EMAIL
+                    msg["To"] = RECEIVER_EMAIL
+                    msg["Subject"] = f"{subject_prefix} {name}"
+                    msg["Reply-To"] = email
+                    msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}", "plain"))
+
+                    try:
+                        server = smtplib.SMTP("smtp.gmail.com", 587)
+                        server.starttls()
+                        server.login(SENDER_EMAIL, EMAIL_PASSWORD)
+                        server.send_message(msg)
+                        server.quit()
+                        st.success(success_msg)
+                    except Exception as e:
+                        st.error(f"E-posta gönderilirken hata oluştu: {e}")
                 else:
-                    st.markdown("### 💌 Send a Message")
-                    name = st.text_input("Your Name")
-                    email = st.text_input("Your Email")
-                    message = st.text_area("Message")
-                    submit_label = "Send"
-                    success_msg = "Your message has been sent successfully! Thank you 🙏"
-                    warning_msg = "Please fill in all fields."
-                    subject_prefix = "New message:"
-
-                submitted = st.form_submit_button(submit_label, use_container_width=True)
-
-                if submitted:
-                    if name and email and message:
-                        msg = MIMEMultipart()
-                        msg["From"] = SENDER_EMAIL
-                        msg["To"] = RECEIVER_EMAIL
-                        msg["Subject"] = f"{subject_prefix} {name}"
-                        msg["Reply-To"] = email
-                        msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}", "plain"))
-
-                        try:
-                            server = smtplib.SMTP("smtp.gmail.com", 587)
-                            server.starttls()
-                            server.login(SENDER_EMAIL, EMAIL_PASSWORD)
-                            server.send_message(msg)
-                            server.quit()
-                            st.success(success_msg)
-                        except Exception as e:
-                            st.error(f"E-posta gönderilirken hata oluştu: {e}")
-                    else:
-                        st.warning(warning_msg)
+                    st.warning(warning_msg)
 
 
 
@@ -993,18 +1356,29 @@ elif selected_section == "skills":
     show_skills_section()
 elif selected_section == "projects":
     show_projects_section()
+elif selected_section == "testimonials":
+    show_testimonials_section()
 elif selected_section == "contact":
     show_contact_section()
 
 
 # Footer
-st.markdown("---")
 st.markdown(
     """
-    <div style="text-align: center; padding: 1rem; color: #666;">
-        <p>© 2026 Eda Çelikeloğlu | Made with ❤️ and Streamlit</p>
-        <p style="font-size: 0.8rem;">..</p>
+    <div style="position: fixed; bottom: 0; left: 0; width: 100%; 
+                background: rgba(255, 255, 255, 0.95); 
+                text-align: center; padding: 0.8rem 0; 
+                color: #666; font-size: 0.9rem;
+                border-top: 1px solid #eee;
+                z-index: 999;
+                backdrop-filter: blur(10px);">
+        <p style="margin: 0;">© 2026 Eda Çelikeloğlu | Made with ❤️ and Streamlit</p>
     </div>
     """,
     unsafe_allow_html=True
 )
+
+
+
+
+
