@@ -930,7 +930,7 @@ def show_projects_section():
             "title":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
             "title_tr":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
             "title_en":"🌌 NASA Space Weather Data - Plotly Visualization",
-            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/plotly_project.png",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/nasa_kapak.png",
             "desc_tr":"Bu projede NASA tarafından paylaşılan uzay hava olaylarını Kaggle üzerinde düzenleyerek kullanılabilir bir veri seti haline getirdim ve bu verilerle Plotly kullanarak interaktif görselleştirmeler oluşturdum. Amacım, farklı uzay hava olaylarının zaman içindeki değişimini incelemek ve kullanıcıya veriyi etkileşimli biçimde keşfetme imkanı sunmaktı. Çalışma boyunca zaman serileri, olay türlerine göre yoğunluklar ve tarih bazlı dağılımlar üzerine odaklandım. Böylece karmaşık ve teknik görünen bir veri yapısını daha okunabilir, karşılaştırılabilir ve analiz edilebilir bir hale dönüştürdüm.",
             "desc_en":"In this project, I organized space weather events shared by NASA on Kaggle into a usable dataset and created interactive visualizations using Plotly. My goal was to examine the changes in different space weather events over time and provide users with the opportunity to explore the data interactively. Throughout the work, I focused on time series, event type densities, and date-based distributions. Thus, I transformed a complex and technical-looking data structure into a more readable, comparable, and analyzable format.",
             "links":[
