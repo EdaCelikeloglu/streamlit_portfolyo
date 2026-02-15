@@ -926,6 +926,19 @@ def show_projects_section():
             ]
         },
         {
+            "id":"churninator",
+            "title":"💳 Churninator - Müşteri Kaybı Tahmini",
+            "title_tr":"💳 Churninator - Müşteri Kaybı Tahmini",
+            "title_en":"💳 Churninator - Customer Churn Prediction",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator_kapak.png",
+            "desc_tr":"İstanbul Kodluyor Projesi kapsamında Churninator adlı bir Veri Bilimi bitirme projesi geliştirdim. Projenin temel amacı, kredi kartı müşterilerinin bankadan ayrılma olasılıklarını gelişmiş veri analizi yöntemleriyle tahmin etmek. Uyguladığım model %92 recall oranına ulaşarak yüksek bir başarı sergiledi. Tamamen Python diliyle geliştirdiğim bu yazılım; veri setleri, yapılandırma dosyaları ve analiz kodlarını içeren kapsamlı bir yapıdan oluşuyor. Proje, finansal hizmetler alanında müşteri kaybını önlemek isteyen profesyonellere yönelik teknik bir çözüm sunuyor.",
+            "desc_en":"I developed a Data Science capstone project called Churninator as part of the Istanbul Kodluyor Project. The main goal of the project is to predict the likelihood of credit card customers leaving the bank using advanced data analysis methods. The model I implemented achieved a high success rate with 92% recall. This software, developed entirely in Python, consists of a comprehensive structure including datasets, configuration files, and analysis codes. The project offers a technical solution for professionals in the financial services sector who want to prevent customer churn.",
+            "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator.pdf",
+            "links":[
+                {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Churninator"}
+            ]
+        },
+        {
             "id":"datathon",
             "title":"🏆 UP School & Bitexen Women in Datathon 2024",
             "title_tr":"🏆 UP School & Bitexen Women in Datathon 2024",
