@@ -642,7 +642,7 @@ st.markdown("""
 
 
 # Sekme anahtarlarını sabitle
-sections = ["home", "about", "skills", "projects", "testimonials", "contact"]
+sections = ["home", "about", "skills", "awards", "projects", "testimonials", "contact"]
 
 # Çeviriler
 section_labels = {
@@ -651,6 +651,7 @@ section_labels = {
         "about": "👨‍💼 Hakkımda",
         "skills": "🛠️ Yetenekler",
         "projects": "📊 Projeler",
+        "awards": "🏆 Ödüller",
         "testimonials": "💬 Referanslar",
         "contact": "📞 İletişim"
     },
@@ -659,6 +660,7 @@ section_labels = {
         "about": "👨‍💼 About",
         "skills": "🛠️ Skills",
         "projects": "📊 Projects",
+        "awards": "🏆 Awards",
         "testimonials": "💬 Testimonials",
         "contact": "📞 Contact"
     }
@@ -876,36 +878,15 @@ import json
 import streamlit as st
 import streamlit.components.v1 as components
 
-def show_projects_section():
-    st.markdown(f"## {content[language]['projects_title']}")
-
-    # ===== CSS (grid + kart) =====
-    st.markdown("""
-    <style>
-      .proj-card{
-        background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);
-        padding:12px 12px 16px;transition:transform .2s ease, box-shadow .2s ease;margin-bottom:18px;
-      }
-      .proj-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.14); }
-      .proj-title{
-        font-family:'Poppins',sans-serif;font-weight:600;color:#4B0082;margin:6px 0 10px;text-align:center;
-      }
-      .proj-thumb{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
-    </style>
-    """, unsafe_allow_html=True)
-
-    t = (language == "Türkçe")
-    lbl_view_details = "📌 Ayrıntılar için tıklayınız" if t else "📌 Click to view details"
-
-    # ===== Projeler =====
-    projects = [
-        {
-            "id":"youtube_ai",
-            "title":"🤖 YouTube AI Scraping Agent",
-            "title_tr":"🤖 YouTube AI Scraping Agent",
-            "title_en":"🤖 YouTube AI Scraping Agent",
-            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/youtube_ai_kapak.png",
-            "desc_tr":"Bir YouTube bağlantısı üzerinden sanatçı tespiti yapan ve ilgili sanatçının ilk stüdyo albümündeki tüm şarkı sözlerini otomatik olarak analiz eden bir yazılım projesi geliştirdim. Python tabanlı bu sistemde, Genius platformundan veri çekmek için Apify araçlarını kullanırken, albüm bilgilerini belirlemek için yapay zeka modellerinden yararlandım. Süreç boyunca her şarkı için karakter, kelime ve token sayıları hesaplayarak yapılandırılmış veriler oluşturdum. Elde ettiğim verileri, MD5 karma değerleri ve vektör gömmeleri aracılığıyla teknik bir analize dönüştürerek sundum. Proje, özellikle veri kazıma ve dil modellerinin entegrasyonu ile deterministik çıktılar üretmeye odaklanıyor.",
+# ===== Projeler (Global) =====
+projects = [
+    {
+        "id":"youtube_ai",
+        "title":"🤖 YouTube AI Scraping Agent",
+        "title_tr":"🤖 YouTube AI Scraping Agent",
+        "title_en":"🤖 YouTube AI Scraping Agent",
+        "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/youtube_ai_kapak.png",
+        "desc_tr":"Bir YouTube bağlantısı üzerinden sanatçı tespiti yapan ve ilgili sanatçının ilk stüdyo albümündeki tüm şarkı sözlerini otomatik olarak analiz eden bir yazılım projesi geliştirdim. Python tabanlı bu sistemde, Genius platformundan veri çekmek için Apify araçlarını kullanırken, albüm bilgilerini belirlemek için yapay zeka modellerinden yararlandım. Süreç boyunca her şarkı için karakter, kelime ve token sayıları hesaplayarak yapılandırılmış veriler oluşturdum. Elde ettiğim verileri, MD5 karma değerleri ve vektör gömmeleri aracılığıyla teknik bir analize dönüştürerek sundum. Proje, özellikle veri kazıma ve dil modellerinin entegrasyonu ile deterministik çıktılar üretmeye odaklanıyor.",
             "desc_en":"I developed a software project that detects artists from a YouTube link and automatically analyzes all lyrics from the artist's first studio album. In this Python-based system, I used Apify tools to scrape data from the Genius platform while leveraging AI models to determine album information. Throughout the process, I calculated character, word, and token counts for each song to create structured data. I transformed the obtained data into technical analysis through MD5 hash values and vector embeddings. The project focuses on producing deterministic outputs through data scraping and language model integration.",
             "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/YouTube_AI_Scraping_Agent.pdf",
             "links":[
@@ -1014,6 +995,27 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
         }
     ]
 
+def show_projects_section():
+    st.markdown(f"## {content[language]['projects_title']}")
+
+    # ===== CSS (grid + kart) =====
+    st.markdown("""
+    <style>
+      .proj-card{
+        background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);
+        padding:12px 12px 16px;transition:transform .2s ease, box-shadow .2s ease;margin-bottom:18px;
+      }
+      .proj-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.14); }
+      .proj-title{
+        font-family:'Poppins',sans-serif;font-weight:600;color:#4B0082;margin:6px 0 10px;text-align:center;
+      }
+      .proj-thumb{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    t = (language == "Türkçe")
+    lbl_view_details = "📌 Ayrıntılar için tıklayınız" if t else "📌 Click to view details"
+
     # ===== state =====
     if "active_modal" not in st.session_state:
         st.session_state["active_modal"] = None
@@ -1027,20 +1029,22 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
         st.rerun()
 
     # ===== grid =====
+    # Ödül projelerini hariç tut
+    filtered_projects = [p for p in projects if p["id"] not in ["datathon", "life_sci"]]
+    
     # Projeleri 2'şer 2'şer satırlara böl
     cols_per_row = 2
-    for i in range(0, len(projects), cols_per_row):
+    for i in range(0, len(filtered_projects), cols_per_row):
         cols = st.columns(cols_per_row)
         for j, col in enumerate(cols):
-            if i + j < len(projects):
-                p = projects[i + j]
+            if i + j < len(filtered_projects):
+                p = filtered_projects[i + j]
                 with col:
                     st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
                     st.image(p["thumb"], use_container_width=True)
                     if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
                         open_modal(p["id"])
                     st.markdown("</div>", unsafe_allow_html=True)
-            st.markdown("</div>", unsafe_allow_html=True)
 
     # ===== modal (gerçek popup; parent DOM'a enjekte) =====
     if st.session_state.get("active_modal"):
@@ -1130,6 +1134,58 @@ def inject_modal_top(p, language: str, modal_id: str):
 
     # 0 px yüksekliğe göm; görünür olan parent'a eklenen modal olur
     components.html(js, height=0, width=0)
+
+
+def show_awards_section():
+    st.markdown("## 🏆 " + ("Ödüller" if language == "Türkçe" else "Awards"))
+    
+    # ===== CSS (grid + kart) =====
+    st.markdown("""
+    <style>
+      .proj-card{
+        background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);
+        padding:12px 12px 16px;transition:transform .2s ease, box-shadow .2s ease;margin-bottom:18px;
+      }
+      .proj-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.14); }
+      .proj-title{
+        font-family:'Poppins',sans-serif;font-weight:600;color:#4B0082;margin:6px 0 10px;text-align:center;
+      }
+      .proj-thumb{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    t = (language == "Türkçe")
+    lbl_view_details = "📌 Ayrıntılar için tıklayınız" if t else "📌 Click to view details"
+    
+    # Sadece ödül projelerini göster
+    award_projects = [p for p in projects if p["id"] in ["datathon", "life_sci"]]
+    
+    def open_modal(pid):
+        import random
+        st.session_state["active_modal"] = pid
+        st.session_state["modal_id"] = f"{pid}_{random.randint(1000, 9999)}"
+        st.rerun()
+    
+    # Grid layout
+    cols_per_row = 2
+    for i in range(0, len(award_projects), cols_per_row):
+        cols = st.columns(cols_per_row)
+        for j, col in enumerate(cols):
+            if i + j < len(award_projects):
+                p = award_projects[i + j]
+                with col:
+                    st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
+                    st.image(p["thumb"], use_container_width=True)
+                    if st.button(lbl_view_details, key=f"award_open_{p['id']}", use_container_width=True):
+                        open_modal(p["id"])
+                    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Modal
+    if st.session_state.get("active_modal"):
+        p = next((x for x in projects if x["id"] == st.session_state["active_modal"]), None)
+        if p:
+            modal_id = st.session_state.get("modal_id", "default")
+            inject_modal_top(p, language, modal_id)
 
 
 def show_testimonials_section():
@@ -1415,6 +1471,8 @@ elif selected_section == "skills":
     show_skills_section()
 elif selected_section == "projects":
     show_projects_section()
+elif selected_section == "awards":
+    show_awards_section()
 elif selected_section == "testimonials":
     show_testimonials_section()
 elif selected_section == "contact":
