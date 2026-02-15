@@ -1002,22 +1002,19 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
         st.rerun()
 
     # ===== grid =====
-    r1c1, r1c2 = st.columns(2)
-    for p, col in zip(projects[:2], [r1c1, r1c2]):
-        with col:
-            st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
-            st.image(p["thumb"], use_container_width=True)
-            if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
-                open_modal(p["id"])
-            st.markdown("</div>", unsafe_allow_html=True)
-
-    r2c1, r2c2 = st.columns(2)
-    for p, col in zip(projects[2:], [r2c1, r2c2]):
-        with col:
-            st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
-            st.image(p["thumb"], use_container_width=True)
-            if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
-                open_modal(p["id"])
+    # Projeleri 2'şer 2'şer satırlara böl
+    cols_per_row = 2
+    for i in range(0, len(projects), cols_per_row):
+        cols = st.columns(cols_per_row)
+        for j, col in enumerate(cols):
+            if i + j < len(projects):
+                p = projects[i + j]
+                with col:
+                    st.markdown(f"<div class='proj-card'><div class='proj-title'>{p['title_tr'] if t else p['title_en']}</div>", unsafe_allow_html=True)
+                    st.image(p["thumb"], use_container_width=True)
+                    if st.button(lbl_view_details, key=f"open_{p['id']}", use_container_width=True):
+                        open_modal(p["id"])
+                    st.markdown("</div>", unsafe_allow_html=True)
             st.markdown("</div>", unsafe_allow_html=True)
 
     # ===== modal (gerçek popup; parent DOM'a enjekte) =====
