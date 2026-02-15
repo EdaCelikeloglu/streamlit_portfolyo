@@ -914,15 +914,27 @@ def show_projects_section():
         },
         {
             "id":"physical_therapy",
-            "title":"� Fizik Tedavi Veri Analizi",
-            "title_tr":"� Fizik Tedavi Veri Analizi",
-            "title_en":"� Physical Therapy Data Analysis",
+            "title":" 🏥 Fizik Tedavi Veri Analizi",
+            "title_tr":" 🏥 Fizik Tedavi Veri Analizi",
+            "title_en":" 🏥 Physical Therapy Data Analysis",
             "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti_kapak.png",
             "desc_tr":"Ham klinik verileri işleyerek analize hazır hale getiren Python tabanlı uçtan uca bir veri işleme hattı geliştirdim. Sistemde; verilerin temizlenmesi, metinsel sürelerin sayısallaştırılması, normalizasyon kurallarının uygulanması ve KNN algoritması ile eksik değerlerin doldurulması gibi kritik aşamaları uyguladım. Fizyoterapi odaklı hazırladığım bu projede, karmaşık sağlık kayıtlarını düzenli bir yapıya kavuşturarak modellemeye uygun veri setleri ve görsel raporlar ürettim. Süreç boyunca kategorik verilerin dönüştürülmesi, özellik mühendisliği ve verilerin anonimleştirilmesi gibi veri bilimi tekniklerini etkin bir şekilde kullandım. Projede yer alan kurallar dizini sayesinde normalizasyon işlemlerini özelleştirilebilir hale getirdim ve hazırladığım boru hattını yerel ortamlarda kolayca çalıştırılabilir şekilde tasarladım. Projenin temel amacı, dağınık haldeki klinik kayıtları standartlaştırılmış ve ölçeklendirilmiş nihai bir tabloya dönüştürmek.",
             "desc_en":"I developed an end-to-end Python-based data processing pipeline that transforms raw clinical data into analysis-ready format. In the system, I implemented critical stages such as data cleaning, numerical conversion of textual durations, application of normalization rules, and filling missing values using the KNN algorithm. In this physiotherapy-focused project, I organized complex health records into a structured format, producing modeling-ready datasets and visual reports. Throughout the process, I effectively utilized data science techniques such as categorical data transformation, feature engineering, and data anonymization. Through the rules directory in the project, I made normalization processes customizable and designed the pipeline to be easily executable in local environments. The main goal of the project is to transform scattered clinical records into a standardized and scaled final table.",
             "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti.pdf",
             "links":[
                 {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Physical_Therapy_Data_Analysis_Project"}
+            ]
+        },
+        {
+            "id":"nasa_plotly",
+            "title":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
+            "title_tr":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
+            "title_en":"🌌 NASA Space Weather Data - Plotly Visualization",
+            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/plotly_project.png",
+            "desc_tr":"Bu projede NASA tarafından paylaşılan uzay hava olaylarını Kaggle üzerinde düzenleyerek kullanılabilir bir veri seti haline getirdim ve bu verilerle Plotly kullanarak interaktif görselleştirmeler oluşturdum. Amacım, farklı uzay hava olaylarının zaman içindeki değişimini incelemek ve kullanıcıya veriyi etkileşimli biçimde keşfetme imkanı sunmaktı. Çalışma boyunca zaman serileri, olay türlerine göre yoğunluklar ve tarih bazlı dağılımlar üzerine odaklandım. Böylece karmaşık ve teknik görünen bir veri yapısını daha okunabilir, karşılaştırılabilir ve analiz edilebilir bir hale dönüştürdüm.",
+            "desc_en":"In this project, I organized space weather events shared by NASA on Kaggle into a usable dataset and created interactive visualizations using Plotly. My goal was to examine the changes in different space weather events over time and provide users with the opportunity to explore the data interactively. Throughout the work, I focused on time series, event type densities, and date-based distributions. Thus, I transformed a complex and technical-looking data structure into a more readable, comparable, and analyzable format.",
+            "links":[
+                {"label_tr":"Kaggle Notebook","label_en":"Kaggle Notebook","href":"https://www.kaggle.com/code/edacelikeloglu/plotly-examples-with-nasa-space-weather-data"}
             ]
         },
         {
