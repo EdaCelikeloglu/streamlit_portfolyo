@@ -800,7 +800,7 @@ def show_hero_section():
             <div class="stat-label">{stats_labels[language]["experience"]}</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">6+</div>
+            <div class="stat-number">7+</div>
             <div class="stat-label">{stats_labels[language]["projects"]}</div>
         </div>
         <div class="stat-card">
