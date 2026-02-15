@@ -979,9 +979,13 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
     # ===== state =====
     if "active_modal" not in st.session_state:
         st.session_state["active_modal"] = None
+    if "modal_timestamp" not in st.session_state:
+        st.session_state["modal_timestamp"] = 0
 
     def open_modal(pid):
+        import random
         st.session_state["active_modal"] = pid
+        st.session_state["modal_id"] = f"{pid}_{random.randint(1000, 9999)}"
         st.rerun()
 
     # ===== grid =====
@@ -1006,10 +1010,11 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
     # ===== modal (gerçek popup; parent DOM'a enjekte) =====
     if st.session_state.get("active_modal"):
         p = next(x for x in projects if x["id"] == st.session_state["active_modal"])
-        inject_modal_top(p, language)
+        modal_id = st.session_state.get("modal_id", "default")
+        inject_modal_top(p, language, modal_id)
 
 
-def inject_modal_top(p, language: str):
+def inject_modal_top(p, language: str, modal_id: str):
     """Modalı Streamlit iframenin DIŞINA (parent DOM) ekler; tam ekran overlay + kapat."""
     title = p["title_tr"] if language == "Türkçe" else p["title_en"]
     desc  = p["desc_tr"] if language == "Türkçe" else p["desc_en"]
@@ -1057,23 +1062,29 @@ def inject_modal_top(p, language: str):
 
     # JS ile parent'a ekle/çıkar
     payload = json.dumps(content_html)
+    wrapper_id = f"x-modal-wrapper-{modal_id}"
     js = f"""
     <script>
       const doc = window.parent.document;
 
       // Eski modal varsa temizle
-      const old = doc.getElementById('x-modal-wrapper');
+      const old = doc.getElementById('{wrapper_id}');
       if (old) old.remove();
 
       // Wrapper oluştur ve içeriği bas
       const wrapper = doc.createElement('div');
-      wrapper.id = 'x-modal-wrapper';
+      wrapper.id = '{wrapper_id}';
       wrapper.innerHTML = {payload};
       doc.body.appendChild(wrapper);
 
       function closeModal() {{
-        const w = doc.getElementById('x-modal-wrapper');
+        const w = doc.getElementById('{wrapper_id}');
         if (w) w.remove();
+        // Streamlit'e modal kapatıldığını bildir
+        window.parent.postMessage({{
+          type: 'streamlit:setComponentValue',
+          value: 'closed'
+        }}, '*');
       }}
 
       doc.getElementById('x-close').addEventListener('click', closeModal);
