@@ -729,16 +729,17 @@ with st.sidebar:
     labels = [section_labels[st.session_state.language][s] for s in sections]
     current_label = section_labels[st.session_state.language][st.session_state.selected_section]
 
+    def on_section_change():
+        reverse_map = {v: k for k, v in section_labels[st.session_state.language].items()}
+        st.session_state.selected_section = reverse_map[st.session_state.nav_selector]
+
     selected_label = st.radio(
         "",
         labels,
         index=labels.index(current_label),
-        key="nav_selector"
+        key="nav_selector",
+        on_change=on_section_change
     )
-
-    # Ters eşleme: label -> anahtar
-    reverse_map = {v: k for k, v in section_labels[st.session_state.language].items()}
-    st.session_state.selected_section = reverse_map[selected_label]
     
     # CV İndirme Butonu
     st.markdown("<br>", unsafe_allow_html=True)
