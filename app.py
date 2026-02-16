@@ -54,6 +54,20 @@ st.markdown("""
         background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
     }
 
+    /* Ana içerik alanının üst boşluğunu azalt - daha güçlü seçiciler */
+    div[data-testid="stAppViewContainer"] > section.main > div.block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    div[data-testid="stAppViewContainer"] > section.main {
+        padding-top: 0rem !important;
+    }
+    
+    .main > div {
+        padding-top: 0rem !important;
+    }
+
     [data-testid="stSidebar"] * {
         color: white !important;
     }
@@ -128,7 +142,7 @@ st.markdown("""
     /* Radio button labels - navigation items */
     [data-testid="stSidebar"] .stRadio label {
         background: transparent;
-        padding: 0.5rem 0.8rem;
+        padding: 0.1rem 0.8rem;
         border-radius: 0;
         margin: 0;
         transition: all 0.2s ease;
@@ -169,11 +183,12 @@ st.markdown("""
 
     .hero-section {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 4rem 2rem;
+        padding: 2rem 2rem;
         border-radius: 25px;
         color: white;
         text-align: center;
         margin-bottom: 2rem;
+        margin-top: 0;
         box-shadow: 0 15px 50px rgba(102,126,234,0.3);
         position: relative;
         overflow: hidden;
@@ -459,25 +474,36 @@ st.markdown("""
     .stDownloadButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
-        border: none !important;
+        border: 2px solid white !important;
         padding: 15px 35px !important;
         border-radius: 30px !important;
-        font-weight: 600 !important;
-        font-size: 1.1rem !important;
-        box-shadow: 0 8px 25px rgba(102,126,234,0.4) !important;
+        font-weight: 700 !important;
+        font-size: 1.15rem !important;
+        box-shadow: 0 10px 30px rgba(102,126,234,0.5), 0 0 20px rgba(102,126,234,0.3) !important;
         transition: all 0.3s ease !important;
         font-family: 'Poppins', sans-serif !important;
+        animation: pulse-glow 2s ease-in-out infinite !important;
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% {
+            box-shadow: 0 10px 30px rgba(102,126,234,0.5), 0 0 20px rgba(102,126,234,0.3);
+        }
+        50% {
+            box-shadow: 0 10px 30px rgba(102,126,234,0.7), 0 0 30px rgba(102,126,234,0.5);
+        }
     }
 
     .stDownloadButton > button:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 12px 35px rgba(102,126,234,0.6) !important;
+        transform: translateY(-3px) scale(1.05) !important;
+        box-shadow: 0 15px 40px rgba(102,126,234,0.7), 0 0 35px rgba(102,126,234,0.6) !important;
         background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+        border-color: rgba(255,255,255,0.9) !important;
     }
 
     .stDownloadButton > button:active {
-        transform: translateY(-1px) !important;
-        box-shadow: 0 6px 20px rgba(102,126,234,0.5) !important;
+        transform: translateY(-1px) scale(1.02) !important;
+        box-shadow: 0 8px 25px rgba(102,126,234,0.6) !important;
     }
 
     /* Profile Image Styling */
@@ -919,7 +945,7 @@ def show_hero_section():
         img_data = base64.b64encode(img_file.read()).decode()
     
     st.markdown(f"""
-        <div class="hero-section" style="display: flex; align-items: center; justify-content: space-between; padding: 3rem 4rem;">
+        <div class="hero-section" style="display: flex; align-items: center; justify-content: space-between; padding: 2rem 4rem; margin-top: 0;">
             <div style="flex: 1; text-align: left;">
                 <h1 class="hero-title" style="text-align: left;">{content[language]["hero_title"]}</h1>
                 <p class="hero-subtitle" style="text-align: left; margin-top: 1rem;">{content[language]["hero_subtitle"]}</p>
@@ -945,30 +971,137 @@ def show_skills_section():
     skills_data = {
         "Türkçe": {
             "Programlama": ["Python", "SQL"],
-            "Veri Bilimi": ["Pandas", "NumPy", "Scikit-learn", "XGBoost", "LightGBM", "TensorFlow", "Keras"],
+            "Veri Bilimi": ["Pandas", "NumPy", "Scikit-learn", "XGBoost", "LightGBM", "TensorFlow", "Keras", "xarray"],
             "Görselleştirme": ["Matplotlib", "Seaborn", "Plotly", "Power BI", "Tableau", "Streamlit"],
-            "Analiz": ["EDA", "Feature Engineering", "Time Series", "Regression", "Classification"],
-            "Araçlar": ["Jupyter", "PyCharm", "VS Code", "GitHub", "Excel"]
+            "Analiz": ["EDA", "Feature Engineering", "Time Series", "SARIMAX", "Regression", "Classification", "KNN"],
+            "Araçlar": ["Jupyter", "PyCharm", "VS Code", "GitHub", "Excel", "Apify"]
         },
         "English": {
             "Programming": ["Python", "SQL"],
-            "Data Science": ["Pandas", "NumPy", "Scikit-learn", "XGBoost", "LightGBM", "TensorFlow", "Keras"],
+            "Data Science": ["Pandas", "NumPy", "Scikit-learn", "XGBoost", "LightGBM", "TensorFlow", "Keras", "xarray"],
             "Visualization": ["Matplotlib", "Seaborn", "Plotly", "Power BI", "Tableau", "Streamlit"],
-            "Analysis": ["EDA", "Feature Engineering", "Time Series", "Regression", "Classification"],
-            "Tools": ["Jupyter", "PyCharm", "VS Code", "GitHub", "Excel"]
+            "Analysis": ["EDA", "Feature Engineering", "Time Series", "SARIMAX", "Regression", "Classification", "KNN"],
+            "Tools": ["Jupyter", "PyCharm", "VS Code", "GitHub", "Excel", "Apify"]
         }
     }
+    
+    # CSS stilleri
+    st.markdown("""
+    <style>
+    .skill-card-compact {
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(102,126,234,0.15);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        height: 100%;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    .skill-card-compact:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(102,126,234,0.25);
+        border-color: rgba(102,126,234,0.4);
+    }
+    .skill-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .skill-tags-container {
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: flex-start;
+    }
+    .skill-tag-compact {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.4rem 0.9rem;
+        border-radius: 15px;
+        margin: 0.3rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    .skill-tag-compact:hover {
+        transform: scale(1.08);
+        box-shadow: 0 3px 12px rgba(102,126,234,0.4);
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-    cols = st.columns(3)
-
-    for i, (category, skills) in enumerate(skills_data[language].items()):
-        with cols[i % 3]:
-            st.markdown(f"""
-            <div class="skill-card">
-                <h4 style="color: #667eea; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 600;">{category}</h4>
-                {"".join([f"<span class='skill-tag'>{skill}</span>" for skill in skills])}
-            </div>
-            """, unsafe_allow_html=True)
+    categories = list(skills_data[language].items())
+    
+    # İlk satır: 3 sütun
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        category, skills = categories[0]
+        skills_html = "".join([f"<span class='skill-tag-compact'>{skill}</span>" for skill in skills])
+        st.markdown(f"""
+        <div class="skill-card-compact">
+            <div class="skill-title">{category}</div>
+            <div class="skill-tags-container">{skills_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        category, skills = categories[1]
+        skills_html = "".join([f"<span class='skill-tag-compact'>{skill}</span>" for skill in skills])
+        st.markdown(f"""
+        <div class="skill-card-compact">
+            <div class="skill-title">{category}</div>
+            <div class="skill-tags-container">{skills_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        category, skills = categories[2]
+        skills_html = "".join([f"<span class='skill-tag-compact'>{skill}</span>" for skill in skills])
+        st.markdown(f"""
+        <div class="skill-card-compact">
+            <div class="skill-title">{category}</div>
+            <div class="skill-tags-container">{skills_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # İkinci satır: 3 sütun (ilk 2 dolu, son boş)
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        category, skills = categories[3]
+        skills_html = "".join([f"<span class='skill-tag-compact'>{skill}</span>" for skill in skills])
+        st.markdown(f"""
+        <div class="skill-card-compact">
+            <div class="skill-title">{category}</div>
+            <div class="skill-tags-container">{skills_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        category, skills = categories[4]
+        skills_html = "".join([f"<span class='skill-tag-compact'>{skill}</span>" for skill in skills])
+        st.markdown(f"""
+        <div class="skill-card-compact">
+            <div class="skill-title">{category}</div>
+            <div class="skill-tags-container">{skills_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.empty()
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 import json
 import streamlit as st
@@ -1286,19 +1419,19 @@ def show_testimonials_section():
         "Türkçe": [
             {
                 "name": "Güray Ataman",
-                "role": "Data Science Team Lead @ sahibinden.com",
+                "role": "Data Science Team Lead<br>@ sahibinden.com",
                 "date": "1 Haziran 2025",
                 "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
 
 She particularly stood out for her coding skills and problem-solving abilities, delivering effective and results-oriented solutions. Eda was a reliable and collaborative team member who carried out her responsibilities with professionalism and care.
 
-It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.""",
+It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.<br><br><br>""",
                 "linkedin_url": "https://www.linkedin.com/in/gurayataman/",
                 "avatar": "https://ui-avatars.com/api/?name=Guray+Ataman&background=667eea&color=fff&size=200"
             },
             {
                 "name": "Doğu Sırt",
-                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University<br>Python, AI, Data Science, Big Data and Analytics",
                 "date": "27 Mayıs 2025",
                 "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
 
@@ -1312,7 +1445,7 @@ She is exactly the kind of talent that modern companies need—technically stron
         "English": [
             {
                 "name": "Güray Ataman",
-                "role": "Data Science Team Lead @ sahibinden.com",
+                "role": "Data Science Team Lead<br>@ sahibinden.com",
                 "date": "June 1, 2025",
                 "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
 
@@ -1324,7 +1457,7 @@ It was a pleasure to work with her. I am confident that she will continue to bri
             },
             {
                 "name": "Doğu Sırt",
-                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University<br>Python, AI, Data Science, Big Data and Analytics",
                 "date": "May 27, 2025",
                 "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
 
@@ -1345,7 +1478,7 @@ She is exactly the kind of talent that modern companies need—technically stron
     # Sol kolon - İlk referans (Güray Ataman)
     with col1:
         st.markdown(f"""
-        <div class="contact-card" style="min-height: 600px;">
+        <div class="contact-card" style="min-height: 650px; display: flex; flex-direction: column;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <img src="{testimonials[0]['avatar']}" 
                      style="width: 70px; height: 70px; border-radius: 50%; 
@@ -1359,9 +1492,11 @@ She is exactly the kind of talent that modern companies need—technically stron
                 {testimonials[0]['date']}
             </p>
             <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
-            <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
-                {testimonials[0]['text']}
-            </p>
+            <div style="flex-grow: 1;">
+                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
+                    {testimonials[0]['text']}
+                </p>
+            </div>
             <div style="text-align: center; margin-top: 1.5rem;">
                 <a href="{testimonials[0]['linkedin_url']}" target="_blank" 
                    style="display: inline-block !important; background: white !important; color: #667eea !important; 
@@ -1376,7 +1511,7 @@ She is exactly the kind of talent that modern companies need—technically stron
     # Sağ kolon - İkinci referans (Doğu Sırt)
     with col2:
         st.markdown(f"""
-        <div class="contact-card" style="min-height: 600px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);">
+        <div class="contact-card" style="min-height: 650px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); display: flex; flex-direction: column;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <img src="{testimonials[1]['avatar']}" 
                      style="width: 70px; height: 70px; border-radius: 50%; 
@@ -1390,9 +1525,11 @@ She is exactly the kind of talent that modern companies need—technically stron
                 {testimonials[1]['date']}
             </p>
             <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
-            <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
-                {testimonials[1]['text']}
-            </p>
+            <div style="flex-grow: 1;">
+                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
+                    {testimonials[1]['text']}
+                </p>
+            </div>
             <div style="text-align: center; margin-top: 1.5rem;">
                 <a href="{testimonials[1]['linkedin_url']}" target="_blank" 
                    style="display: inline-block !important; background: white !important; color: #764ba2 !important; 
@@ -1416,7 +1553,7 @@ def show_contact_section():
         if language == "Türkçe":
             st.markdown("""
             <div class="contact-card">
-                <h3 style="color:white; margin-bottom: 1rem;">İletişime Geçelim! 🚀</h3>
+                <h3 style="color:white; margin-bottom: 1rem; text-align: center;">İletişime Geçelim! 🚀</h3>
                 <p style="opacity: 0.9;">Projeleriniz, veri bilimi üzerine fikir alışverişi veya iş birliği fırsatları için benimle iletişime geçebilirsiniz.</p>
                 <p style="opacity: 0.9;">Aşağıdaki kanallardan ulaşabilirsiniz 👇</p>
                 <br>
@@ -1446,7 +1583,7 @@ def show_contact_section():
                               padding: 0.7rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
                               font-weight: 600 !important; font-size: 0.95rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
                               text-align: center !important; border: none !important;">
-                        🦆 Kaggle
+                        🦆 Kaggle <br><br><br><br>
                     </a>
                 </div>
             </div>
@@ -1454,7 +1591,7 @@ def show_contact_section():
         else:
             st.markdown("""
             <div class="contact-card">
-                <h3 style="color:white; margin-bottom: 1rem;">Let's Get in Touch! 🚀</h3>
+                <h3 style="color:white; margin-bottom: 1rem; text-align: center;">Let's Get in Touch! 🚀</h3>
                 <p style="opacity: 0.9;">Feel free to reach out for projects, data science discussions, or collaboration opportunities.</p>
                 <p style="opacity: 0.9;">You can contact me via the links below �</p>
                 <br>
@@ -1493,7 +1630,7 @@ def show_contact_section():
     with col2:
         # Mesaj gönderme formu - inline CSS ile
         if language == "Türkçe":
-            form_title = "💌 Ya da Mesaj Gönder"
+            form_title = "Ya da Mesaj Gönder 💌"
             name_label = "İsminiz"
             email_label = "E-posta Adresiniz"
             message_label = "Mesajınız"
@@ -1502,7 +1639,7 @@ def show_contact_section():
             warning_msg = "Lütfen tüm alanları doldurun."
             subject_prefix = "Yeni mesaj:"
         else:
-            form_title = "💌 Send a Message"
+            form_title = "Send a Message 💌"
             name_label = "Your Name"
             email_label = "Your Email"
             message_label = "Message"
@@ -1545,6 +1682,42 @@ def show_contact_section():
 
 
 
+
+# Sayfa geçiş animasyonu için CSS
+st.markdown("""
+<style>
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main .block-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Gradient fade effect */
+@keyframes gradientFade {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.element-container {
+    animation: gradientFade 0.5s ease-out;
+}
+</style>
+""", unsafe_allow_html=True)
 
 if selected_section == "home":
     show_hero_section()

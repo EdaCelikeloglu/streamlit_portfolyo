@@ -1,15 +1,25 @@
 # Eda Çelikeloğlu - Portfolyo Uygulaması
 
-Bu Streamlit uygulaması, Eda Çelikeloğlu'nun kişisel portfolyosunu sergileyen modern bir web uygulamasıdır.
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.48.0-FF4B4B?logo=streamlit)](https://streamlit.io)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python)](https://python.org)
+[![License](https://img.shields.io/badge/License-Personal-blue)](LICENSE)
+
+Bu Streamlit uygulaması, Eda Çelikeloğlu'nun kişisel portfolyosunu sergileyen modern ve interaktif bir web uygulamasıdır.
+
+## 🌟 Canlı Demo
+
+🔗 [Uygulamayı Görüntüle](https://your-app-url.streamlit.app)
 
 ## 🚀 Özellikler
 
-- **Çok Dilli Destek**: Türkçe ve İngilizce
-- **Modern Tasarım**: Gradient renkler ve animasyonlar
-- **Responsive**: Mobil ve masaüstü uyumlu
-- **İnteraktif Projeler**: Modal popup'lar ile detaylı proje görünümü
-- **İletişim Formu**: Email entegrasyonu ile doğrudan mesaj gönderme
-- **CV İndirme**: PDF formatında CV indirme özelliği
+- ✅ **Çok Dilli Destek**: Türkçe ve İngilizce
+- ✅ **Modern Tasarım**: Gradient renkler ve animasyonlar
+- ✅ **Responsive**: Mobil ve masaüstü uyumlu
+- ✅ **İnteraktif Projeler**: Modal popup'lar ile detaylı proje görünümü
+- ✅ **İletişim Formu**: Email entegrasyonu ile doğrudan mesaj gönderme
+- ✅ **CV İndirme**: PDF formatında CV indirme özelliği
+- ✅ **Session State**: Kullanıcı tercihlerini saklama
+- ✅ **SEO Friendly**: Meta tags ve açıklamalar
 
 ## 📋 Gereksinimler
 
@@ -67,18 +77,27 @@ Uygulama varsayılan olarak `http://localhost:8501` adresinde çalışacaktır.
 
 ```
 portfolyo-app/
-├── app.py              # Ana uygulama dosyası
-├── requirements.txt    # Python bağımlılıkları
-├── .env               # Environment değişkenleri (oluşturmanız gerekir)
-├── .gitignore         # Git ignore dosyası
-├── assets/            # Statik dosyalar
-│   ├── CV_Eda_Celikeloglu.pdf
-│   ├── powerbi1.PNG
-│   ├── sahibinden_kapak.png
-│   ├── wid_kapak.PNG
-│   ├── yeralti_kapak.PNG
-│   └── ...
-└── README.md          # Bu dosya
+├── app.py                          # Ana uygulama dosyası
+├── app_backup.py                   # Yedek dosya
+├── requirements.txt                # Python bağımlılıkları
+├── .env                           # Environment değişkenleri (oluşturmanız gerekir)
+├── .gitignore                     # Git ignore dosyası
+├── README.md                      # Bu dosya
+├── KULLANIM_KILAVUZU.md          # Detaylı kullanım rehberi
+├── PROJE_DOKUMANTASYONU.md       # Teknik dokümantasyon
+├── API_DOKUMANTASYONU.md         # API ve fonksiyon referansı
+├── DEPLOYMENT_GUIDE.md           # Deployment rehberi
+├── GUVENLIK_REHBERI.md           # Güvenlik best practices
+├── CHANGELOG.md                   # Versiyon geçmişi
+├── CONTRIBUTING.md                # Katkıda bulunma rehberi
+└── assets/                        # Statik dosyalar
+    ├── profile_picture.jpg        # Profil fotoğrafı
+    ├── CV_Eda_Celikeloglu.pdf    # CV dosyası
+    ├── powerbi1.PNG               # Power BI dashboard
+    ├── sahibinden_kapak.png       # Proje görselleri
+    ├── wid_kapak.PNG
+    ├── yeralti_kapak.PNG
+    └── ...
 ```
 
 ## 🎨 Tasarım Özellikleri
@@ -117,12 +136,60 @@ Bu uygulamayı aşağıdaki platformlarda deploy edebilirsiniz:
 - **Vercel**: Frontend deployment
 - **Railway**: Modern deployment platform
 
+## 📚 Dokümantasyon
+
+Detaylı bilgi için aşağıdaki dokümanlara göz atın:
+
+- 📖 [Kullanım Kılavuzu](KULLANIM_KILAVUZU.md) - Adım adım kullanım rehberi
+- 🏗️ [Proje Dokümantasyonu](PROJE_DOKUMANTASYONU.md) - Teknik mimari ve detaylar
+- 🔧 [API Dokümantasyonu](API_DOKUMANTASYONU.md) - Fonksiyon ve API referansı
+- 🚀 [Deployment Rehberi](DEPLOYMENT_GUIDE.md) - Canlıya alma adımları
+- 🔒 [Güvenlik Rehberi](GUVENLIK_REHBERI.md) - Güvenlik best practices
+- 📝 [Changelog](CHANGELOG.md) - Versiyon geçmişi
+- 🤝 [Contributing](CONTRIBUTING.md) - Katkıda bulunma rehberi
+
+## 🤝 Katkıda Bulunma
+
+Katkılarınızı bekliyoruz! Lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını okuyun.
+
+### Hızlı Başlangıç
+1. Fork edin
+2. Feature branch oluşturun (`git checkout -b feature/yeni-ozellik`)
+3. Commit edin (`git commit -m 'feat: yeni özellik eklendi'`)
+4. Push edin (`git push origin feature/yeni-ozellik`)
+5. Pull Request açın
+
+## 🐛 Hata Bildirimi
+
+Hata bulduysanız lütfen [issue açın](https://github.com/kullanici-adi/portfolyo-app/issues).
+
+## 📊 İstatistikler
+
+- **Toplam Satır**: ~1000+ satır kod
+- **Dosya Sayısı**: 15+ dosya
+- **Proje Sayısı**: 4 ana proje
+- **Dil Desteği**: 2 dil (TR/EN)
+
+## 🙏 Teşekkürler
+
+- [Streamlit](https://streamlit.io) - Framework
+- [Google Fonts](https://fonts.google.com) - Poppins font
+- [Font Awesome](https://fontawesome.com) - İkonlar
+
 ## 📄 Lisans
 
-Bu proje kişisel kullanım içindir.
+Bu proje kişisel portfolyo amaçlı geliştirilmiştir.
+
+## 📞 İletişim
+
+**Geliştirici**: Eda Çelikeloğlu  
+**E-posta**: edacelikeloglu@gmail.com  
+**LinkedIn**: [linkedin.com/in/eda-celikeloglu](https://www.linkedin.com/in/eda-celikeloglu)  
+**GitHub**: [github.com/EdaCelikeloglu](https://github.com/EdaCelikeloglu)  
+**Kaggle**: [kaggle.com/edacelikeloglu](https://www.kaggle.com/edacelikeloglu)
 
 ---
 
-**Geliştirici**: Eda Çelikeloğlu  
-**İletişim**: edacelikeloglu@gmail.com  
-**LinkedIn**: [linkedin.com/in/eda-celikeloglu](https://www.linkedin.com/in/eda-celikeloglu)
+⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
+**Son Güncelleme**: 23 Ocak 2026 | **Versiyon**: 1.0.0

@@ -3,3 +3,12 @@
 __pycache__/
 
 
+# Documentation files
+API_DOKUMANTASYONU.md
+CHANGELOG.md
+CONTRIBUTING.md
+DEPLOYMENT_GUIDE.md
+GUVENLIK_REHBERI.md
+KULLANIM_KILAVUZU.md
+PROJE_DOKUMANTASYONU.md
+testimonials_preview.py
