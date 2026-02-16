@@ -1683,49 +1683,6 @@ def show_contact_section():
 
 
 
-# Sayfa geçiş animasyonu için CSS - sadece ana içerik alanı
-st.markdown("""
-<style>
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Sadece ana içerik alanına animasyon uygula, sidebar hariç */
-section[data-testid="stAppViewContainer"] .main .block-container {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* Sidebar'ı animasyondan hariç tut */
-[data-testid="stSidebar"], 
-[data-testid="stSidebar"] * {
-    animation: none !important;
-}
-
-/* Gradient fade effect - sadece ana içerik */
-@keyframes gradientFade {
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
-}
-
-section[data-testid="stAppViewContainer"] .main .element-container {
-    animation: gradientFade 0.5s ease-out;
-}
-</style>
-""", unsafe_allow_html=True)
-
 if selected_section == "home":
     show_hero_section()
 elif selected_section == "skills":
@@ -1738,7 +1695,6 @@ elif selected_section == "testimonials":
     show_testimonials_section()
 elif selected_section == "contact":
     show_contact_section()
-
 
 # Footer
 st.markdown(
