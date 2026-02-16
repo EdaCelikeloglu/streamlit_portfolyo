@@ -21,7 +21,7 @@ Modern ve interaktif bir veri bilimi portfolyosu. Projelerimi, yeteneklerimi ve 
 - 💌 **İletişim Formu**: Doğrudan mesaj gönderme özelliği
 - ⚡ **Hızlı Navigasyon**: Sidebar ile kolay sekme geçişleri
 
-## � Bölümler
+## 📚 Bölümler
 
 - **Ana Sayfa**: Kısa tanıtım ve deneyim özeti
 - **Yetenekler**: Programlama dilleri, araçlar ve teknolojiler
