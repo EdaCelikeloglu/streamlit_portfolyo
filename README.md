@@ -8,7 +8,7 @@ Modern ve interaktif bir veri bilimi portfolyosu. Projelerimi, yeteneklerimi ve 
 
 ## 🌟 Canlı Demo
 
-🔗 **[Portfolyoyu Görüntüle](https://edacelikeloglu.streamlit.app)**
+🔗 **[Portfolyoyu Görüntüle]([https://edacelikeloglu.streamlit.app](https://edacelikelogluportfolyo.streamlit.app/))**
 
 ## ✨ Özellikler
 
@@ -42,8 +42,8 @@ Modern ve interaktif bir veri bilimi portfolyosu. Projelerimi, yeteneklerimi ve 
 
 Portfolyoda sergilenen projeler:
 - 📈 Sahibinden.com Veri Analizi
-- 🏆 Women in Datathon (2. Ödül)
-- 🧬 AI for Life Sciences (3. Ödül)
+- 🏆 Women in Datathon (1.lik Ödülü)
+- 🧬 AI for Life Sciences (3.lük Ödülü)
 - 🎥 YouTube AI Scraping Agent
 - 🏥 Fizik Tedavi Veri Analizi
 - 📉 Churninator - Müşteri Kaybı Tahmini
