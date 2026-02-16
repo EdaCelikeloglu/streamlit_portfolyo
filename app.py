@@ -640,6 +640,25 @@ st.markdown("""
 
 
 
+# Dil seçimi - Sağ üst köşe
+col1, col2, col3 = st.columns([6, 1, 1])
+with col3:
+    def on_language_change():
+        st.session_state.language = st.session_state.language_selector
+    
+    language_option = st.selectbox(
+        "",
+        ["TR", "EN"],
+        index=0 if st.session_state.language == "Türkçe" else 1,
+        key="language_selector",
+        on_change=on_language_change,
+        label_visibility="collapsed"
+    )
+    
+    if language_option == "TR":
+        st.session_state.language = "Türkçe"
+    else:
+        st.session_state.language = "English"
 
 # Sekme anahtarlarını sabitle
 sections = ["home", "skills", "awards", "projects", "testimonials", "contact"]
@@ -669,19 +688,6 @@ section_labels = {
 
 # Sidebar tasarımı
 with st.sidebar:
-    st.markdown("### 🌐 Dil Seçimi / Language")
-
-    def on_language_change():
-        st.session_state.language = st.session_state.language_selector
-
-    language = st.selectbox(
-        "Dil / Language",
-        ["Türkçe", "English"],
-        index=["Türkçe", "English"].index(st.session_state.language),
-        key="language_selector",
-        on_change=on_language_change
-    )
-
     labels = [section_labels[st.session_state.language][s] for s in sections]
     current_label = section_labels[st.session_state.language][st.session_state.selected_section]
 
@@ -695,6 +701,125 @@ with st.sidebar:
     # Ters eşleme: label -> anahtar
     reverse_map = {v: k for k, v in section_labels[st.session_state.language].items()}
     st.session_state.selected_section = reverse_map[selected_label]
+    
+    # CV İndirme Butonu
+    st.markdown("<br>", unsafe_allow_html=True)
+    try:
+        with open("assets/CV_Eda_Celikeloglu.pdf", "rb") as pdf_file:
+            pdf_data = pdf_file.read()
+        
+        cv_label = "📄 CV'mi İndir" if st.session_state.language == 'Türkçe' else "📄 Download My CV"
+        st.download_button(
+            label=cv_label,
+            data=pdf_data,
+            file_name="CV_Eda_Celikeloglu.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+    except FileNotFoundError:
+        pass
+    
+    # Hareketli İstatistik Baloncukları
+    bubble_data = {
+        "Türkçe": [
+            {"number": "2", "label": "Ödül"},
+            {"number": "8+", "label": "Proje"},
+            {"number": "10+", "label": "Teknoloji"}
+        ],
+        "English": [
+            {"number": "2", "label": "Awards"},
+            {"number": "8+", "label": "Projects"},
+            {"number": "10+", "label": "Technologies"}
+        ]
+    }
+    
+    bubbles = bubble_data[st.session_state.language]
+    
+    st.markdown(f"""
+    <style>
+    .bubble-container {{
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+        pointer-events: none;
+        margin: 1rem 0;
+    }}
+    .bubble {{
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 50px;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        animation: float-up 12s infinite ease-in-out;
+        opacity: 0;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }}
+    .bubble-number {{
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }}
+    .bubble-label {{
+        font-size: 0.95rem;
+        font-weight: 500;
+    }}
+    .bubble:nth-child(1) {{
+        left: 5%;
+        animation-delay: 0s;
+        animation-duration: 18s;
+    }}
+    .bubble:nth-child(2) {{
+        left: 55%;
+        animation-delay: 5s;
+        animation-duration: 18s;
+    }}
+    .bubble:nth-child(3) {{
+        left: 25%;
+        animation-delay: 10s;
+        animation-duration: 18s;
+    }}
+    @keyframes float-up {{
+        0% {{
+            bottom: 0;
+            opacity: 0;
+            transform: translateX(0) scale(0.8);
+        }}
+        15% {{
+            opacity: 1;
+        }}
+        75% {{
+            opacity: 1;
+        }}
+        100% {{
+            bottom: 370px;
+            opacity: 0;
+            transform: translateX(20px) scale(1);
+        }}
+    }}
+    </style>
+    <div class="bubble-container">
+        <div class="bubble">
+            <div class="bubble-number">{bubbles[0]['number']}</div>
+            <div class="bubble-label">{bubbles[0]['label']}</div>
+        </div>
+        <div class="bubble">
+            <div class="bubble-number">{bubbles[1]['number']}</div>
+            <div class="bubble-label">{bubbles[1]['label']}</div>
+        </div>
+        <div class="bubble">
+            <div class="bubble-number">{bubbles[2]['number']}</div>
+            <div class="bubble-label">{bubbles[2]['label']}</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Kısa değişkenler
 language = st.session_state.language
@@ -785,23 +910,6 @@ def show_hero_section():
     st.markdown(content[language]["about_text"])
     
     # CV İndirme Butonu
-    try:
-        with open("assets/CV_Eda_Celikeloglu.pdf", "rb") as pdf_file:
-            pdf_data = pdf_file.read()
-        
-        st.markdown("<br>", unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            cv_label = "📄 CV'mi İndir" if language == 'Türkçe' else "📄 Download My CV"
-            st.download_button(
-                label=cv_label,
-                data=pdf_data,
-                file_name="CV_Eda_Celikeloglu.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        st.error("CV dosyası bulunamadı!")
 
 
 def show_skills_section():
