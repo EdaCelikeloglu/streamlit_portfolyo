@@ -5,7 +5,6 @@ from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
 import streamlit.components.v1 as components
-import pyperclip
 
 # .env dosyasını yükle
 load_dotenv()
@@ -120,9 +119,48 @@ st.markdown("""
 
     /* Radio button styling */
     [data-testid="stSidebar"] .stRadio > div {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 0;
         border-radius: 10px;
+        margin-top: -1rem;
+    }
+    
+    /* Radio button labels - navigation items */
+    [data-testid="stSidebar"] .stRadio label {
+        background: transparent;
+        padding: 0.5rem 0.8rem;
+        border-radius: 0;
+        margin: 0;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+    }
+    
+    [data-testid="stSidebar"] .stRadio label:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    [data-testid="stSidebar"] .stRadio label:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    [data-testid="stSidebar"] .stRadio label:hover {
+        background: rgba(102,126,234,0.15);
+        border-left-color: #667eea;
+    }
+    
+    /* Selected radio button */
+    [data-testid="stSidebar"] .stRadio label[data-checked="true"] {
+        background: linear-gradient(90deg, rgba(102,126,234,0.2) 0%, rgba(118,75,162,0.1) 100%);
+        border-left-color: #667eea;
+        border-left-width: 4px;
+    }
+    
+    [data-testid="stSidebar"] .stRadio label[data-checked="true"] p {
+        color: #667eea !important;
+        font-weight: 600;
     }
 
     [data-testid="stSidebar"] hr {
@@ -832,7 +870,6 @@ content = {
         "hero_title": "Eda Çelikeloğlu",
         "hero_subtitle": "Veri Bilimci | Veri Analisti | Matematikçi",
         "typing_text": "Verilerle hikayeler anlatıyorum...",
-        "about_title": "Hakkımda",
         "about_text": """
         Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim.
         
@@ -843,22 +880,17 @@ content = {
         🎓 **Eğitim:** Marmara Üniversitesi, Matematik Bölümü, 2010–2014
         
         💼 **Deneyim:**
+        
         - Sahibinden.com, Junior Data Scientist, 2025
         - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–2026
         
         📍 **Konum:** Maltepe, İstanbul
-        """,
-        "skills_title": "Teknik Yetenekler",
-        "projects_title": "Projelerim",
-        "testimonials_title": "Referanslar",
-        "contact_title": "İletişim",
-        "stats_title": "İstatistiklerim"
+        """
     },
     "English": {
         "hero_title": "Eda Çelikeloğlu",
         "hero_subtitle": "Data Scientist | Data Analyst | Mathematician",
         "typing_text": "I tell stories with data...",
-        "about_title": "About Me",
         "about_text": """
         I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making.
         
@@ -866,7 +898,7 @@ content = {
         As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
         I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
         
-        🎓 **Education:** Marmara University, Mathematics, 2010–2014
+        🎓 **Education:** Marmara University, BSc in Mathematics, 2010–2014
         
         💼 **Experience:**
         
@@ -874,11 +906,7 @@ content = {
         - YenidenBiz Association, Volunteer Data Analyst, 2025–2026
         
         📍 **Location:** Maltepe, Istanbul
-        """,
-        "skills_title": "Technical Skills",
-        "projects_title": "My Projects",
-        "testimonials_title": "Testimonials",
-        "contact_title": "Contact",
+        """
     }
 }
 
@@ -913,8 +941,6 @@ def show_hero_section():
 
 
 def show_skills_section():
-    st.markdown(f"## {content[language]['skills_title']}")
-
     skills_data = {
         "Türkçe": {
             "Programlama": ["Python", "SQL"],
@@ -1026,11 +1052,11 @@ Achieved first place among all participants.""",
             "title_tr":"🌍 AI for Life Sciences - Yeraltı Suyu Tahmini",
             "title_en":"🌍 AI for Life Sciences - Groundwater Prediction",
             "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/yeralti_kapak.PNG",
-            "desc_tr": """Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum.
+            "desc_tr": """Gradient Zero ve Viyana Üniversitesi iş birliğiyle düzenlenen bir yarışmada Taikai platformu üzerinden takım projesine katkıda bulundum ve takımımızla birlikte 3. olduk.
 Yeraltı su seviyesi tahmini: 1930-2021 verileri ve dışsal değişkenlerle 2022-2024 tahminleri; SMAPE ile değerlendirildi.
 GRACE serileri için dışsal değişkenler (hava, yağış, kar erimesi, yüzey sıcaklığı) belirlendi.
 Python (TensorFlow, Keras, scikit-learn, xarray) ile modelleme yapıldı; sunum videosu ve kaynak kod sağlandı.""",
-            "desc_en": """Participated in a competition organized by Gradient Zero with the University of Vienna on Taikai.
+            "desc_en": """I participated in a competition organized by Gradient Zero with the University of Vienna on Taikai and achieved 3rd place with my team.
 Groundwater level prediction for Austria (2022-2024) using 1930-2021 history and exogenous variables (SMAPE for accuracy).
 Identified GRACE external drivers: weather, precipitation, snowmelt, temperature.
 Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source code and a presentation video.""",
@@ -1065,8 +1091,6 @@ Modeling with Python (TensorFlow, Keras, scikit-learn, xarray); delivered source
     ]
 
 def show_projects_section():
-    st.markdown(f"## {content[language]['projects_title']}")
-
     # ===== CSS (grid + kart) =====
     st.markdown("""
     <style>
@@ -1206,8 +1230,6 @@ def inject_modal_top(p, language: str, modal_id: str):
 
 
 def show_awards_section():
-    st.markdown("## 🏆 " + ("Ödüller" if language == "Türkçe" else "Awards"))
-    
     # ===== CSS (grid + kart) =====
     st.markdown("""
     <style>
@@ -1258,8 +1280,6 @@ def show_awards_section():
 
 
 def show_testimonials_section():
-    st.markdown(f"## {content[language]['testimonials_title']}")
-    
     # Referans verileri
     testimonials_data = {
         "Türkçe": [
@@ -1385,16 +1405,9 @@ She is exactly the kind of talent that modern companies need—technically stron
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # LinkedIn'e yönlendirme
-    if language == "Türkçe":
-        st.info("💡 Daha fazla referans ve detay için [LinkedIn profilimi](https://www.linkedin.com/in/eda-celikeloglu) ziyaret edebilirsiniz.")
-    else:
-        st.info("💡 For more recommendations and details, visit my [LinkedIn profile](https://www.linkedin.com/in/eda-celikeloglu).")
 
 
 def show_contact_section():
-    st.markdown(f"## {content[language]['contact_title']}")
-
     # İletişim bilgileri ve mesaj formu yan yana
     col1, col2 = st.columns([1, 1])
     
