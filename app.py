@@ -1683,7 +1683,7 @@ def show_contact_section():
 
 
 
-# Sayfa geçiş animasyonu için CSS
+# Sayfa geçiş animasyonu için CSS - sadece ana içerik alanı
 st.markdown("""
 <style>
 @keyframes fadeInUp {
@@ -1697,11 +1697,18 @@ st.markdown("""
     }
 }
 
-.main .block-container {
+/* Sadece ana içerik alanına animasyon uygula, sidebar hariç */
+section[data-testid="stAppViewContainer"] .main .block-container {
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Gradient fade effect */
+/* Sidebar'ı animasyondan hariç tut */
+[data-testid="stSidebar"], 
+[data-testid="stSidebar"] * {
+    animation: none !important;
+}
+
+/* Gradient fade effect - sadece ana içerik */
 @keyframes gradientFade {
     0% {
         opacity: 0;
@@ -1713,7 +1720,7 @@ st.markdown("""
     }
 }
 
-.element-container {
+section[data-testid="stAppViewContainer"] .main .element-container {
     animation: gradientFade 0.5s ease-out;
 }
 </style>
