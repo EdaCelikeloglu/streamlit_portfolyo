@@ -642,7 +642,7 @@ st.markdown("""
 
 
 # Sekme anahtarlarını sabitle
-sections = ["home", "about", "skills", "awards", "projects", "testimonials", "contact"]
+sections = ["home", "skills", "awards", "projects", "testimonials", "contact"]
 
 # Çeviriler
 section_labels = {
@@ -709,19 +709,19 @@ content = {
         "typing_text": "Verilerle hikayeler anlatıyorum...",
         "about_title": "Hakkımda",
         "about_text": """
-        Merhaba! Ben Eda, matematik geçmişine sahip, veri bilimi alanına geçiş yapmış tutkulu bir analiz uzmanıyım. 
-        6 yıl matematik öğretmenliği yaptıktan sonra, veriye olan ilgim beni bu alana yönlendirdi. Gerçek projelerle 
-        veri analizi, görselleştirme ve makine öğrenmesi konularında pratik deneyim kazandım.
-
-        🎓 **Eğitim:** Marmara Üniversitesi Matematik Bölümü (2010-2014)
+        Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim.
         
-        💼 **Deneyim:** Sahibinden.com Junior Data Scientist (2025)
+        Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım.
+        YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum.
+        Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
         
-        🔬 **Uzmanlık:** Veri Analizi, Machine Learning, Time Series Modelling
+        🎓 **Eğitim:** Marmara Üniversitesi, Matematik Bölümü, 2010–2014
+        
+        💼 **Deneyim:**
+        - Sahibinden.com, Junior Data Scientist, 2025
+        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–2026
         
         📍 **Konum:** Maltepe, İstanbul
-        
-        🏆 **Başarılar:** Women in Datathon 1.lik, AI for Life Sciences 3.lük
         """,
         "skills_title": "Teknik Yetenekler",
         "projects_title": "Projelerim",
@@ -735,19 +735,20 @@ content = {
         "typing_text": "I tell stories with data...",
         "about_title": "About Me",
         "about_text": """
-        Hello! I'm Eda, a passionate analyst with a mathematics background who transitioned into data science. 
-        After 6 years as a mathematics teacher, my interest in data led me to this field. I've gained practical 
-        experience in data analysis, visualization, and machine learning through real-world projects.
-
-        🎓 **Education:** Marmara University Mathematics (2010-2014)
+        I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making.
         
-        💼 **Experience:** Sahibinden.com Junior Data Scientist (2025)
+        During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders.
+        As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
+        I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
         
-        🔬 **Expertise:** Data Analysis, Machine Learning, Time Series Modelling
+        🎓 **Education:** Marmara University, Mathematics, 2010–2014
+        
+        💼 **Experience:**
+        
+        - Sahibinden.com, Junior Data Scientist, 2025
+        - YenidenBiz Association, Volunteer Data Analyst, 2025–2026
         
         📍 **Location:** Maltepe, Istanbul
-        
-        🏆 **Achievements:** Women in Datathon 1st Place, AI for Life Sciences 3rd Place
         """,
         "skills_title": "Technical Skills",
         "projects_title": "My Projects",
@@ -778,52 +779,12 @@ def show_hero_section():
             </div>
         </div>
         """, unsafe_allow_html=True)
-
-    # İstatistik kartları
-    stats_labels = {
-        "Türkçe": {
-            "experience": "Yıl Deneyim",
-            "projects": "Proje",
-            "awards": "Yarışma Ödülü",
-            "technologies": "Teknoloji"
-        },
-        "English": {
-            "experience": "Years Experience",
-            "projects": "Projects",
-            "awards": "Competition Awards",
-            "technologies": "Technologies"
-        }
-    }
     
-    st.markdown(f"""
-    <div class="stats-container">
-        <div class="stat-card">
-            <div class="stat-number">6+</div>
-            <div class="stat-label">{stats_labels[language]["experience"]}</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">8+</div>
-            <div class="stat-label">{stats_labels[language]["projects"]}</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">2</div>
-            <div class="stat-label">{stats_labels[language]["awards"]}</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">{stats_labels[language]["technologies"]}</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-def show_about_section():
-    st.markdown(f"## {content[language]['about_title']}")
-
-    # Streamlit markdown ile göster
+    # Hakkımda bölümünü ekle
+    st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(content[language]["about_text"])
-
-    # CV İndirme Butonu - Streamlit Download Button
+    
+    # CV İndirme Butonu
     try:
         with open("assets/CV_Eda_Celikeloglu.pdf", "rb") as pdf_file:
             pdf_data = pdf_file.read()
@@ -1465,8 +1426,6 @@ def show_contact_section():
 
 if selected_section == "home":
     show_hero_section()
-elif selected_section == "about":
-    show_about_section()
 elif selected_section == "skills":
     show_skills_section()
 elif selected_section == "projects":
