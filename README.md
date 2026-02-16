@@ -8,7 +8,7 @@ Modern ve interaktif bir veri bilimi portfolyosu. Projelerimi, yeteneklerimi ve 
 
 ## 🌟 Canlı Demo
 
-🔗 **[Portfolyoyu Görüntüle]([https://edacelikeloglu.streamlit.app](https://edacelikelogluportfolyo.streamlit.app/))**
+🔗 **[Portfolyoyu Görüntüle](https://edacelikeloglu.streamlit.app)(https://edacelikelogluportfolyo.streamlit.app/))**
 
 ## ✨ Özellikler
 
