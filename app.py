@@ -898,11 +898,10 @@ content = {
         "hero_subtitle": "Veri Bilimci | Veri Analisti | Matematikçi",
         "typing_text": "Verilerle hikayeler anlatıyorum...",
         "about_text": """
-        Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim.
+        Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
         
         Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım.
         YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum.
-        Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
         
         🎓 **Eğitim:** Marmara Üniversitesi, Matematik Bölümü, 2010–2014
         
@@ -919,11 +918,11 @@ content = {
         "hero_subtitle": "Data Scientist | Data Analyst | Mathematician",
         "typing_text": "I tell stories with data...",
         "about_text": """
-        I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making.
+        I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
         
         During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders.
         As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
-        I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
+        
         
         🎓 **Education:** Marmara University, BSc in Mathematics, 2010–2014
         
