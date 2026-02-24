@@ -51,7 +51,7 @@ st.markdown("""
 
     /* Sidebar styling */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(180deg, #7b8ff5 0%, #8b5fb8 100%);
     }
 
     /* Ana içerik alanının üst boşluğunu azalt - daha güçlü seçiciler */
@@ -182,7 +182,7 @@ st.markdown("""
     }
 
     .hero-section {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #7b8ff5 0%, #8b5fb8 100%);
         padding: 2rem 2rem;
         border-radius: 25px;
         color: white;
@@ -328,7 +328,7 @@ st.markdown("""
     }
 
     .contact-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #7b8ff5 0%, #8b5fb8 100%);
         padding: 2rem;
         border-radius: 20px;
         color: white;
@@ -337,7 +337,7 @@ st.markdown("""
     }
 
     .contact-form-card {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%);
         padding: 2rem 2rem 0.5rem 2rem;
         border-radius: 20px 20px 0 0;
         box-shadow: 0 10px 30px rgba(118,75,162,0.4);
@@ -1518,7 +1518,7 @@ She is exactly the kind of talent that modern companies need—technically stron
     # Sağ kolon - İkinci referans (Doğu Sırt)
     with col2:
         st.markdown(f"""
-        <div class="contact-card" style="min-height: 650px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); display: flex; flex-direction: column;">
+        <div class="contact-card" style="min-height: 650px; background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%); display: flex; flex-direction: column;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <img src="{testimonials[1]['avatar']}" 
                      style="width: 70px; height: 70px; border-radius: 50%; 
