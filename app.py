@@ -1432,7 +1432,7 @@ def show_testimonials_section():
 
 She particularly stood out for her coding skills and problem-solving abilities, delivering effective and results-oriented solutions. Eda was a reliable and collaborative team member who carried out her responsibilities with professionalism and care.
 
-It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.<br><br><br>""",
+It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.<br><br><br><br><br><br><br>""",
                 "linkedin_url": "https://www.linkedin.com/in/gurayataman/",
                 "avatar": "https://ui-avatars.com/api/?name=Guray+Ataman&background=667eea&color=fff&size=200"
             },
@@ -1444,9 +1444,23 @@ It was a pleasure to work with her. I am confident that she will continue to bri
 
 Eda consistently demonstrated her ability to turn theoretical knowledge into practical solutions with clarity and precision. Whether it was building machine learning models, analyzing complex datasets, or collaborating on team projects, she approached every challenge with professionalism, creativity, and dedication.
 
-She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.""",
+She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.<br><br><br><br>""",
                 "linkedin_url": "https://www.linkedin.com/in/dogusirt/",
                 "avatar": "https://ui-avatars.com/api/?name=Dogu+Sirt&background=764ba2&color=fff&size=200"
+            },
+            {
+                "name": "Eda Başkan",
+                "role": "Business Development and Resource Management Director<br>@ YenidenBiz Association",
+                "date": "23 Şubat 2026",
+                "text": """I have had the pleasure of working with Eda Çelikeloglu through our data driven initiatives at the YenidenBiz Association. Eda quickly adapted to our data analysis processes and consistently added value with her strong analytical thinking and solution oriented mindset.
+
+As a Volunteer Data Analyst, she actively contributed to projects supporting women's return to the workforce, delivering meaningful insights from data. She also played an important role in the migration of our database infrastructure to the Google Apps environment, demonstrating strong ownership, technical curiosity, and a proactive approach.
+
+Eda's solid mathematical background enables her to contribute effectively to data driven decision making. She is also a collaborative team player, eager to learn, and highly responsible in her work.
+
+I strongly believe Eda will create significant value in data analytics and data science roles.""",
+                "linkedin_url": "https://www.linkedin.com/in/eda-başkan-99a81249/",
+                "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
             }
         ],
         "English": [
@@ -1458,7 +1472,7 @@ She is exactly the kind of talent that modern companies need—technically stron
 
 She particularly stood out for her coding skills and problem-solving abilities, delivering effective and results-oriented solutions. Eda was a reliable and collaborative team member who carried out her responsibilities with professionalism and care.
 
-It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.""",
+It was a pleasure to work with her. I am confident that she will continue to bring value to any team she joins, and I sincerely wish her continued success in her career.<br><br><br><br><br><br><br>""",
                 "linkedin_url": "https://www.linkedin.com/in/gurayataman/",
                 "avatar": "https://ui-avatars.com/api/?name=Guray+Ataman&background=667eea&color=fff&size=200"
             },
@@ -1470,22 +1484,36 @@ It was a pleasure to work with her. I am confident that she will continue to bri
 
 Eda consistently demonstrated her ability to turn theoretical knowledge into practical solutions with clarity and precision. Whether it was building machine learning models, analyzing complex datasets, or collaborating on team projects, she approached every challenge with professionalism, creativity, and dedication.
 
-She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.""",
+She is exactly the kind of talent that modern companies need—technically strong, eager to learn, and capable of delivering real impact. I highly recommend Eda for any role in data science, AI, or analytics-driven teams. She will be a valuable asset to any organization.<br><br><br><br>""",
                 "linkedin_url": "https://www.linkedin.com/in/dogusirt/",
                 "avatar": "https://ui-avatars.com/api/?name=Dogu+Sirt&background=764ba2&color=fff&size=200"
+            },
+            {
+                "name": "Eda Başkan",
+                "role": "Business Development and Resource Management Director<br>@ YenidenBiz Association",
+                "date": "Feb 23, 2026",
+                "text": """I have had the pleasure of working with Eda Çelikeloglu through our data driven initiatives at the YenidenBiz Association. Eda quickly adapted to our data analysis processes and consistently added value with her strong analytical thinking and solution oriented mindset.
+
+As a Volunteer Data Analyst, she actively contributed to projects supporting women's return to the workforce, delivering meaningful insights from data. She also played an important role in the migration of our database infrastructure to the Google Apps environment, demonstrating strong ownership, technical curiosity, and a proactive approach.
+
+Eda's solid mathematical background enables her to contribute effectively to data driven decision making. She is also a collaborative team player, eager to learn, and highly responsible in her work.
+
+I strongly believe Eda will create significant value in data analytics and data science roles.""",
+                "linkedin_url": "https://www.linkedin.com/in/eda-ba%C5%9Fkan-99a81249/",
+                "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
             }
         ]
     }
     
     testimonials = testimonials_data[language]
     
-    # İki referansı yan yana göster
-    col1, col2 = st.columns(2)
+    # Üç referansı yan yana göster
+    col1, col2, col3 = st.columns(3)
     
     # Sol kolon - İlk referans (Güray Ataman)
     with col1:
         st.markdown(f"""
-        <div class="contact-card" style="min-height: 650px; display: flex; flex-direction: column;">
+        <div class="contact-card" style="height: 1100px; display: flex; flex-direction: column;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <img src="{testimonials[0]['avatar']}" 
                      style="width: 70px; height: 70px; border-radius: 50%; 
@@ -1515,10 +1543,10 @@ She is exactly the kind of talent that modern companies need—technically stron
         </div>
         """, unsafe_allow_html=True)
     
-    # Sağ kolon - İkinci referans (Doğu Sırt)
+    # Orta kolon - İkinci referans (Doğu Sırt)
     with col2:
         st.markdown(f"""
-        <div class="contact-card" style="min-height: 650px; background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%); display: flex; flex-direction: column;">
+        <div class="contact-card" style="height: 1100px; background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%); display: flex; flex-direction: column;">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <img src="{testimonials[1]['avatar']}" 
                      style="width: 70px; height: 70px; border-radius: 50%; 
@@ -1548,8 +1576,40 @@ She is exactly the kind of talent that modern companies need—technically stron
         </div>
         """, unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    # Sağ kolon - Üçüncü referans (Eda Başkan)
+    with col3:
+        st.markdown(f"""
+        <div class="contact-card" style="height: 1100px; display: flex; flex-direction: column;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <img src="{testimonials[2]['avatar']}" 
+                     style="width: 70px; height: 70px; border-radius: 50%; 
+                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            </div>
+            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[2]['name']}</h3>
+            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                {testimonials[2]['role']}
+            </p>
+            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
+                {testimonials[2]['date']}
+            </p>
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
+            <div style="flex-grow: 1;">
+                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
+                    {testimonials[2]['text']}
+                </p>
+            </div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="{testimonials[2]['linkedin_url']}" target="_blank" 
+                   style="display: inline-block !important; background: white !important; color: #8b5fb8 !important; 
+                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
+                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
+                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
+                </a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
+    st.markdown("<br>", unsafe_allow_html=True)
 
 
 def show_contact_section():
