@@ -1613,17 +1613,38 @@ I strongly believe Eda will create significant value in data analytics and data 
 
 
 def show_contact_section():
+    # Column'ları yukarıdan hizalamak için CSS
+    st.markdown("""
+    <style>
+    [data-testid="column"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        vertical-align: top !important;
+    }
+    [data-testid="stForm"] {
+        background: linear-gradient(135deg, #7b8ff5 0%, #8b5fb8 100%);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     # İletişim bilgileri ve mesaj formu yan yana
     col1, col2 = st.columns([1, 1])
     
     with col1:
         if language == "Türkçe":
             st.markdown("""
-            <div class="contact-card">
+            <div class="contact-card" style="height: 550px;">
                 <h3 style="color:white; margin-bottom: 1rem; text-align: center;">İletişime Geçelim! 🚀</h3>
                 <p style="opacity: 0.9;">Projeleriniz, veri bilimi üzerine fikir alışverişi veya iş birliği fırsatları için benimle iletişime geçebilirsiniz.</p>
                 <p style="opacity: 0.9;">Aşağıdaki kanallardan ulaşabilirsiniz 👇</p>
-                <br>
                 <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                     <div style="display: block; background: rgba(255,255,255,0.2); color: white; 
                               padding: 0.7rem 1.3rem; border-radius: 25px; 
@@ -1657,11 +1678,10 @@ def show_contact_section():
             """, unsafe_allow_html=True)
         else:
             st.markdown("""
-            <div class="contact-card">
+            <div class="contact-card" style="height: 550px;">
                 <h3 style="color:white; margin-bottom: 1rem; text-align: center;">Let's Get in Touch! 🚀</h3>
                 <p style="opacity: 0.9;">Feel free to reach out for projects, data science discussions, or collaboration opportunities.</p>
-                <p style="opacity: 0.9;">You can contact me via the links below �</p>
-                <br>
+                <p style="opacity: 0.9;">You can contact me via the links below 👇</p>
                 <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                     <div style="display: block; background: rgba(255,255,255,0.2); color: white; 
                               padding: 0.7rem 1.3rem; border-radius: 25px; 
@@ -1716,7 +1736,7 @@ def show_contact_section():
             subject_prefix = "New message:"
         
         with st.form("contact_form"):
-            # Başlık - direkt HTML
+            # Başlık
             st.markdown(f"""
             <h3 style="color: white; text-align: center; margin-bottom: 1.5rem; margin-top: 0;">{form_title}</h3>
             """, unsafe_allow_html=True)
@@ -1746,8 +1766,6 @@ def show_contact_section():
                         st.error(f"E-posta gönderilirken hata oluştu: {e}")
                 else:
                     st.warning(warning_msg)
-
-
 
 
 if selected_section == "home":
