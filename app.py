@@ -880,6 +880,15 @@ with st.sidebar:
     
     /* Mobil responsive tasarım */
     @media (max-width: 768px) {{
+        /* Column'ları mobilde alt alta diz */
+        [data-testid="column"] {{
+            width: 100% !important;
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            padding: 0 0.5rem !important;
+            margin-bottom: 1rem !important;
+        }}
+        
         .contact-card {{
             height: auto !important;
             min-height: auto !important;
@@ -921,10 +930,6 @@ with st.sidebar:
         
         .hero-section h2 {{
             font-size: 1.3rem !important;
-        }}
-        
-        [data-testid="column"] {{
-            padding: 0 0.5rem !important;
         }}
     }}
     </style>
