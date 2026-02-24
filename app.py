@@ -877,6 +877,33 @@ with st.sidebar:
             transform: translateX(20px) scale(1);
         }}
     }}
+    
+    /* Mobil responsive tasarım */
+    @media (max-width: 768px) {{
+        .contact-card {{
+            height: auto !important;
+            min-height: auto !important;
+            padding: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }}
+        
+        [data-testid="stForm"] {{
+            height: auto !important;
+            padding: 1.5rem !important;
+        }}
+        
+        .hero-section {{
+            padding: 2rem 1rem !important;
+        }}
+        
+        .hero-section h1 {{
+            font-size: 2rem !important;
+        }}
+        
+        .hero-section h2 {{
+            font-size: 1.3rem !important;
+        }}
+    }}
     </style>
     <div class="bubble-container">
         <div class="bubble">
