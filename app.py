@@ -889,6 +889,55 @@ with st.sidebar:
             margin-bottom: 1rem !important;
         }}
         
+        /* Hero section mobil düzeni */
+        .hero-section {{
+            flex-direction: column !important;
+            padding: 1.5rem 1rem !important;
+            text-align: center !important;
+        }}
+        
+        .hero-section > div:first-child {{
+            text-align: center !important;
+            margin-bottom: 1.5rem !important;
+        }}
+        
+        .hero-section > div:last-child {{
+            margin-left: 0 !important;
+            margin-bottom: 1rem !important;
+        }}
+        
+        .hero-section img {{
+            width: 180px !important;
+            height: 180px !important;
+        }}
+        
+        .hero-section h1 {{
+            font-size: 1.8rem !important;
+            text-align: center !important;
+        }}
+        
+        .hero-section h2 {{
+            font-size: 1.2rem !important;
+            text-align: center !important;
+        }}
+        
+        .hero-section p {{
+            text-align: center !important;
+            font-size: 0.95rem !important;
+        }}
+        
+        .hero-title {{
+            text-align: center !important;
+        }}
+        
+        .hero-subtitle {{
+            text-align: center !important;
+        }}
+        
+        .typing-text {{
+            text-align: center !important;
+        }}
+        
         .contact-card {{
             height: auto !important;
             min-height: auto !important;
@@ -918,18 +967,6 @@ with st.sidebar:
         [data-testid="stForm"] {{
             height: auto !important;
             padding: 1.5rem !important;
-        }}
-        
-        .hero-section {{
-            padding: 2rem 1rem !important;
-        }}
-        
-        .hero-section h1 {{
-            font-size: 2rem !important;
-        }}
-        
-        .hero-section h2 {{
-            font-size: 1.3rem !important;
         }}
     }}
     </style>
