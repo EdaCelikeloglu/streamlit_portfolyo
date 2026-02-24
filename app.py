@@ -17,7 +17,7 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 # Sayfa konfigürasyonu
 st.set_page_config(
     page_title="Eda Çelikeloğlu - Data Scientist & Mathematician",
-    page_icon="🔬",
+    page_icon="assets/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -752,6 +752,14 @@ section_labels = {
 
 # Sidebar tasarımı
 with st.sidebar:
+    # Logo en üstte
+    st.markdown("""
+    <div style="text-align: center; padding: 0.5rem 0 1rem 0;">
+        <img src="data:image/png;base64,{}" style="width: 100px; height: 100px; border-radius: 50%; 
+             box-shadow: 0 4px 15px rgba(255,255,255,0.3); border: 3px solid white;">
+    </div>
+    """.format(__import__('base64').b64encode(open("assets/favicon.png", "rb").read()).decode()), unsafe_allow_html=True)
+    
     labels = [section_labels[st.session_state.language][s] for s in sections]
     current_label = section_labels[st.session_state.language][st.session_state.selected_section]
 
