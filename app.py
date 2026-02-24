@@ -885,6 +885,25 @@ with st.sidebar:
             min-height: auto !important;
             padding: 1.5rem !important;
             margin-bottom: 1rem !important;
+            overflow: hidden !important;
+            word-wrap: break-word !important;
+        }}
+        
+        .contact-card p {{
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }}
+        
+        .contact-card h3 {{
+            font-size: 1.1rem !important;
+            word-wrap: break-word !important;
+        }}
+        
+        .contact-card img {{
+            width: 60px !important;
+            height: 60px !important;
         }}
         
         [data-testid="stForm"] {{
@@ -902,6 +921,10 @@ with st.sidebar:
         
         .hero-section h2 {{
             font-size: 1.3rem !important;
+        }}
+        
+        [data-testid="column"] {{
+            padding: 0 0.5rem !important;
         }}
     }}
     </style>
