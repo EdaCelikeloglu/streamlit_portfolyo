@@ -1551,7 +1551,7 @@ As a Volunteer Data Analyst, she actively contributed to projects supporting wom
 Eda's solid mathematical background enables her to contribute effectively to data driven decision making. She is also a collaborative team player, eager to learn, and highly responsible in her work.
 
 I strongly believe Eda will create significant value in data analytics and data science roles.""",
-                "linkedin_url": "https://www.linkedin.com/in/eda-başkan-99a81249/",
+                "linkedin_url": "https://www.linkedin.com/in/edabaskan/",
                 "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
             }
         ],
@@ -1591,7 +1591,7 @@ As a Volunteer Data Analyst, she actively contributed to projects supporting wom
 Eda's solid mathematical background enables her to contribute effectively to data driven decision making. She is also a collaborative team player, eager to learn, and highly responsible in her work.
 
 I strongly believe Eda will create significant value in data analytics and data science roles.""",
-                "linkedin_url": "https://www.linkedin.com/in/eda-ba%C5%9Fkan-99a81249/",
+                "linkedin_url": "https://www.linkedin.com/in/edabaskan/",
                 "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
             }
         ]
