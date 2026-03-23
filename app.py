@@ -8,6 +8,7 @@ import streamlit.components.v1 as components
 import json
 import base64
 import random
+import fitz
 
 
 # .env dosyasını yükle
@@ -1824,6 +1825,37 @@ def open_certificate_modal(cert, modal_id):
     components.html(js, height=0, width=0)
 
 
+@st.cache_data(show_spinner=False)
+def generate_pdf_thumbnail(pdf_path, width=420):
+    if not os.path.exists(pdf_path):
+        return None
+
+    try:
+        doc = fitz.open(pdf_path)
+        page = doc.load_page(0)
+
+        zoom = width / page.rect.width
+        matrix = fitz.Matrix(zoom, zoom)
+        pix = page.get_pixmap(matrix=matrix, alpha=False)
+
+        return pix.tobytes("png")
+    except Exception:
+        return None
+
+
+def get_certificate_preview(cert):
+    file_path = cert["file"]
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext in [".jpg", ".jpeg", ".png", ".webp"]:
+        return file_path
+
+    if ext == ".pdf":
+        return generate_pdf_thumbnail(file_path)
+
+    return None
+
+
 def show_certificates_section():
     certificates_data = {
         "Türkçe": {
@@ -1833,55 +1865,51 @@ def show_certificates_section():
                 "Öne Çıkanlar": [
                     {
                         "name": "Veri Bilimi, İstanbul Kodluyor",
-                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg",
-                        "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"
+                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"
                     },
                     {
                         "name": "Veri Mühendisliği, İBB",
-                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg",
-                        "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
+                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
                     }
                 ],
                 "Cisco Badges": [
                     {
                         "name": "Data Analytics Essentials Badge",
-                        "file": "assets/sertifikalar/cisco-badges/Data_Analytics_Essentials_Badge20240522-8-ky8doy_cisco.pdf",
-                        "thumb": "assets/sertifikalar/cisco-badges/data-analytics-essentials.png"
+                        "file": "assets/sertifikalar/cisco-badges/Data_Analytics_Essentials_Badge20240522-8-ky8doy_cisco.pdf"
                     },
                     {
                         "name": "Introduction to Data Science Badge",
-                        "file": "assets/sertifikalar/cisco-badges/Introduction_to_Data_Science_Badge20240519-8-szt9p7_cisco.pdf",
-                        "thumb": "assets/sertifikalar/cisco-badges/introduction-to-data-science.png"
+                        "file": "assets/sertifikalar/cisco-badges/Introduction_to_Data_Science_Badge20240519-8-szt9p7_cisco.pdf"
                     }
                 ],
                 "Geleceği Yazanlar": [
-                    {"name": "Derin Öğrenme 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Derin Öğrenme 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme301.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Derin Öğrenme 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme401.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Derin Öğrenme 501", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme501.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Makine Öğrenmesi 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Makine Öğrenmesi101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python301.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python401.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Veri Bilimi ve Yapay Zekaya Giriş 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Bilimi ve Yapay Zekaya Giriş101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Veri Manipülasyonu 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Veri Manipülasyonu 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"}
+                    {"name": "Derin Öğrenme 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme201.pdf"},
+                    {"name": "Derin Öğrenme 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme301.pdf"},
+                    {"name": "Derin Öğrenme 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme401.pdf"},
+                    {"name": "Derin Öğrenme 501", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme501.pdf"},
+                    {"name": "Makine Öğrenmesi 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Makine Öğrenmesi101.pdf"},
+                    {"name": "Python 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python101.pdf"},
+                    {"name": "Python 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python201.pdf"},
+                    {"name": "Python 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python301.pdf"},
+                    {"name": "Python 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python401.pdf"},
+                    {"name": "Veri Bilimi ve Yapay Zekaya Giriş 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Bilimi ve Yapay Zekaya Giriş101.pdf"},
+                    {"name": "Veri Manipülasyonu 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu101.pdf"},
+                    {"name": "Veri Manipülasyonu 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu201.pdf"}
                 ],
                 "Miuul": [
-                    {"name": "CRM Analytics", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - CRM Analytics.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Feature Engineering", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Feature Engineering.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Linear Algebra for Data Science", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Linear Algebra for Data Science and.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Machine Learning", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Machine Learning.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Python Programming 101", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Python Programming 101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Querying MS SQL", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Querying MS SQL.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Time Series", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Time Series.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"}
+                    {"name": "CRM Analytics", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - CRM Analytics.pdf"},
+                    {"name": "Feature Engineering", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Feature Engineering.pdf"},
+                    {"name": "Linear Algebra for Data Science", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Linear Algebra for Data Science and.pdf"},
+                    {"name": "Machine Learning", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Machine Learning.pdf"},
+                    {"name": "Python Programming 101", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Python Programming 101.pdf"},
+                    {"name": "Querying MS SQL", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Querying MS SQL.pdf"},
+                    {"name": "Time Series", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Time Series.pdf"}
                 ],
                 "Diğer": [
-                    {"name": "BT İş Analisti Sertifikası", "file": "assets/sertifikalar/others/BT_Is_Analisti_Sertifika_teedo.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Veri Bilimi", "file": "assets/sertifikalar/others/Eda Çelikeloğlu-Veri Bilimi-ecodation.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "EF SET Certificate English B1", "file": "assets/sertifikalar/others/EF SET Certificate_english_b1.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Uygulamalı Microsoft Power BI", "file": "assets/sertifikalar/others/Uygulamali_Microsoft_Power_BI_Sertifika_btk.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"}
+                    {"name": "BT İş Analisti Sertifikası", "file": "assets/sertifikalar/others/BT_Is_Analisti_Sertifika_teedo.pdf"},
+                    {"name": "Veri Bilimi", "file": "assets/sertifikalar/others/Eda Çelikeloğlu-Veri Bilimi-ecodation.pdf"},
+                    {"name": "EF SET Certificate English B1", "file": "assets/sertifikalar/others/EF SET Certificate_english_b1.pdf"},
+                    {"name": "Uygulamalı Microsoft Power BI", "file": "assets/sertifikalar/others/Uygulamali_Microsoft_Power_BI_Sertifika_btk.pdf"}
                 ]
             }
         },
@@ -1892,55 +1920,51 @@ def show_certificates_section():
                 "Featured": [
                     {
                         "name": "Data Science, Istanbul Kodluyor",
-                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg",
-                        "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"
+                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"
                     },
                     {
                         "name": "Data Engineering, IBB",
-                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg",
-                        "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
+                        "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
                     }
                 ],
                 "Cisco Badges": [
                     {
                         "name": "Data Analytics Essentials Badge",
-                        "file": "assets/sertifikalar/cisco-badges/Data_Analytics_Essentials_Badge20240522-8-ky8doy_cisco.pdf",
-                        "thumb": "assets/sertifikalar/cisco-badges/data-analytics-essentials.png"
+                        "file": "assets/sertifikalar/cisco-badges/Data_Analytics_Essentials_Badge20240522-8-ky8doy_cisco.pdf"
                     },
                     {
                         "name": "Introduction to Data Science Badge",
-                        "file": "assets/sertifikalar/cisco-badges/Introduction_to_Data_Science_Badge20240519-8-szt9p7_cisco.pdf",
-                        "thumb": "assets/sertifikalar/cisco-badges/introduction-to-data-science.png"
+                        "file": "assets/sertifikalar/cisco-badges/Introduction_to_Data_Science_Badge20240519-8-szt9p7_cisco.pdf"
                     }
                 ],
                 "Geleceği Yazanlar": [
-                    {"name": "Deep Learning 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Deep Learning 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme301.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Deep Learning 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme401.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Deep Learning 501", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme501.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Machine Learning 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Makine Öğrenmesi101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python301.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Python 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python401.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Introduction to Data Science and AI 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Bilimi ve Yapay Zekaya Giriş101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Data Manipulation 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Data Manipulation 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu201.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"}
+                    {"name": "Deep Learning 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme201.pdf"},
+                    {"name": "Deep Learning 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme301.pdf"},
+                    {"name": "Deep Learning 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme401.pdf"},
+                    {"name": "Deep Learning 501", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Derin Öğrenme501.pdf"},
+                    {"name": "Machine Learning 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Makine Öğrenmesi101.pdf"},
+                    {"name": "Python 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python101.pdf"},
+                    {"name": "Python 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python201.pdf"},
+                    {"name": "Python 301", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python301.pdf"},
+                    {"name": "Python 401", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Python401.pdf"},
+                    {"name": "Introduction to Data Science and AI 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Bilimi ve Yapay Zekaya Giriş101.pdf"},
+                    {"name": "Data Manipulation 101", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu101.pdf"},
+                    {"name": "Data Manipulation 201", "file": "assets/sertifikalar/gelecegi-yazanlar/Eda Çelikeloğlu-Veri Manipülasyonu201.pdf"}
                 ],
                 "Miuul": [
-                    {"name": "CRM Analytics", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - CRM Analytics.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Feature Engineering", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Feature Engineering.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Linear Algebra for Data Science", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Linear Algebra for Data Science and.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Machine Learning", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Machine Learning.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Python Programming 101", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Python Programming 101.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Querying MS SQL", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Querying MS SQL.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Time Series", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Time Series.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"}
+                    {"name": "CRM Analytics", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - CRM Analytics.pdf"},
+                    {"name": "Feature Engineering", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Feature Engineering.pdf"},
+                    {"name": "Linear Algebra for Data Science", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Linear Algebra for Data Science and.pdf"},
+                    {"name": "Machine Learning", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Machine Learning.pdf"},
+                    {"name": "Python Programming 101", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Python Programming 101.pdf"},
+                    {"name": "Querying MS SQL", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Querying MS SQL.pdf"},
+                    {"name": "Time Series", "file": "assets/sertifikalar/miuul-certificates/Eda Çelikeloğlu - Time Series.pdf"}
                 ],
                 "Others": [
-                    {"name": "Business Analyst Certificate", "file": "assets/sertifikalar/others/BT_Is_Analisti_Sertifika_teedo.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "Data Science", "file": "assets/sertifikalar/others/Eda Çelikeloğlu-Veri Bilimi-ecodation.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri Bilimi-istanbulkodluyor.jpg"},
-                    {"name": "EF SET Certificate English B1", "file": "assets/sertifikalar/others/EF SET Certificate_english_b1.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"},
-                    {"name": "Applied Microsoft Power BI", "file": "assets/sertifikalar/others/Uygulamali_Microsoft_Power_BI_Sertifika_btk.pdf", "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"}
+                    {"name": "Business Analyst Certificate", "file": "assets/sertifikalar/others/BT_Is_Analisti_Sertifika_teedo.pdf"},
+                    {"name": "Data Science", "file": "assets/sertifikalar/others/Eda Çelikeloğlu-Veri Bilimi-ecodation.pdf"},
+                    {"name": "EF SET Certificate English B1", "file": "assets/sertifikalar/others/EF SET Certificate_english_b1.pdf"},
+                    {"name": "Applied Microsoft Power BI", "file": "assets/sertifikalar/others/Uygulamali_Microsoft_Power_BI_Sertifika_btk.pdf"}
                 ]
             }
         }
@@ -2014,12 +2038,14 @@ def show_certificates_section():
                 if i + j < len(certs):
                     cert = certs[i + j]
                     with col:
-                        thumb_exists = os.path.exists(cert["thumb"])
+                        preview = get_certificate_preview(cert)
 
                         st.markdown("<div class='cert-thumb-wrap'>", unsafe_allow_html=True)
 
-                        if thumb_exists:
-                            st.image(cert["thumb"], use_container_width=True)
+                        if isinstance(preview, bytes):
+                            st.image(preview, use_container_width=True)
+                        elif isinstance(preview, str) and os.path.exists(preview):
+                            st.image(preview, use_container_width=True)
                         else:
                             st.markdown("""
                             <div style="
