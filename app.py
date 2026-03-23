@@ -2182,8 +2182,6 @@ def show_certificates_section():
                     with col:
                         preview_path = cert.get("thumb")
 
-                        st.markdown("<div class='cert-thumb-wrap'>", unsafe_allow_html=True)
-
                         if preview_path and os.path.exists(preview_path):
                             st.image(preview_path, use_container_width=True)
                         else:
@@ -2204,7 +2202,6 @@ def show_certificates_section():
                             </div>
                             """, unsafe_allow_html=True)
 
-                        st.markdown(f"<div class='cert-thumb-title'>{cert['name']}</div>", unsafe_allow_html=True)
 
                         if st.button(
                             "👁️ Görüntüle" if language == "Türkçe" else "👁️ View",
@@ -2215,7 +2212,6 @@ def show_certificates_section():
                             st.session_state.certificate_modal_id = f"cert_{random.randint(1000,9999)}"
                             st.rerun()
 
-                        st.markdown("</div>", unsafe_allow_html=True)
 
     if st.session_state.active_certificate:
         open_certificate_modal(
