@@ -704,60 +704,7 @@ st.markdown("""
         border-radius: 20px !important;
     }
     
-    /* ===== DARK MODE FIX ===== */
-    
-    /* Tarayıcıya dark mode'u yok saydır */
-    :root {
-        color-scheme: light !important;
-    }
-    
-    /* Tüm textleri zorla koyu yap */
-    html, body, [class*="css"] {
-        color: #1a1a1a !important;
-        background-color: #ffffff !important;
-    }
-    
-    /* Streamlit container */
-    section.main > div {
-        background-color: #ffffff !important;
-    }
-    
-    /* Sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-    }
-    
-    /* Sidebar text */
-    [data-testid="stSidebar"] * {
-        color: #1a1a1a !important;
-    }
-    
-    /* Başlıklar */
-    h1, h2, h3, h4, h5, h6 {
-        color: #1a1a1a !important;
-    }
-    
-    /* Genel text */
-    p, span, div {
-        color: #1a1a1a !important;
-    }
-    
-    /* Button */
-    button {
-        color: #1a1a1a !important;
-    }
-    
-    /* Input */
-    input, textarea {
-        color: #1a1a1a !important;
-        background-color: #ffffff !important;
-    }
-    
-    /* Select */
-    div[data-baseweb="select"] {
-        color: #1a1a1a !important;
-        background-color: #ffffff !important;
-    }    
+  
 </style>
 """, unsafe_allow_html=True)
 
