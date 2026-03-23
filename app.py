@@ -1005,19 +1005,31 @@ content = {
         "hero_subtitle": "Veri Bilimci | Veri Analisti | Matematikçi",
         "typing_text": "Verilerle hikayeler anlatıyorum...",
         "about_text": """
-        Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
-        
-        Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım.
-        YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum.
-        
-        🎓 **Eğitim:** Marmara Üniversitesi, Matematik Bölümü, 2010–2014
-        
-        💼 **Deneyim:**
-        
-        - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–2026
-        
-        📍 **Konum:** Maltepe, İstanbul
+        <div style="
+            color:#2b2b2b !important;
+            line-height:1.85;
+            font-size:1.05rem;
+            text-align:justify;
+            font-family:'Poppins', sans-serif;
+        ">
+            <p>
+                Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
+            </p>
+
+            <p>
+                Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım. YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum.
+            </p>
+
+            <p><strong>🎓 Eğitim:</strong> Marmara Üniversitesi, Matematik Bölümü, 2010-2014</p>
+
+            <p><strong>💼 Deneyim:</strong></p>
+            <ul style="margin-top:0.4rem; padding-left:1.4rem;">
+                <li>Sahibinden.com, Junior Data Scientist, 2025</li>
+                <li>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-Halen</li>
+            </ul>
+
+            <p><strong>📍 Konum:</strong> Maltepe, İstanbul</p>
+        </div>
         """
     },
     "English": {
@@ -1025,20 +1037,31 @@ content = {
         "hero_subtitle": "Data Scientist | Data Analyst | Mathematician",
         "typing_text": "I tell stories with data...",
         "about_text": """
-        I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
-        
-        During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders.
-        As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
-        
-        
-        🎓 **Education:** Marmara University, BSc in Mathematics, 2010–2014
-        
-        💼 **Experience:**
-        
-        - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Association, Volunteer Data Analyst, 2025–2026
-        
-        📍 **Location:** Maltepe, Istanbul
+        <div style="
+            color:#2b2b2b !important;
+            line-height:1.85;
+            font-size:1.05rem;
+            text-align:justify;
+            font-family:'Poppins', sans-serif;
+        ">
+            <p>
+                I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
+            </p>
+
+            <p>
+                During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
+            </p>
+
+            <p><strong>🎓 Education:</strong> Marmara University, BSc in Mathematics, 2010-2014</p>
+
+            <p><strong>💼 Experience:</strong></p>
+            <ul style="margin-top:0.4rem; padding-left:1.4rem;">
+                <li>Sahibinden.com, Junior Data Scientist, 2025</li>
+                <li>YenidenBiz Association, Volunteer Data Analyst, 2025-Present</li>
+            </ul>
+
+            <p><strong>📍 Location:</strong> Maltepe, Istanbul</p>
+        </div>
         """
     }
 }
@@ -1068,23 +1091,10 @@ def show_hero_section():
     
     # Hakkımda bölümünü ekle
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("""
-    <style>
-    .about-text {
-        color:#2b2b2b !important;
-        line-height:1.8;
-        font-size:1rem;
-        text-align:justify;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown(f"""
-    <div class="about-text">
-    {content[language]["about_text"]}
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(content[language]["about_text"], unsafe_allow_html=True)
     
+
+
 
 def show_skills_section():
     skills_data = {
@@ -1221,6 +1231,7 @@ def show_skills_section():
         st.empty()
     
     st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 # ===== Projeler (Global) =====
