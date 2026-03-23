@@ -1959,7 +1959,7 @@ def show_certificates_section():
                     },
                     {
                         "name": "Veri Bilimi",
-                        "file": "assets/sertifikalar/others/Eda Çelikeloğlu-Veri Bilimi-ecodation.pdf",
+                        "file": "assets/sertifikalar/others/Eda_Celikeloglu-Veri_Bilimi-ecodation.pdf",
                         "thumb": "assets/sertifikalar/thumbnails/eda-celikeloglu-veri-bilimi-ecodation.png"
                     },
                     {
