@@ -8,7 +8,11 @@ import streamlit.components.v1 as components
 import json
 import base64
 import random
-import fitz
+try:
+    import fitz
+    FITZ_AVAILABLE = True
+except ImportError:
+    FITZ_AVAILABLE = False
 
 
 # .env dosyasını yükle
@@ -1827,6 +1831,9 @@ def open_certificate_modal(cert, modal_id):
 
 @st.cache_data(show_spinner=False)
 def generate_pdf_thumbnail(pdf_path, width=420):
+    if not FITZ_AVAILABLE:
+        return None
+
     if not os.path.exists(pdf_path):
         return None
 
