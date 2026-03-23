@@ -1827,6 +1827,8 @@ def open_certificate_modal(cert, modal_id):
 def show_certificates_section():
     certificates_data = {
         "Türkçe": {
+            "title": "",
+            "subtitle": "",
             "categories": {
                 "Öne Çıkanlar": [
                     {
@@ -1976,6 +1978,8 @@ def show_certificates_section():
             }
         },
         "English": {
+            "title": "",
+            "subtitle": "",
             "categories": {
                 "Featured": [
                     {
