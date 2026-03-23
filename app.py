@@ -1708,41 +1708,120 @@ I strongly believe Eda will create significant value in data analytics and data 
 
 
 def open_certificate_modal(cert, modal_id):
-    st.markdown("""
+    file_path = cert["file"]
+
+    if not os.path.exists(file_path):
+        st.error("Dosya bulunamadı." if language == "Türkçe" else "File not found.")
+        return
+
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext in [".jpg", ".jpeg", ".png", ".webp"]:
+        mime_type = "image/jpeg" if ext in [".jpg", ".jpeg"] else f"image/{ext.replace('.', '')}"
+        with open(file_path, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode()
+        content_html = f"""
+        <div style="text-align:center;">
+            <img src="data:{mime_type};base64,{encoded}" style="max-width:100%; max-height:75vh; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.25);">
+        </div>
+        """
+    elif ext == ".pdf":
+        with open(file_path, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode()
+        content_html = f"""
+        <iframe
+            src="data:application/pdf;base64,{encoded}"
+            width="100%"
+            height="700px"
+            style="border:none; border-radius:12px;">
+        </iframe>
+        """
+    else:
+        st.error("Desteklenmeyen dosya türü." if language == "Türkçe" else "Unsupported file type.")
+        return
+
+    title = cert["name"]
+
+    modal_html = f"""
     <style>
-    .modal-overlay {
+      #cert-modal-overlay {{
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .modal-content {
+        inset: 0;
+        background: rgba(0,0,0,0.65);
+        z-index: 2147483646;
+      }}
+      #cert-modal-box {{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: white;
-        padding: 1rem;
-        border-radius: 16px;
-        max-width: 900px;
-        width: 90%;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
+        width: min(1100px, 92vw);
+        max-height: 92vh;
+        overflow: auto;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        z-index: 2147483647;
+        font-family: 'Poppins', sans-serif;
+      }}
+      #cert-close-btn {{
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        border: none;
+        background: #FF4B4B;
+        color: white;
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-weight: 600;
+      }}
+      #cert-modal-title {{
+        margin: 0 0 18px 0;
+        color: #4B0082;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding-right: 70px;
+      }}
     </style>
-    """, unsafe_allow_html=True)
+    <div id="cert-modal-overlay"></div>
+    <div id="cert-modal-box">
+        <button id="cert-close-btn">Kapat</button>
+        <h2 id="cert-modal-title">{title}</h2>
+        {content_html}
+    </div>
+    """
 
-    st.markdown("<div class='modal-overlay'>", unsafe_allow_html=True)
-    st.markdown("<div class='modal-content'>", unsafe_allow_html=True)
+    payload = json.dumps(modal_html)
+    wrapper_id = f"cert-modal-wrapper-{modal_id}"
 
-    st.image(cert["file"], use_container_width=True)
+    js = f"""
+    <script>
+      const doc = window.parent.document;
 
-    if st.button("Kapat" if language == "Türkçe" else "Close"):
-        st.session_state.active_certificate = None
-        st.rerun()
+      const old = doc.getElementById('{wrapper_id}');
+      if (old) old.remove();
 
-    st.markdown("</div></div>", unsafe_allow_html=True)
+      const wrapper = doc.createElement('div');
+      wrapper.id = '{wrapper_id}';
+      wrapper.innerHTML = {payload};
+      doc.body.appendChild(wrapper);
+
+      function closeModal() {{
+        const w = doc.getElementById('{wrapper_id}');
+        if (w) w.remove();
+      }}
+
+      doc.getElementById('cert-close-btn').addEventListener('click', closeModal);
+      doc.getElementById('cert-modal-overlay').addEventListener('click', closeModal);
+      doc.addEventListener('keydown', (e) => {{
+        if (e.key === 'Escape') closeModal();
+      }});
+    </script>
+    """
+
+    components.html(js, height=0, width=0)
 
 
 def show_certificates_section():
