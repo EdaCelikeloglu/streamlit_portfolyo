@@ -2141,28 +2141,12 @@ def show_certificates_section():
         color: #667eea;
         margin: 1rem 0 0.8rem 0;
     }
-    .cert-thumb-wrap {
-        background: white;
-        padding: 0.8rem;
-        border-radius: 16px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-        border: 1px solid rgba(102,126,234,0.10);
-        transition: all 0.25s ease;
-        margin-bottom: 1rem;
-    }
+
     .cert-thumb-wrap:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 26px rgba(102,126,234,0.16);
     }
-    .cert-thumb-title {
-        text-align: center;
-        font-size: 0.92rem;
-        font-weight: 600;
-        color: #5a4b81;
-        margin-top: 0.7rem;
-        line-height: 1.35;
-        min-height: 42px;
-    }
+
     div[data-testid="stButton"] > button[kind="secondary"] {
         border-radius: 12px !important;
     }
