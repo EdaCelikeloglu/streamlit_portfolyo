@@ -1072,7 +1072,11 @@ def show_hero_section():
     
     # Hakkımda bölümünü ekle
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(content[language]["about_text"], unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="about-markdown">
+    {content[language]["about_text"]}
+    </div>
+    """, unsafe_allow_html=True)
     
 
 
