@@ -5,6 +5,10 @@ from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
 import streamlit.components.v1 as components
+import json
+import base64
+import random
+
 
 # .env dosyasını yükle
 load_dotenv()
@@ -725,8 +729,7 @@ with col3:
         st.session_state.language = "English"
 
 # Sekme anahtarlarını sabitle
-sections = ["home", "skills", "awards", "projects", "testimonials", "contact"]
-
+sections = ["home", "skills", "awards", "projects", "testimonials", "certificates", "contact"]
 # Çeviriler
 section_labels = {
     "Türkçe": {
@@ -735,6 +738,7 @@ section_labels = {
         "skills": "🛠️ Yetenekler",
         "projects": "📊 Projeler",
         "awards": "🏆 Ödüller",
+        "certificates": "📜 Sertifikalar",
         "testimonials": "💬 Referanslar",
         "contact": "📞 İletişim"
     },
@@ -744,6 +748,7 @@ section_labels = {
         "skills": "🛠️ Skills",
         "projects": "📊 Projects",
         "awards": "🏆 Awards",
+        "certificates": "📜 Certificates",
         "testimonials": "💬 Testimonials",
         "contact": "📞 Contact"
     }
@@ -1039,7 +1044,7 @@ content = {
 
 # Ana içerik
 def show_hero_section():
-    import base64
+    
     with open("assets/profile_picture.jpg", "rb") as img_file:
         img_data = base64.b64encode(img_file.read()).decode()
     
@@ -1202,9 +1207,7 @@ def show_skills_section():
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-import json
-import streamlit as st
-import streamlit.components.v1 as components
+
 
 # ===== Projeler (Global) =====
 projects = [
@@ -1215,50 +1218,50 @@ projects = [
         "title_en":"🤖 YouTube AI Scraping Agent",
         "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/youtube_ai_kapak.png",
         "desc_tr":"Bir YouTube bağlantısı üzerinden sanatçı tespiti yapan ve ilgili sanatçının ilk stüdyo albümündeki tüm şarkı sözlerini otomatik olarak analiz eden bir yazılım projesi geliştirdim. Python tabanlı bu sistemde, Genius platformundan veri çekmek için Apify araçlarını kullanırken, albüm bilgilerini belirlemek için yapay zeka modellerinden yararlandım. Süreç boyunca her şarkı için karakter, kelime ve token sayıları hesaplayarak yapılandırılmış veriler oluşturdum. Elde ettiğim verileri, MD5 karma değerleri ve vektör gömmeleri aracılığıyla teknik bir analize dönüştürerek sundum. Proje, özellikle veri kazıma ve dil modellerinin entegrasyonu ile deterministik çıktılar üretmeye odaklanıyor.",
-            "desc_en":"I developed a software project that detects artists from a YouTube link and automatically analyzes all lyrics from the artist's first studio album. In this Python-based system, I used Apify tools to scrape data from the Genius platform while leveraging AI models to determine album information. Throughout the process, I calculated character, word, and token counts for each song to create structured data. I transformed the obtained data into technical analysis through MD5 hash values and vector embeddings. The project focuses on producing deterministic outputs through data scraping and language model integration.",
-            "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/YouTube_AI_Scraping_Agent.pdf",
-            "links":[
-                {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/youtube-ai-scraping-agent"}
-            ]
-        },
-        {
-            "id":"physical_therapy",
-            "title":" 🏥 Fizik Tedavi Veri Analizi",
-            "title_tr":" 🏥 Fizik Tedavi Veri Analizi",
-            "title_en":" 🏥 Physical Therapy Data Analysis",
-            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti_kapak.png",
-            "desc_tr":"Ham klinik verileri işleyerek analize hazır hale getiren Python tabanlı uçtan uca bir veri işleme hattı geliştirdim. Sistemde; verilerin temizlenmesi, metinsel sürelerin sayısallaştırılması, normalizasyon kurallarının uygulanması ve KNN algoritması ile eksik değerlerin doldurulması gibi kritik aşamaları uyguladım. Fizyoterapi odaklı hazırladığım bu projede, karmaşık sağlık kayıtlarını düzenli bir yapıya kavuşturarak modellemeye uygun veri setleri ve görsel raporlar ürettim. Süreç boyunca kategorik verilerin dönüştürülmesi, özellik mühendisliği ve verilerin anonimleştirilmesi gibi veri bilimi tekniklerini etkin bir şekilde kullandım. Projede yer alan kurallar dizini sayesinde normalizasyon işlemlerini özelleştirilebilir hale getirdim ve hazırladığım boru hattını yerel ortamlarda kolayca çalıştırılabilir şekilde tasarladım. Projenin temel amacı, dağınık haldeki klinik kayıtları standartlaştırılmış ve ölçeklendirilmiş nihai bir tabloya dönüştürmek.",
-            "desc_en":"I developed an end-to-end Python-based data processing pipeline that transforms raw clinical data into analysis-ready format. In the system, I implemented critical stages such as data cleaning, numerical conversion of textual durations, application of normalization rules, and filling missing values using the KNN algorithm. In this physiotherapy-focused project, I organized complex health records into a structured format, producing modeling-ready datasets and visual reports. Throughout the process, I effectively utilized data science techniques such as categorical data transformation, feature engineering, and data anonymization. Through the rules directory in the project, I made normalization processes customizable and designed the pipeline to be easily executable in local environments. The main goal of the project is to transform scattered clinical records into a standardized and scaled final table.",
-            "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti.pdf",
-            "links":[
-                {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Physical_Therapy_Data_Analysis_Project"}
-            ]
-        },
-        {
-            "id":"nasa_plotly",
-            "title":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
-            "title_tr":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
-            "title_en":"🌌 NASA Space Weather Data - Plotly Visualization",
-            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/nasa_kapak_1.png",
-            "desc_tr":"Bu projede NASA tarafından paylaşılan uzay hava olaylarını Kaggle üzerinde düzenleyerek kullanılabilir bir veri seti haline getirdim ve bu verilerle Plotly kullanarak interaktif görselleştirmeler oluşturdum. Amacım, farklı uzay hava olaylarının zaman içindeki değişimini incelemek ve kullanıcıya veriyi etkileşimli biçimde keşfetme imkanı sunmaktı. Çalışma boyunca zaman serileri, olay türlerine göre yoğunluklar ve tarih bazlı dağılımlar üzerine odaklandım. Böylece karmaşık ve teknik görünen bir veri yapısını daha okunabilir, karşılaştırılabilir ve analiz edilebilir bir hale dönüştürdüm.",
-            "desc_en":"In this project, I organized space weather events shared by NASA on Kaggle into a usable dataset and created interactive visualizations using Plotly. My goal was to examine the changes in different space weather events over time and provide users with the opportunity to explore the data interactively. Throughout the work, I focused on time series, event type densities, and date-based distributions. Thus, I transformed a complex and technical-looking data structure into a more readable, comparable, and analyzable format.",
-            "links":[
-                {"label_tr":"Kaggle Notebook","label_en":"Kaggle Notebook","href":"https://www.kaggle.com/code/edacelikeloglu/plotly-examples-with-nasa-space-weather-data"}
-            ]
-        },
-        {
-            "id":"churninator",
-            "title":"💳 Churninator - Müşteri Kaybı Tahmini",
-            "title_tr":"💳 Churninator - Müşteri Kaybı Tahmini",
-            "title_en":"💳 Churninator - Customer Churn Prediction",
-            "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator_kapak.png",
-            "desc_tr":"İstanbul Kodluyor Projesi kapsamında Churninator adlı bir Veri Bilimi bitirme projesi geliştirdim. Projenin temel amacı, kredi kartı müşterilerinin bankadan ayrılma olasılıklarını gelişmiş veri analizi yöntemleriyle tahmin etmek. Uyguladığım model %92 recall oranına ulaşarak yüksek bir başarı sergiledi. Tamamen Python diliyle geliştirdiğim bu yazılım; veri setleri, yapılandırma dosyaları ve analiz kodlarını içeren kapsamlı bir yapıdan oluşuyor. Proje, finansal hizmetler alanında müşteri kaybını önlemek isteyen profesyonellere yönelik teknik bir çözüm sunuyor.",
-            "desc_en":"I developed a Data Science capstone project called Churninator as part of the Istanbul Kodluyor Project. The main goal of the project is to predict the likelihood of credit card customers leaving the bank using advanced data analysis methods. The model I implemented achieved a high success rate with 92% recall. This software, developed entirely in Python, consists of a comprehensive structure including datasets, configuration files, and analysis codes. The project offers a technical solution for professionals in the financial services sector who want to prevent customer churn.",
-            "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator.pdf",
-            "links":[
-                {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Churninator"}
-            ]
-        },
+        "desc_en":"I developed a software project that detects artists from a YouTube link and automatically analyzes all lyrics from the artist's first studio album. In this Python-based system, I used Apify tools to scrape data from the Genius platform while leveraging AI models to determine album information. Throughout the process, I calculated character, word, and token counts for each song to create structured data. I transformed the obtained data into technical analysis through MD5 hash values and vector embeddings. The project focuses on producing deterministic outputs through data scraping and language model integration.",
+        "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/YouTube_AI_Scraping_Agent.pdf",
+        "links":[
+            {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/youtube-ai-scraping-agent"}
+        ]
+    },
+    {
+        "id":"churninator",
+        "title":"💳 Churninator - Müşteri Kaybı Tahmini",
+        "title_tr":"💳 Churninator - Müşteri Kaybı Tahmini",
+        "title_en":"💳 Churninator - Customer Churn Prediction",
+        "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator_kapak.png",
+        "desc_tr":"İstanbul Kodluyor Projesi kapsamında Churninator adlı bir Veri Bilimi bitirme projesi geliştirdim. Projenin temel amacı, kredi kartı müşterilerinin bankadan ayrılma olasılıklarını gelişmiş veri analizi yöntemleriyle tahmin etmek. Uyguladığım model %92 recall oranına ulaşarak yüksek bir başarı sergiledi. Tamamen Python diliyle geliştirdiğim bu yazılım; veri setleri, yapılandırma dosyaları ve analiz kodlarını içeren kapsamlı bir yapıdan oluşuyor. Proje, finansal hizmetler alanında müşteri kaybını önlemek isteyen profesyonellere yönelik teknik bir çözüm sunuyor.",
+        "desc_en":"I developed a Data Science capstone project called Churninator as part of the Istanbul Kodluyor Project. The main goal of the project is to predict the likelihood of credit card customers leaving the bank using advanced data analysis methods. The model I implemented achieved a high success rate with 92% recall. This software, developed entirely in Python, consists of a comprehensive structure including datasets, configuration files, and analysis codes. The project offers a technical solution for professionals in the financial services sector who want to prevent customer churn.",
+        "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Churninator.pdf",
+        "links":[
+            {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Churninator"}
+        ]
+    },
+    {
+        "id":"nasa_plotly",
+        "title":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
+        "title_tr":"🌌 NASA Uzay Hava Verileri - Plotly Görselleştirme",
+        "title_en":"🌌 NASA Space Weather Data - Plotly Visualization",
+        "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/nasa_kapak_1.png",
+        "desc_tr":"Bu projede NASA tarafından paylaşılan uzay hava olaylarını Kaggle üzerinde düzenleyerek kullanılabilir bir veri seti haline getirdim ve bu verilerle Plotly kullanarak interaktif görselleştirmeler oluşturdum. Amacım, farklı uzay hava olaylarının zaman içindeki değişimini incelemek ve kullanıcıya veriyi etkileşimli biçimde keşfetme imkanı sunmaktı. Çalışma boyunca zaman serileri, olay türlerine göre yoğunluklar ve tarih bazlı dağılımlar üzerine odaklandım. Böylece karmaşık ve teknik görünen bir veri yapısını daha okunabilir, karşılaştırılabilir ve analiz edilebilir bir hale dönüştürdüm.",
+        "desc_en":"In this project, I organized space weather events shared by NASA on Kaggle into a usable dataset and created interactive visualizations using Plotly. My goal was to examine the changes in different space weather events over time and provide users with the opportunity to explore the data interactively. Throughout the work, I focused on time series, event type densities, and date-based distributions. Thus, I transformed a complex and technical-looking data structure into a more readable, comparable, and analyzable format.",
+        "links":[
+            {"label_tr":"Kaggle Notebook","label_en":"Kaggle Notebook","href":"https://www.kaggle.com/code/edacelikeloglu/plotly-examples-with-nasa-space-weather-data"}
+        ]
+    },
+    {
+        "id":"physical_therapy",
+        "title":" 🏥 Fizik Tedavi Veri Analizi",
+        "title_tr":" 🏥 Fizik Tedavi Veri Analizi",
+        "title_en":" 🏥 Physical Therapy Data Analysis",
+        "thumb":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti_kapak.png",
+        "desc_tr":"Ham klinik verileri işleyerek analize hazır hale getiren Python tabanlı uçtan uca bir veri işleme hattı geliştirdim. Sistemde; verilerin temizlenmesi, metinsel sürelerin sayısallaştırılması, normalizasyon kurallarının uygulanması ve KNN algoritması ile eksik değerlerin doldurulması gibi kritik aşamaları uyguladım. Fizyoterapi odaklı hazırladığım bu projede, karmaşık sağlık kayıtlarını düzenli bir yapıya kavuşturarak modellemeye uygun veri setleri ve görsel raporlar ürettim. Süreç boyunca kategorik verilerin dönüştürülmesi, özellik mühendisliği ve verilerin anonimleştirilmesi gibi veri bilimi tekniklerini etkin bir şekilde kullandım. Projede yer alan kurallar dizini sayesinde normalizasyon işlemlerini özelleştirilebilir hale getirdim ve hazırladığım boru hattını yerel ortamlarda kolayca çalıştırılabilir şekilde tasarladım. Projenin temel amacı, dağınık haldeki klinik kayıtları standartlaştırılmış ve ölçeklendirilmiş nihai bir tabloya dönüştürmek.",
+        "desc_en":"I developed an end-to-end Python-based data processing pipeline that transforms raw clinical data into analysis-ready format. In the system, I implemented critical stages such as data cleaning, numerical conversion of textual durations, application of normalization rules, and filling missing values using the KNN algorithm. In this physiotherapy-focused project, I organized complex health records into a structured format, producing modeling-ready datasets and visual reports. Throughout the process, I effectively utilized data science techniques such as categorical data transformation, feature engineering, and data anonymization. Through the rules directory in the project, I made normalization processes customizable and designed the pipeline to be easily executable in local environments. The main goal of the project is to transform scattered clinical records into a standardized and scaled final table.",
+        "pdf_raw":"https://raw.githubusercontent.com/EdaCelikeloglu/streamlit_portfolyo/master/assets/Klinik_veri_rehabilitasyon_hatti.pdf",
+        "links":[
+            {"label_tr":"GitHub","label_en":"GitHub","href":"https://github.com/EdaCelikeloglu/Physical_Therapy_Data_Analysis_Project"}
+        ]
+    },
         {
             "id":"datathon",
             "title":"🏆 UP School & Bitexen Women in Datathon 2024",
@@ -1349,7 +1352,7 @@ def show_projects_section():
         st.session_state["modal_timestamp"] = 0
 
     def open_modal(pid):
-        import random
+        
         st.session_state["active_modal"] = pid
         st.session_state["modal_id"] = f"{pid}_{random.randint(1000, 9999)}"
         st.rerun()
@@ -1485,7 +1488,7 @@ def show_awards_section():
     award_projects = [p for p in projects if p["id"] in ["datathon", "life_sci"]]
     
     def open_modal(pid):
-        import random
+        
         st.session_state["active_modal"] = pid
         st.session_state["modal_id"] = f"{pid}_{random.randint(1000, 9999)}"
         st.rerun()
@@ -1877,7 +1880,7 @@ elif selected_section == "contact":
 st.markdown(
     """
     <div style="position: fixed; bottom: 0; left: 0; width: 100%; 
-                background: rgba(255, 255, 255, 0.95); 
+                background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 50%, #f3e5f5 100%); 
                 text-align: center; padding: 0.8rem 0; 
                 color: #666; font-size: 0.9rem;
                 border-top: 1px solid #eee;
