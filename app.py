@@ -1068,10 +1068,23 @@ def show_hero_section():
     
     # Hakkımda bölümünü ekle
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(content[language]["about_text"])
-    
-    # CV İndirme Butonu
+    st.markdown("""
+    <style>
+    .about-text {
+        color:#2b2b2b !important;
+        line-height:1.8;
+        font-size:1rem;
+        text-align:justify;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
+    st.markdown(f"""
+    <div class="about-text">
+    {content[language]["about_text"]}
+    </div>
+    """, unsafe_allow_html=True)
+    
 
 def show_skills_section():
     skills_data = {
@@ -1208,7 +1221,6 @@ def show_skills_section():
         st.empty()
     
     st.markdown('</div>', unsafe_allow_html=True)
-
 
 
 # ===== Projeler (Global) =====
