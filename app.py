@@ -1709,6 +1709,7 @@ I strongly believe Eda will create significant value in data analytics and data 
 
 def open_certificate_modal(cert, modal_id):
     file_path = cert["file"]
+    thumb_path = cert.get("thumb")
 
     if not os.path.exists(file_path):
         st.error("Dosya bulunamadı." if language == "Türkçe" else "File not found.")
@@ -1726,16 +1727,17 @@ def open_certificate_modal(cert, modal_id):
         </div>
         """
     elif ext == ".pdf":
-        with open(file_path, "rb") as f:
-            encoded = base64.b64encode(f.read()).decode()
-        content_html = f"""
-        <iframe
-            src="data:application/pdf;base64,{encoded}"
-            width="100%"
-            height="700px"
-            style="border:none; border-radius:12px;">
-        </iframe>
-        """
+        if thumb_path and os.path.exists(thumb_path):
+            with open(thumb_path, "rb") as f:
+                encoded = base64.b64encode(f.read()).decode()
+            content_html = f"""
+            <div style="text-align:center;">
+                <img src="data:image/png;base64,{encoded}" style="max-width:100%; max-height:75vh; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.25);">
+            </div>
+            """
+        else:
+            st.error("Önizleme görseli bulunamadı." if language == "Türkçe" else "Preview image not found.")
+            return
     else:
         st.error("Desteklenmeyen dosya türü." if language == "Türkçe" else "Unsupported file type.")
         return
