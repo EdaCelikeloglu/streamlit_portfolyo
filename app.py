@@ -2202,15 +2202,13 @@ def show_certificates_section():
                             </div>
                             """, unsafe_allow_html=True)
 
-                        st.markdown(f"<div class='cert-thumb-title'>{cert['name']}</div>", unsafe_allow_html=True)
-
                         if st.button(
-                            "👁️ Görüntüle" if language == "Türkçe" else "👁️ View",
-                            key=f"cert_open_{category}_{i+j}",
-                            use_container_width=True
+                                f"👁️ {cert['name']}",
+                                key=f"cert_open_{category}_{i + j}",
+                                use_container_width=True
                         ):
                             st.session_state.active_certificate = cert
-                            st.session_state.certificate_modal_id = f"cert_{random.randint(1000,9999)}"
+                            st.session_state.certificate_modal_id = f"cert_{random.randint(1000, 9999)}"
                             st.rerun()
 
 
