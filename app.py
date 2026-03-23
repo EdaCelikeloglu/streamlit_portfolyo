@@ -1827,8 +1827,6 @@ def open_certificate_modal(cert, modal_id):
 def show_certificates_section():
     certificates_data = {
         "Türkçe": {
-            "title": "",
-            "subtitle": "",
             "categories": {
                 "Öne Çıkanlar": [
                     {
@@ -1978,8 +1976,6 @@ def show_certificates_section():
             }
         },
         "English": {
-            "title": "",
-            "subtitle": "",
             "categories": {
                 "Featured": [
                     {
@@ -2136,20 +2132,6 @@ def show_certificates_section():
         st.session_state.certificate_modal_id = None
 
     data = certificates_data[language]
-
-    st.markdown(f"""
-    <div style="
-        background: white;
-        border-radius: 20px;
-        padding: 1.5rem 1.8rem;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(102,126,234,0.12);
-    ">
-        <h2 style="margin:0; color:#667eea;">{data["title"]}</h2>
-        <p style="margin:0.4rem 0 0 0; color:#666;">{data["subtitle"]}</p>
-    </div>
-    """, unsafe_allow_html=True)
 
     st.markdown("""
     <style>
