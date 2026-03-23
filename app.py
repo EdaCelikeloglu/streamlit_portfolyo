@@ -783,14 +783,14 @@ with st.sidebar:
     # CV İndirme Butonu
     st.markdown("<br>", unsafe_allow_html=True)
     try:
-        with open("assets/CV_Eda_Celikeloglu.pdf", "rb") as pdf_file:
+        with open("assets/Eda_Celikeloglu_CV.pdf", "rb") as pdf_file:
             pdf_data = pdf_file.read()
         
         cv_label = "📄 CV'mi İndir" if st.session_state.language == 'Türkçe' else "📄 Download My CV"
         st.download_button(
             label=cv_label,
             data=pdf_data,
-            file_name="CV_Eda_Celikeloglu.pdf",
+            file_name="Eda_Celikeloglu_CV.pdf",
             mime="application/pdf",
             use_container_width=True
         )
