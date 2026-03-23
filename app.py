@@ -2202,6 +2202,7 @@ def show_certificates_section():
                             </div>
                             """, unsafe_allow_html=True)
 
+                        st.markdown(f"<div class='cert-thumb-title'>{cert['name']}</div>", unsafe_allow_html=True)
 
                         if st.button(
                             "👁️ Görüntüle" if language == "Türkçe" else "👁️ View",
