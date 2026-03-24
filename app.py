@@ -1083,8 +1083,8 @@ def render_about_section(language):
     .about-fixed-text {
         color: #2b2b2b !important;
         font-family: 'Poppins', sans-serif !important;
-        font-size: 0.95rem !important;
-        line-height: 1.85 !important;
+        font-size: 0.90rem !important;
+        line-height: 1.50 !important;
     }
     .about-fixed-text p,
     .about-fixed-text li,
