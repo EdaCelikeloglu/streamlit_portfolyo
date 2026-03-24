@@ -1048,21 +1048,75 @@ content = {
 }
 
 
-# Ana içerik
-def show_hero_section():
+def render_about_section(language):
+    if language == "Türkçe":
+        paragraphs = [
+            "Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.",
+            "Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım. YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum."
+        ]
+        education_label = "🎓 Eğitim:"
+        education_value = "Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
+        experience_label = "💼 Deneyim:"
+        experience_items = [
+            "Sahibinden.com, Junior Data Scientist, 2025",
+            "YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-2026"
+        ]
+        location_label = "📍 Konum:"
+        location_value = "Maltepe, İstanbul"
+    else:
+        paragraphs = [
+            "I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.",
+            "During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation."
+        ]
+        education_label = "🎓 Education:"
+        education_value = "Marmara University, BSc in Mathematics, 2010-2014"
+        experience_label = "💼 Experience:"
+        experience_items = [
+            "Sahibinden.com, Junior Data Scientist, 2025",
+            "YenidenBiz Association, Volunteer Data Analyst, 2025-2026"
+        ]
+        location_label = "📍 Location:"
+        location_value = "Maltepe, Istanbul"
+
     st.markdown("""
     <style>
-    section.main .block-container p {
+    .about-fixed-text {
+        color: #2b2b2b !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 1.05rem !important;
+        line-height: 1.85 !important;
+    }
+    .about-fixed-text p,
+    .about-fixed-text li,
+    .about-fixed-text strong,
+    .about-fixed-text span {
         color: #2b2b2b !important;
     }
-    section.main .block-container li {
-        color: #2b2b2b !important;
-    }
-    section.main .block-container strong {
-        color: #2b2b2b !important;
+    .about-fixed-text ul {
+        margin-top: 0.4rem;
+        margin-bottom: 1rem;
+        padding-left: 1.4rem;
     }
     </style>
     """, unsafe_allow_html=True)
+
+    html = '<div class="about-fixed-text">'
+    for p in paragraphs:
+        html += f"<p>{p}</p>"
+    html += f"<p><strong>{education_label}</strong> {education_value}</p>"
+    html += f"<p><strong>{experience_label}</strong></p>"
+    html += "<ul>"
+    for item in experience_items:
+        html += f"<li>{item}</li>"
+    html += "</ul>"
+    html += f"<p><strong>{location_label}</strong> {location_value}</p>"
+    html += "</div>"
+
+    st.markdown(html, unsafe_allow_html=True)
+
+
+# Ana içerik
+def show_hero_section():
 
     with open("assets/profile_picture.jpg", "rb") as img_file:
         img_data = base64.b64encode(img_file.read()).decode()
@@ -1084,7 +1138,8 @@ def show_hero_section():
         """, unsafe_allow_html=True)
 
     # Hakkımda bölümünü ekle
-    st.markdown(content[language]["about_text"], unsafe_allow_html=False)
+    st.markdown("<br>", unsafe_allow_html=True)
+    render_about_section(language)
     
 
 
