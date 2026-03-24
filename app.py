@@ -1050,10 +1050,9 @@ content = {
 
 def render_about_section(language):
     if language == "Türkçe":
-        paragraphs = [
-            """Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
+        paragraphs =  """Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
             <br><br>Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım. YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum."""
-        ]
+
         education_label = "🎓 Eğitim:"
         education_value = "Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
         experience_label = "💼 Deneyim:"
