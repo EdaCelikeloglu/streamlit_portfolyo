@@ -1065,8 +1065,8 @@ def render_about_section(language):
         location_value = "Maltepe, İstanbul"
     else:
         paragraphs = [
-            "I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.",
-            "During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation."
+            """I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
+            <br><br>During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation."""
         ]
         education_label = "🎓 Education:"
         education_value = "Marmara University, BSc in Mathematics, 2010-2014"
@@ -1101,8 +1101,8 @@ def render_about_section(language):
     """, unsafe_allow_html=True)
 
     html = '<div class="about-fixed-text">'
-    for p in paragraphs:
-        html += f"<p>{p}</p>"
+    #for p in paragraphs:
+    html += f"<p>{paragraphs}</p>"
     html += f"<p><strong>{education_label}</strong> {education_value}</p>"
     html += f"<p><strong>{experience_label}</strong></p>"
     #html += "<ul>"
