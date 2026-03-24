@@ -1056,10 +1056,8 @@ def render_about_section(language):
         education_label = "🎓 Eğitim:"
         education_value = "Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
         experience_label = "💼 Deneyim:"
-        experience_items = [
-            "Sahibinden.com, Junior Data Scientist, 2025",
-            "YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-2026"
-        ]
+        experience_items = """Sahibinden.com, Junior Data Scientist, 2025
+            <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-2026"""
         location_label = "📍 Konum:"
         location_value = "Maltepe, İstanbul"
     else:
@@ -1069,10 +1067,8 @@ def render_about_section(language):
         education_label = "🎓 Education:"
         education_value = "Marmara University, BSc in Mathematics, 2010-2014"
         experience_label = "💼 Experience:"
-        experience_items = [
-            "Sahibinden.com, Junior Data Scientist, 2025",
-            "YenidenBiz Association, Volunteer Data Analyst, 2025-2026"
-        ]
+        experience_items = """Sahibinden.com, Junior Data Scientist, 2025
+            <br>YenidenBiz Association, Volunteer Data Analyst, 2025-2026"""
         location_label = "📍 Location:"
         location_value = "Maltepe, Istanbul"
 
@@ -1102,8 +1098,7 @@ def render_about_section(language):
     html += f"<p>{paragraphs}</p>"
     html += f"<p><strong>{education_label}</strong> {education_value}</p>"
     html += f"<p><strong>{experience_label}</strong></p>"
-    for item in experience_items:
-        html += f"<li>{item}</li>"
+    html += f"<p>{experience_items}</p>"
     html += f"<p><strong>{location_label}</strong> {location_value}</p>"
     html += "</div>"
 
