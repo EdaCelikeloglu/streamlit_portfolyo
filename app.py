@@ -1071,17 +1071,7 @@ def show_hero_section():
         """, unsafe_allow_html=True)
 
     # Hakkımda bölümünü ekle
-    st.markdown(f"""
-    <style>
-    [data-testid="stMarkdownContainer"] p,
-    [data-testid="stMarkdownContainer"] li,
-    [data-testid="stMarkdownContainer"] strong {{
-        color: #2b2b2b !important;
-    }}
-    </style>
-
-    {content[language]["about_text"]}
-    """, unsafe_allow_html=True)
+    st.markdown(content[language]["about_text"], unsafe_allow_html=False)
     
 
 
