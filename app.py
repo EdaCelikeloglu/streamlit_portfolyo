@@ -1095,7 +1095,7 @@ def render_about_section(language):
     .about-fixed-text ul {
         margin-top: 0.0rem;
         margin-bottom: 0.5rem;
-        padding-left: 1.4rem;
+        padding-left: 0.9rem;
     }
     </style>
     """, unsafe_allow_html=True)
