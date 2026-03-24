@@ -1097,8 +1097,8 @@ def render_about_section(language):
     html = '<div class="about-fixed-text">'
     html += f"<p>{paragraphs}</p>"
     html += f"<p><strong>{education_label}</strong> {education_value}</p>"
-    html += f"<p><strong>{experience_label}</strong></p>"
-    html += f"<p>{experience_items}</p>"
+    html += f"<p><strong>{experience_label}</strong>{experience_items}</p>"
+    #html += f"<p>{experience_items}</p>"
     html += f"<p><strong>{location_label}</strong> {location_value}</p>"
     html += "</div>"
 
