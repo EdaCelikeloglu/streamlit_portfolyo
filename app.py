@@ -707,12 +707,6 @@ st.markdown("""
     .about-markdown * {
     color: #2b2b2b !important;
     }
-    /* SADECE markdown yazıları fixler */
-    [data-testid="stMarkdownContainer"] p,
-    [data-testid="stMarkdownContainer"] li,
-    [data-testid="stMarkdownContainer"] span {
-        color: #2b2b2b !important;
-    }
 
   
 </style>
