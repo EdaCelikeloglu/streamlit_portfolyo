@@ -1050,18 +1050,9 @@ content = {
 
 # Ana içerik
 def show_hero_section():
+
     with open("assets/profile_picture.jpg", "rb") as img_file:
         img_data = base64.b64encode(img_file.read()).decode()
-
-    st.markdown("""
-    <style>
-    section.main [data-testid="stMarkdownContainer"] p,
-    section.main [data-testid="stMarkdownContainer"] li,
-    section.main [data-testid="stMarkdownContainer"] strong {
-        color: #2b2b2b !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 
     st.markdown(f"""
         <div class="hero-section" style="display: flex; align-items: center; justify-content: space-between; padding: 2rem 4rem; margin-top: 0;">
@@ -1079,7 +1070,18 @@ def show_hero_section():
         </div>
         """, unsafe_allow_html=True)
 
-    st.markdown(content[language]["about_text"], unsafe_allow_html=True)
+    # Hakkımda bölümünü ekle
+    st.markdown(f"""
+    <style>
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] li,
+    [data-testid="stMarkdownContainer"] strong {{
+        color: #2b2b2b !important;
+    }}
+    </style>
+
+    {content[language]["about_text"]}
+    """, unsafe_allow_html=True)
     
 
 
