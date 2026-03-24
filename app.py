@@ -1050,6 +1050,19 @@ content = {
 
 # Ana içerik
 def show_hero_section():
+    st.markdown("""
+    <style>
+    section.main .block-container p {
+        color: #2b2b2b !important;
+    }
+    section.main .block-container li {
+        color: #2b2b2b !important;
+    }
+    section.main .block-container strong {
+        color: #2b2b2b !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     with open("assets/profile_picture.jpg", "rb") as img_file:
         img_data = base64.b64encode(img_file.read()).decode()
