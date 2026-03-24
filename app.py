@@ -1057,7 +1057,7 @@ def render_about_section(language):
         education_value = "<br>Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
         experience_label = "💼 Deneyim:"
         experience_items = """<br>Sahibinden.com, Junior Data Scientist, 2025
-            <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-2026"""
+            <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-Halen"""
         location_label = "📍 Konum:"
         location_value = "Maltepe, İstanbul"
     else:
@@ -1068,7 +1068,7 @@ def render_about_section(language):
         education_value = "<br>Marmara University, BSc in Mathematics, 2010-2014"
         experience_label = "💼 Experience:"
         experience_items = """<br>Sahibinden.com, Junior Data Scientist, 2025
-            <br>YenidenBiz Association, Volunteer Data Analyst, 2025-2026"""
+            <br>YenidenBiz Association, Volunteer Data Analyst, 2025-Present"""
         location_label = "📍 Location:"
         location_value = "Maltepe, Istanbul"
 
