@@ -1093,7 +1093,7 @@ def render_about_section(language):
         color: #2b2b2b !important;
     }
     .about-fixed-text ul {
-        margin-top: 0.4rem;
+        margin-top: 0.0rem;
         margin-bottom: 1rem;
         padding-left: 1.4rem;
     }
