@@ -1054,7 +1054,7 @@ def render_about_section(language):
             <br><br>Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım. YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum."""
 
         education_label = "🎓 Eğitim:"
-        education_value = "Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
+        education_value = "<br>Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
         experience_label = "💼 Deneyim:"
         experience_items = """Sahibinden.com, Junior Data Scientist, 2025
             <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-2026"""
@@ -1065,7 +1065,7 @@ def render_about_section(language):
             <br><br>During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation."""
 
         education_label = "🎓 Education:"
-        education_value = "Marmara University, BSc in Mathematics, 2010-2014"
+        education_value = "<br>Marmara University, BSc in Mathematics, 2010-2014"
         experience_label = "💼 Experience:"
         experience_items = """Sahibinden.com, Junior Data Scientist, 2025
             <br>YenidenBiz Association, Volunteer Data Analyst, 2025-2026"""
