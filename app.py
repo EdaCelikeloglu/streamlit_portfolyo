@@ -8,6 +8,7 @@ import streamlit.components.v1 as components
 import json
 import base64
 import random
+import re
 
 
 # .env dosyasını yükle
@@ -1589,7 +1590,7 @@ def show_testimonials_section():
         "Türkçe": [
             {
                 "name": "Güray Ataman",
-                "role": "Data Science Team Lead<br>@ sahibinden.com",
+                "role": "Data Science Team Lead at sahibinden.com",
                 "date": "1 Haziran 2025",
                 "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
 
@@ -1601,7 +1602,7 @@ It was a pleasure to work with her. I am confident that she will continue to bri
             },
             {
                 "name": "Doğu Sırt",
-                "role": "PhD Faculty Lecturer @ Istanbul Technical University<br>Python, AI, Data Science, Big Data and Analytics",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
                 "date": "27 Mayıs 2025",
                 "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
 
@@ -1613,7 +1614,7 @@ She is exactly the kind of talent that modern companies need—technically stron
             },
             {
                 "name": "Eda Başkan",
-                "role": "Business Development and Resource Management Director<br>@ YenidenBiz Association",
+                "role": "Business Development | Strategic Partnerships | Nonprofit Management | Program Management",
                 "date": "23 Şubat 2026",
                 "text": """I have had the pleasure of working with Eda Çelikeloglu through our data driven initiatives at the YenidenBiz Association. Eda quickly adapted to our data analysis processes and consistently added value with her strong analytical thinking and solution oriented mindset.
 
@@ -1624,12 +1625,26 @@ Eda's solid mathematical background enables her to contribute effectively to dat
 I strongly believe Eda will create significant value in data analytics and data science roles.""",
                 "linkedin_url": "https://www.linkedin.com/in/edabaskan/",
                 "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
+            },
+            {
+                "name": "C. Verda Emiroğlu, PhD",
+                "role": "BA Industrial Engineering, İTÜ | PhD Technology Management | Technology & Business Executive | Transformation & Growth | AI business models | DeepTech | Women on Board",
+                "date": "26 Haziran 2026",
+                "text": """Having the opportunity to mentor Eda through the Yeniden Biz Mentor-Mentee Program has been a truly rewarding experience. From our very first meeting, I was struck by her curiosity, growth mindset, resilience, and unwavering commitment to achieving her goals. She consistently embraced challenges, sought feedback, and transformed every learning opportunity into tangible progress.
+
+Eda's strong analytical thinking, supported by her solid background in mathematics and statistics, has been instrumental in her development as a Data Scientist. Throughout the program, she continuously invested in herself by completing projects, participating in professional development programs, and earning recognition through several awards and achievements.
+
+One of her biggest aspirations was to begin her career as a full-time Data Scientist. Watching her turn that goal into reality has been incredibly gratifying. Knowing her determination and passion for continuous improvement, I have no doubt that she will make a lasting impact wherever she works.
+
+Eda is not only technically capable but also highly motivated, disciplined, and eager to learn. I am confident that she will continue to grow into an outstanding professional and become a valuable asset to every team she joins. I wholeheartedly recommend her and look forward to following her future accomplishments.""",
+                "linkedin_url": "https://www.linkedin.com/in/demiroglu/",
+                "avatar": "https://ui-avatars.com/api/?name=Verda+Emiroglu&background=5a6fd0&color=fff&size=200"
             }
         ],
         "English": [
             {
                 "name": "Güray Ataman",
-                "role": "Data Science Team Lead<br>@ sahibinden.com",
+                "role": "Data Science Team Lead at sahibinden.com",
                 "date": "June 1, 2025",
                 "text": """Eda Çelikeloğlu worked as a Junior Data Scientist in our team and consistently demonstrated a disciplined and methodical approach to her work. Her strong analytical thinking, determination, and eagerness to learn made a valuable contribution to our projects.
 
@@ -1641,7 +1656,7 @@ It was a pleasure to work with her. I am confident that she will continue to bri
             },
             {
                 "name": "Doğu Sırt",
-                "role": "PhD Faculty Lecturer @ Istanbul Technical University<br>Python, AI, Data Science, Big Data and Analytics",
+                "role": "PhD Faculty Lecturer @ Istanbul Technical University, Python, Artificial Intelligence, Data Science, Big Data and Analytics",
                 "date": "May 27, 2025",
                 "text": """I had the pleasure of teaching Eda during an intensive training program on data science and applied AI. From the very beginning, she stood out with her exceptional curiosity, quick learning abilities, and strong analytical thinking.
 
@@ -1653,7 +1668,7 @@ She is exactly the kind of talent that modern companies need—technically stron
             },
             {
                 "name": "Eda Başkan",
-                "role": "Business Development and Resource Management Director<br>@ YenidenBiz Association",
+                "role": "Business Development | Strategic Partnerships | Nonprofit Management | Program Management",
                 "date": "Feb 23, 2026",
                 "text": """I have had the pleasure of working with Eda Çelikeloglu through our data driven initiatives at the YenidenBiz Association. Eda quickly adapted to our data analysis processes and consistently added value with her strong analytical thinking and solution oriented mindset.
 
@@ -1664,115 +1679,127 @@ Eda's solid mathematical background enables her to contribute effectively to dat
 I strongly believe Eda will create significant value in data analytics and data science roles.""",
                 "linkedin_url": "https://www.linkedin.com/in/edabaskan/",
                 "avatar": "https://ui-avatars.com/api/?name=Eda+Baskan&background=8b5fb8&color=fff&size=200"
+            },
+            {
+                "name": "C. Verda Emiroğlu, PhD",
+                "role": "BA Industrial Engineering, İTÜ | PhD Technology Management | Technology & Business Executive | Transformation & Growth | AI business models | DeepTech | Women on Board",
+                "date": "June 26, 2026",
+                "text": """Having the opportunity to mentor Eda through the Yeniden Biz Mentor-Mentee Program has been a truly rewarding experience. From our very first meeting, I was struck by her curiosity, growth mindset, resilience, and unwavering commitment to achieving her goals. She consistently embraced challenges, sought feedback, and transformed every learning opportunity into tangible progress.
+
+Eda's strong analytical thinking, supported by her solid background in mathematics and statistics, has been instrumental in her development as a Data Scientist. Throughout the program, she continuously invested in herself by completing projects, participating in professional development programs, and earning recognition through several awards and achievements.
+
+One of her biggest aspirations was to begin her career as a full-time Data Scientist. Watching her turn that goal into reality has been incredibly gratifying. Knowing her determination and passion for continuous improvement, I have no doubt that she will make a lasting impact wherever she works.
+
+Eda is not only technically capable but also highly motivated, disciplined, and eager to learn. I am confident that she will continue to grow into an outstanding professional and become a valuable asset to every team she joins. I wholeheartedly recommend her and look forward to following her future accomplishments.""",
+                "linkedin_url": "https://www.linkedin.com/in/demiroglu/",
+                "avatar": "https://ui-avatars.com/api/?name=Verda+Emiroglu&background=5a6fd0&color=fff&size=200"
             }
         ]
     }
     
     testimonials = testimonials_data[language]
-    
-    # Üç referansı yan yana göster
-    col1, col2, col3 = st.columns(3)
-    
-    # Sol kolon - İlk referans (Güray Ataman)
-    with col1:
-        st.markdown(f"""
-        <div class="contact-card" style="height: 1100px; display: flex; flex-direction: column;">
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <img src="{testimonials[0]['avatar']}" 
-                     style="width: 70px; height: 70px; border-radius: 50%; 
-                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-            </div>
-            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[0]['name']}</h3>
-            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
-                {testimonials[0]['role']}
-            </p>
-            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
-                {testimonials[0]['date']}
-            </p>
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
-            <div style="flex-grow: 1;">
-                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
-                    {testimonials[0]['text']}
-                </p>
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="{testimonials[0]['linkedin_url']}" target="_blank" 
-                   style="display: inline-block !important; background: white !important; color: #667eea !important; 
-                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
-                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
-                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
-                </a>
-            </div>
+    read_more = "Devamını Oku" if language == "Türkçe" else "Read More"
+
+    # 2x2 grid: her kartta kısa alıntı + "Devamını Oku" ile tam metin popup
+    for row_start in range(0, len(testimonials), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            idx = row_start + j
+            if idx >= len(testimonials):
+                break
+            tst = testimonials[idx]
+            alt_bg = "background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%);" if idx % 2 == 1 else ""
+
+            # Alıntı: metnin başından temiz bir özet
+            raw = re.sub(r'<br\s*/?>', ' ', tst["text"])
+            raw = re.sub(r'\s+', ' ', raw).strip()
+            excerpt = raw[:200].rstrip()
+            if len(raw) > 200:
+                excerpt = excerpt.rsplit(' ', 1)[0] + "…"
+
+            with col:
+                st.markdown(f"""
+                <div class="contact-card" style="{alt_bg} height: 360px; display: flex; flex-direction: column;">
+                    <div style="text-align: center; margin-bottom: 0.6rem;">
+                        <img src="{tst['avatar']}"
+                             style="width: 70px; height: 70px; border-radius: 50%;
+                                    border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    </div>
+                    <h3 style="color: white; text-align: center; margin: 0 0 0.3rem 0; font-size: 1.2rem;">{tst['name']}</h3>
+                    <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.85rem; margin: 0 0 0.2rem 0;">{tst['role']}</p>
+                    <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.78rem; margin: 0 0 0.6rem 0;">{tst['date']}</p>
+                    <hr style="border-color: rgba(255,255,255,0.3); margin: 0.4rem 0 0.8rem 0; width: 100%;">
+                    <div style="flex-grow: 1; overflow: hidden;">
+                        <p style="color: rgba(255,255,255,0.95); line-height: 1.6; text-align: justify; font-size: 0.9rem; margin: 0;">"{excerpt}"</p>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+                if st.button(read_more, key=f"tst_open_{idx}", use_container_width=True):
+                    inject_testimonial_modal(tst, language, f"tst_{idx}_{random.randint(1000, 9999)}")
+        st.markdown("<br>", unsafe_allow_html=True)
+
+
+def inject_testimonial_modal(tst, language: str, modal_id: str):
+    """Referansın tam metnini tam ekran popup (parent DOM) olarak gösterir."""
+    text_html = re.sub(r'(\s*<br\s*/?>\s*)+$', '', tst["text"])
+    text_html = text_html.replace("\n\n", "<br><br>").replace("\n", " ")
+    view_label = "LinkedIn Profilini Görüntüle" if language == "Türkçe" else "View LinkedIn Profile"
+    close_label = "Kapat" if language == "Türkçe" else "Close"
+
+    content_html = f"""
+    <style>
+      #x-modal-overlay {{ position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:2147483646; }}
+      #x-modal-box {{
+         position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+         background:#fff; width:min(720px,92vw); max-height:88vh; overflow:auto;
+         border-radius:16px; padding:28px; box-shadow:0 10px 40px rgba(0,0,0,.45);
+         z-index:2147483647; font-family:'Poppins', sans-serif;
+      }}
+      #x-close {{ position:absolute; right:14px; top:14px; border:none; background:#FF4B4B; color:#fff;
+                  border-radius:8px; padding:6px 12px; cursor:pointer; font-weight:600; }}
+    </style>
+    <div id="x-modal-overlay"></div>
+    <div id="x-modal-box">
+        <button id="x-close">{close_label}</button>
+        <div style="text-align:center;">
+            <img src="{tst['avatar']}" style="width:90px; height:90px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.2);">
+            <h2 style="margin:12px 0 4px 0; color:#4B0082;">{tst['name']}</h2>
+            <p style="margin:0; color:#667eea; font-weight:600; font-size:0.95rem;">{tst['role']}</p>
+            <p style="margin:4px 0 0 0; color:#999; font-size:0.82rem;">{tst['date']}</p>
         </div>
-        """, unsafe_allow_html=True)
-    
-    # Orta kolon - İkinci referans (Doğu Sırt)
-    with col2:
-        st.markdown(f"""
-        <div class="contact-card" style="height: 1100px; background: linear-gradient(135deg, #8b5fb8 0%, #7b8ff5 100%); display: flex; flex-direction: column;">
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <img src="{testimonials[1]['avatar']}" 
-                     style="width: 70px; height: 70px; border-radius: 50%; 
-                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-            </div>
-            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[1]['name']}</h3>
-            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
-                {testimonials[1]['role']}
-            </p>
-            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
-                {testimonials[1]['date']}
-            </p>
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
-            <div style="flex-grow: 1;">
-                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
-                    {testimonials[1]['text']}
-                </p>
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="{testimonials[1]['linkedin_url']}" target="_blank" 
-                   style="display: inline-block !important; background: white !important; color: #764ba2 !important; 
-                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
-                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
-                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
-                </a>
-            </div>
+        <hr style="margin:18px 0; border:none; border-top:1px solid #eee;">
+        <p style="line-height:1.8; text-align:justify; color:#333; font-size:0.98rem;">{text_html}</p>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="{tst['linkedin_url']}" target="_blank"
+               style="display:inline-block; background:#667eea; color:#fff; padding:0.6rem 1.4rem;
+                      border-radius:25px; text-decoration:none; font-weight:600; font-size:0.9rem;">
+                🔗 {view_label}
+            </a>
         </div>
-        """, unsafe_allow_html=True)
-    
-    # Sağ kolon - Üçüncü referans (Eda Başkan)
-    with col3:
-        st.markdown(f"""
-        <div class="contact-card" style="height: 1100px; display: flex; flex-direction: column;">
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <img src="{testimonials[2]['avatar']}" 
-                     style="width: 70px; height: 70px; border-radius: 50%; 
-                            border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-            </div>
-            <h3 style="color: white; text-align: center; margin-bottom: 0.5rem; font-size: 1.3rem;">{testimonials[2]['name']}</h3>
-            <p style="color: rgba(255,255,255,0.9); text-align: center; font-size: 0.9rem; margin-bottom: 0.3rem;">
-                {testimonials[2]['role']}
-            </p>
-            <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.8rem; margin-bottom: 1rem;">
-                {testimonials[2]['date']}
-            </p>
-            <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
-            <div style="flex-grow: 1;">
-                <p style="color: rgba(255,255,255,0.95); line-height: 1.7; text-align: justify; font-size: 0.95rem;">
-                    {testimonials[2]['text']}
-                </p>
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="{testimonials[2]['linkedin_url']}" target="_blank" 
-                   style="display: inline-block !important; background: white !important; color: #8b5fb8 !important; 
-                          padding: 0.6rem 1.3rem !important; border-radius: 25px !important; text-decoration: none !important; 
-                          font-weight: 600 !important; font-size: 0.9rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;">
-                    🔗 {'LinkedIn Profilini Görüntüle' if language == 'Türkçe' else 'View LinkedIn Profile'}
-                </a>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
+    </div>
+    """
+
+    payload = json.dumps(content_html)
+    wrapper_id = "x-tst-modal-wrapper"
+    js = f"""
+    <script>
+      const doc = window.parent.document;
+      const old = doc.getElementById('{wrapper_id}');
+      if (old) old.remove();
+      const wrapper = doc.createElement('div');
+      wrapper.id = '{wrapper_id}';
+      wrapper.innerHTML = {payload};
+      doc.body.appendChild(wrapper);
+      function closeModal() {{
+        const w = doc.getElementById('{wrapper_id}');
+        if (w) w.remove();
+      }}
+      doc.getElementById('x-close').addEventListener('click', closeModal);
+      doc.getElementById('x-modal-overlay').addEventListener('click', closeModal);
+      doc.addEventListener('keydown', (e) => {{ if (e.key === 'Escape') closeModal(); }});
+    </script>
+    """
+    components.html(js, height=0, width=0)
 
 
 def open_certificate_modal(cert, modal_id):
