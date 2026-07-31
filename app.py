@@ -1009,18 +1009,19 @@ content = {
         "hero_subtitle": "Veri Bilimci | Veri Analisti | Matematikçi",
         "typing_text": "Verilerle hikayeler anlatıyorum...",
         "about_text": """
-        Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
-        
-        Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım.
-        YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum.
-        
+        Matematik altyapısına sahip bir veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye geçiş yaptım ve şu anda denizcilik sektöründe Veri Bilimci olarak çalışıyorum. Makine öğrenmesi modelleri, zaman serisi analizleri ve yapay zeka destekli uygulamaların yanı sıra iş zekası ve finansal raporlama alanında uçtan uca veri çözümleri geliştiriyorum. Karmaşık veri yapılarını ölçeklenebilir ve iş odaklı içgörülere dönüştürmek temel motivasyonumu oluşturuyor.
+
+        LCM Rota Denizcilik'te şirket genelindeki veri raporlama ve analitiğini yönetiyor, ERP sistemi içinde yönetsel finans panoları tasarlıyor ve kurumsal sürdürülebilirlik raporlaması yürütüyorum. MORVOI projesinde Django tabanlı bir API, vektör arama ve gömme teknolojileriyle bağlam duyarlı soru-cevap için bir RAG sistemi geliştirdim. Daha önce Sahibinden.com'da zaman serisi modellemesi üzerine çalıştım; YenidenBiz Derneği'nde ise gönüllü olarak kadınların iş gücüne dönüşünü destekleyen veri projelerine katkı sunuyorum.
+
         🎓 **Eğitim:** Marmara Üniversitesi, Matematik Bölümü, 2010–2014
-        
+
         💼 **Deneyim:**
-        
+
+        - LCM Rota Denizcilik, Veri Bilimci, Nisan 2026 – Halen
+        - MORVOI (AI Destekli Ebeveynlik Asistanı), Veri Bilimci (Proje Bazlı), Ocak 2026 – Halen
         - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–2026
-        
+        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–Halen
+
         📍 **Konum:** Maltepe, İstanbul
         """
     },
@@ -1029,19 +1030,19 @@ content = {
         "hero_subtitle": "Data Scientist | Data Analyst | Mathematician",
         "typing_text": "I tell stories with data...",
         "about_text": """
-        I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
-        
-        During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders.
-        As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation.
-        
-        
+        I am a data science professional with a strong academic background in mathematics. After six years as a mathematics teacher, I transitioned into data and technology, and I currently work as a Data Scientist in the maritime industry. I build end-to-end data solutions — machine learning models, time series analysis, and AI-powered applications — alongside business intelligence and financial reporting. My core motivation is turning complex data into scalable, business-oriented insights that create real impact.
+
+        At LCM Rota Denizcilik, I lead company-wide data reporting and analytics, design managerial finance dashboards within the ERP system, and drive corporate sustainability reporting. On the MORVOI project, I built a Retrieval-Augmented Generation (RAG) system for context-aware question answering using a Django-based API, vector search, and embeddings. Previously, I worked on time series modeling at Sahibinden.com, and I volunteer as a Data Analyst at YenidenBiz Association, supporting projects focused on women's return to the workforce.
+
         🎓 **Education:** Marmara University, BSc in Mathematics, 2010–2014
-        
+
         💼 **Experience:**
-        
+
+        - LCM Rota Denizcilik, Data Scientist, Apr 2026 – Present
+        - MORVOI (AI-Powered Parenting Assistant), Data Scientist (Project-Based), Jan 2026 – Present
         - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Association, Volunteer Data Analyst, 2025–2026
-        
+        - YenidenBiz Association, Volunteer Data Analyst, 2025–Present
+
         📍 **Location:** Maltepe, Istanbul
         """
     }
@@ -1050,24 +1051,28 @@ content = {
 
 def render_about_section(language):
     if language == "Türkçe":
-        paragraphs =  """Matematik altyapısına sahip bir veri analizi ve veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım. Gerçek problemler üzerinde çalışarak analitik düşünme gücümü veri odaklı karar üretme becerisiyle birleştirdim. Karmaşık veri yapılarını anlaşılır, ölçülebilir ve uygulanabilir çıktılara dönüştürmek temel motivasyonumu oluşturuyor.
-            <br><br>Sahibinden.com'da Junior Data Scientist olarak gerçekleştirdiğim staj süresince dijital etkileşim metrikleri ile dışsal değişkenler arasındaki ilişkileri analiz ettim ve zaman serisi yaklaşımlarıyla tahminleme çalışmaları yürüttüm. Veriyi yalnızca incelemekle kalmayıp, sonuçları iş birimleri için anlamlı içgörülere dönüştürmeye odaklandım. YenidenBiz Derneği'nde gönüllü veri analisti olarak, kadınların iş gücüne katılımını destekleyen projelerde veri analizi ve raporlama çalışmalarına katkı sunuyorum."""
+        paragraphs =  """Matematik altyapısına sahip bir veri bilimi profesyoneliyim. Altı yıllık matematik öğretmenliği deneyimimin ardından veri ve teknolojiye olan ilgimi kariyerime taşıyarak bu alana geçiş yaptım ve şu anda denizcilik sektöründe Veri Bilimci olarak çalışıyorum. Makine öğrenmesi modelleri, zaman serisi analizleri ve yapay zeka destekli uygulamaların yanı sıra iş zekası ve finansal raporlama alanında uçtan uca veri çözümleri geliştiriyorum. Karmaşık veri yapılarını ölçeklenebilir ve iş odaklı içgörülere dönüştürmek temel motivasyonumu oluşturuyor.
+            <br><br>LCM Rota Denizcilik'te şirket genelindeki veri raporlama ve analitiğini yönetiyor, ERP sistemi içinde yönetsel finans panoları tasarlıyor ve kurumsal sürdürülebilirlik raporlaması yürütüyorum. MORVOI projesinde ise Django tabanlı bir API, vektör arama ve gömme (embedding) teknolojileriyle bağlam duyarlı soru-cevap için bir RAG sistemi geliştirdim. Daha önce Sahibinden.com'da zaman serisi modellemesi üzerine çalıştım; YenidenBiz Derneği'nde ise gönüllü olarak kadınların iş gücüne dönüşünü destekleyen veri projelerine katkı sunuyorum."""
 
         education_label = "🎓 Eğitim:"
         education_value = "<br>Marmara Üniversitesi, Matematik Bölümü, 2010-2014"
         experience_label = "💼 Deneyim:"
-        experience_items = """<br>Sahibinden.com, Junior Data Scientist, 2025
+        experience_items = """<br>LCM Rota Denizcilik, Veri Bilimci, Nisan 2026 - Halen
+            <br>MORVOI (AI Destekli Ebeveynlik Asistanı), Veri Bilimci (Proje Bazlı), Ocak 2026 - Halen
+            <br>Sahibinden.com, Junior Data Scientist, 2025
             <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-Halen"""
         location_label = "📍 Konum:"
         location_value = "Maltepe, İstanbul"
     else:
-        paragraphs = """I am a data analytics and data science professional with a strong academic background in mathematics. After six years of experience as a mathematics teacher, I transitioned my career toward data and technology, where I have been applying my analytical mindset to real world problems and data driven decision making. I am motivated by turning complex datasets into clear, measurable, and applicable outcomes that create real impact.
-            <br><br>During my internship at Sahibinden.com as a Junior Data Scientist, I analyzed the relationship between digital engagement metrics and external variables, conducting forecasting studies using time series approaches. I focused not only on analyzing the data but also on transforming results into actionable insights for business stakeholders. As a Volunteer Data Analyst at YenidenBiz Association, I contribute to projects that support women returning to the workforce by providing data analysis and reporting that enable evidence based program evaluation."""
+        paragraphs = """I am a data science professional with a strong academic background in mathematics. After six years as a mathematics teacher, I transitioned into data and technology, and I currently work as a Data Scientist in the maritime industry. I build end-to-end data solutions — machine learning models, time series analysis, and AI-powered applications — alongside business intelligence and financial reporting. My core motivation is turning complex data into scalable, business-oriented insights that create real impact.
+            <br><br>At LCM Rota Denizcilik, I lead company-wide data reporting and analytics, design managerial finance dashboards within the ERP system, and drive corporate sustainability reporting. On the MORVOI project, I built a Retrieval-Augmented Generation (RAG) system for context-aware question answering using a Django-based API, vector search, and embeddings. Previously, I worked on time series modeling at Sahibinden.com, and I volunteer as a Data Analyst at YenidenBiz Association, supporting projects focused on women's return to the workforce."""
 
         education_label = "🎓 Education:"
         education_value = "<br>Marmara University, BSc in Mathematics, 2010-2014"
         experience_label = "💼 Experience:"
-        experience_items = """<br>Sahibinden.com, Junior Data Scientist, 2025
+        experience_items = """<br>LCM Rota Denizcilik, Data Scientist, Apr 2026 - Present
+            <br>MORVOI (AI-Powered Parenting Assistant), Data Scientist (Project-Based), Jan 2026 - Present
+            <br>Sahibinden.com, Junior Data Scientist, 2025
             <br>YenidenBiz Association, Volunteer Data Analyst, 2025-Present"""
         location_label = "📍 Location:"
         location_value = "Maltepe, Istanbul"
