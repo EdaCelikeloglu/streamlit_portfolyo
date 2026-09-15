@@ -1,0 +1,28 @@
+name: Keep Streamlit app awake
+
+# Portfoliyoyu duzenli araliklarla ziyaret ederek Streamlit Cloud'un
+# ~7 gunluk hareketsizlik uykusuna girmesini onler.
+# GitHub'in sunucularinda calisir; kisisel bilgisayara ihtiyac yoktur.
+
+on:
+  schedule:
+    # UTC saatiyle 06:00 ve 18:00 (TR saatiyle ~09:00 ve ~21:00), gunde 2 kez
+    - cron: "0 6,18 * * *"
+  workflow_dispatch:  # Actions sekmesinden elle de tetiklenebilir
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping portfolio
+        run: |
+          echo "Ziyaret ediliyor: $(date -u)"
+          for i in 1 2 3; do
+            code=$(curl -sSL --max-time 60 -o /dev/null -w "%{http_code}" https://edacelikelogluportfolyo.streamlit.app/ || echo "000")
+            echo "Deneme $i -> HTTP $code"
+            if [ "$code" = "200" ]; then
+              exit 0
+            fi
+            sleep 20
+          done
+          echo "Uyari: uygulama 200 dondurmedi, ancak trafik yine de gonderildi."
