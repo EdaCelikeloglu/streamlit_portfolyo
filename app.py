@@ -1281,6 +1281,18 @@ def show_skills_section():
 # ===== Projeler (Global) =====
 projects = [
     {
+        "id":"sustainability",
+        "title":"🌱 LCM Rota Sürdürülebilirlik Raporu 2024-2025",
+        "title_tr":"🌱 LCM Rota Sürdürülebilirlik Raporu 2024-2025",
+        "title_en":"🌱 LCM Rota Sustainability Report 2024-2025",
+        "thumb":"assets/lcm_surdurulebilirlik_kapak.jpg",
+        "desc_tr":"LCM Rota Denizcilik'in 2024-2025 Sürdürülebilirlik Raporu'nu uçtan uca hazırladım. Emisyon, enerji, atık, insan kaynakları, iş sağlığı ve güvenliği ile finansal verileri farklı departmanlardan toplayıp analiz ettim; ESG göstergelerini hesaplayıp görselleştirdim ve GRI Standartlarına referansla kurumsal raporu yazdım. Rapor, şirketin 2028 sürdürülebilirlik hedeflerini de içeriyor ve kamuya açık olarak yayımlandı.",
+        "desc_en":"I prepared LCM Rota Denizcilik's 2024-2025 Sustainability Report end to end. I collected and analyzed emissions, energy, waste, human resources, occupational health and safety, and financial data across departments; computed and visualized ESG indicators; and wrote the corporate report with reference to the GRI Standards. The report also includes the company's 2028 sustainability targets and was publicly published.",
+        "links":[
+            {"label_tr":"Raporu Görüntüle","label_en":"View Report","href":"https://www.lcmrotadenizcilik.com/kurumsal/surdurulebilirlik"}
+        ]
+    },
+    {
         "id":"youtube_ai",
         "title":"🤖 YouTube AI Scraping Agent",
         "title_tr":"🤖 YouTube AI Scraping Agent",
