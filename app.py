@@ -1293,6 +1293,18 @@ projects = [
         ]
     },
     {
+        "id":"morvoi",
+        "title":"🗣️ Morvoi - AI Destekli Ebeveynlik Asistanı",
+        "title_tr":"🗣️ Morvoi - AI Destekli Ebeveynlik Asistanı (RAG Chatbot)",
+        "title_en":"🗣️ Morvoi - AI-Powered Parenting Assistant (RAG Chatbot)",
+        "thumb":"assets/morvoi_kapak.jpg",
+        "desc_tr":"Morvoi, 2-6 yaş çocuklarda konuşma ve dil gelişimini destekleyen yapay zeka tabanlı bir platform. Bu projede platformun yapay zeka destekli soru-cevap (chatbot) sistemini uçtan uca geliştirdim. Django tabanlı sistemde; blog içeriklerini parçalayıp Google Gemini gömmeleriyle (embedding) vektör olarak indeksleyen, sorulara bağlam duyarlı yanıt üretip kaynağa yönlendiren bir RAG (Retrieval-Augmented Generation) mimarisi kurdum. Ayrıca girdi güvenlik filtresi ve prompt injection koruması, anonimleştirme ve veri minimizasyonu katmanı, soru sınıflandırma ve ebeveyn endişe analizi, yanıt loglama, analitik raporlama ve içerik boşluğu analizini geliştirdim. Blog yayınlandığında sistem otomatik olarak yeniden indeksleniyor.",
+        "desc_en":"Morvoi is an AI-based platform that supports speech and language development in children aged 2-6. On this project I built the platform's AI-powered question-answering (chatbot) system end to end. In this Django-based system I designed a Retrieval-Augmented Generation (RAG) architecture that chunks blog content, indexes it as vectors using Google Gemini embeddings, and produces context-aware answers with source routing. I also developed the input security filter and prompt injection protection, an anonymization and data minimization layer, question classification and parent-concern analysis, response logging, analytics reporting, and content-gap analysis. When a blog post is published, the system re-indexes automatically.",
+        "links":[
+            {"label_tr":"Canlı Site","label_en":"Live Site","href":"https://www.morvoi.com/"}
+        ]
+    },
+    {
         "id":"youtube_ai",
         "title":"🤖 YouTube AI Scraping Agent",
         "title_tr":"🤖 YouTube AI Scraping Agent",
