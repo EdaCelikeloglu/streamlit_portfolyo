@@ -1949,6 +1949,33 @@ def show_certificates_section():
                         "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
                     }
                 ],
+                "Sürdürülebilirlik": [
+                    {
+                        "name": "Sürdürülebilirlik Raporlaması ve ESG",
+                        "file": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_raporlamasi_esg.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_raporlamasi_esg.jpg"
+                    },
+                    {
+                        "name": "Sürdürülebilirlik 101",
+                        "file": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_101.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_101.jpg"
+                    },
+                    {
+                        "name": "İkiz Dönüşüm Nedir?",
+                        "file": "assets/sertifikalar/surdurulebilirlik/ikiz_donusum_nedir.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/ikiz_donusum_nedir.jpg"
+                    },
+                    {
+                        "name": "Dijitalleşme, Veri ve Yapay Zekâ",
+                        "file": "assets/sertifikalar/surdurulebilirlik/dijitallesme_veri_yapay_zeka.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/dijitallesme_veri_yapay_zeka.jpg"
+                    },
+                    {
+                        "name": "Döngüsel Ekonomi ve Atık Yönetimi",
+                        "file": "assets/sertifikalar/surdurulebilirlik/dongusel_ekonomi_atik_yonetimi.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/dongusel_ekonomi_atik_yonetimi.jpg"
+                    }
+                ],
                 "Cisco Badges": [
                     {
                         "name": "Data Analytics Essentials Badge",
@@ -2096,6 +2123,33 @@ def show_certificates_section():
                         "name": "Data Engineering, IBB",
                         "file": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg",
                         "thumb": "assets/sertifikalar/featured-certificates/Eda Çelikeloğlu-Veri-Mühendisliği-ibb.jpg"
+                    }
+                ],
+                "Sustainability": [
+                    {
+                        "name": "Sürdürülebilirlik Raporlaması ve ESG",
+                        "file": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_raporlamasi_esg.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_raporlamasi_esg.jpg"
+                    },
+                    {
+                        "name": "Sürdürülebilirlik 101",
+                        "file": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_101.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/surdurulebilirlik_101.jpg"
+                    },
+                    {
+                        "name": "İkiz Dönüşüm Nedir?",
+                        "file": "assets/sertifikalar/surdurulebilirlik/ikiz_donusum_nedir.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/ikiz_donusum_nedir.jpg"
+                    },
+                    {
+                        "name": "Dijitalleşme, Veri ve Yapay Zekâ",
+                        "file": "assets/sertifikalar/surdurulebilirlik/dijitallesme_veri_yapay_zeka.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/dijitallesme_veri_yapay_zeka.jpg"
+                    },
+                    {
+                        "name": "Döngüsel Ekonomi ve Atık Yönetimi",
+                        "file": "assets/sertifikalar/surdurulebilirlik/dongusel_ekonomi_atik_yonetimi.jpg",
+                        "thumb": "assets/sertifikalar/surdurulebilirlik/dongusel_ekonomi_atik_yonetimi.jpg"
                     }
                 ],
                 "Cisco Badges": [
