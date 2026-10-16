@@ -1020,8 +1020,8 @@ content = {
 
         - LCM Rota Denizcilik, Veri Bilimci, Nisan 2026 – Halen
         - MORVOI (AI Destekli Ebeveynlik Asistanı), Veri Bilimci (Proje Bazlı), Ocak 2026 - Eylül 2026
-        - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025–Halen
+        - Sahibinden.com, Junior Data Scientist, Mart 2025 - Mayıs 2025
+        - YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-Halen
 
         📍 **Konum:** Maltepe, İstanbul
         """
@@ -1041,8 +1041,8 @@ content = {
 
         - LCM Rota Denizcilik, Data Scientist, Apr 2026 – Present
         - MORVOI (AI-Powered Parenting Assistant), Data Scientist (Project-Based), Jan 2026 - Sep 2026
-        - Sahibinden.com, Junior Data Scientist, 2025
-        - YenidenBiz Association, Volunteer Data Analyst, 2025–Present
+        - Sahibinden.com, Junior Data Scientist, Mar 2025 - May 2025
+        - YenidenBiz Association, Volunteer Data Analyst, 2025-Present
 
         📍 **Location:** Maltepe, Istanbul
         """
@@ -1060,7 +1060,7 @@ def render_about_section(language):
         experience_label = "💼 Deneyim:"
         experience_items = """<br>LCM Rota Denizcilik, Veri Bilimci, Nisan 2026 - Halen
             <br>MORVOI (AI Destekli Ebeveynlik Asistanı), Veri Bilimci (Proje Bazlı), Ocak 2026 - Eylül 2026
-            <br>Sahibinden.com, Junior Data Scientist, 2025
+            <br>Sahibinden.com, Junior Data Scientist, Mart 2025 - Mayıs 2025
             <br>YenidenBiz Derneği, Gönüllü Veri Analisti, 2025-Halen"""
         location_label = "📍 Konum:"
         location_value = "Maltepe, İstanbul"
@@ -1073,7 +1073,7 @@ def render_about_section(language):
         experience_label = "💼 Experience:"
         experience_items = """<br>LCM Rota Denizcilik, Data Scientist, Apr 2026 - Present
             <br>MORVOI (AI-Powered Parenting Assistant), Data Scientist (Project-Based), Jan 2026 - Sep 2026
-            <br>Sahibinden.com, Junior Data Scientist, 2025
+            <br>Sahibinden.com, Junior Data Scientist, Mar 2025 - May 2025
             <br>YenidenBiz Association, Volunteer Data Analyst, 2025-Present"""
         location_label = "📍 Location:"
         location_value = "Maltepe, Istanbul"
